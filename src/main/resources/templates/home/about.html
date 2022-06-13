@@ -6,11 +6,160 @@
     <!--  Navigation  -->
     <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
 
-    <h1>Welcome to the team page.</h1>
+    <div  class="container">
+        <div class="bordered;1px solid red">
+
+        </div>
+        <div class="row">
+            <div class="border:1px solid red">
+
+            </div>
+        </div>
+        <div class="row p-2 mt-5">
+           <div id="open-book">
+           </div>
+            <h3>Who we are</h3>
+            <p>Journey is place where readers come gain, and pass along perspectives of books they have read, or are looking to read.  Our mission is to help people find and share books they love.  Journey launched in June 2022.</p>
+        </div>
+        <div class="row p-2 mt-5">
+            <h3>A Few Things You Can Do On Journey</h3>
+            <p>
+                See what books other users are reading.<br>
+                Track the books you're currently reading, have read, and want to read.<br>
+                Find out if a book is a good fit for you from our community’s reviews.<br>
+                Create your own reviews for others to read.
+            </p>
+        </div>
+        <div class="row p-2 mt-5">
+            <h3>A Message From Our Creators</h3>
+            <p>Reading has always been a passion of ours.  Not just to improve brain power, but also to exercise our imagination.  We see new books as new journeys, as we allow our imaginations to take us there.  And sometimes, it's nice to re-take a journey that we once enjoyed, so some of us choose to read a book a second and third time.</p>
+            <p>We get together, and we talk about our journeys, and that sparks the interests of others'.  So we have set out to build a website that gives us an opportunity to view other users' bookshelves, and view their perspectives of their journey.</p>
+            <p>So here we are.  On this Journey.  Where you can view the booklists of like-minded readers, or those that are not like-minded; and vice-versa.  Where you can write the reviews, and create your booklist.  Where you can find your next favorite book, and go onward to your next Journey.</p>
+        </div>
+        <div class="row p-2 mt-5">
+            <div class="col-12">
+                <h2>About the Creators</h2>
+            </div>
+        </div>
+
+        <div class="row" id="creators">
+            <div class="col-3">
+                <div class="mx-auto">
+                    <div id="photo1">
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <a href="https://github.com/YasmineRico" target="_blank">
+                            <i class="fa fa-github-square" style="color:black"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/yasminerico/" target="_blank">
+                            <i class="fa fa-linkedin-square" style="color:darkblue"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:ricolyasmine@gmail.com">
+                            <i class="fa fa-envelope-square"></i>
+                        </a>
+                    </li>
+                </ul>
+                <h3>Yasmine Rico</h3>
+                <p>Full-Stack Software Developer</p>
+                <p>Location: San Antonio, Tx</p>
+            </div>
+
+            <div class="col-3">
+                <div id="photo2">
+                </div>
+                <ul>
+                    <li>
+                        <a href="https://github.com/HeyGilly" target="_blank">
+                            <i class="fa fa-github-square" style="color:black"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/heygilly/" target="_blank">
+                            <i class="fa fa-linkedin-square" style="color:darkblue"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:nick.gilmore20@gmail.com">
+                            <i class="fa fa-envelope-square"></i>
+                        </a>
+                    </li>
+                </ul>
+                <h3>Nicholas Gilmore</h3>
+                <p>Full-Stack Software Developer</p>
+                <p>Location: San Antonio, Tx</p>
+            </div>
+
+            <div class="col-3">
+                <div id="photo3">
+                </div>
+                <ul>
+                    <li>
+                        <a href="https://github.com/lornecousins" target="_blank">
+                            <i class="fa fa-github-square" style="color:black"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/lorne-cousins88/" target="_blank">
+                            <i class="fa fa-linkedin-square" style="color:darkblue"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:lorne.cousins88@gmail.com">
+                            <i class="fa fa-envelope-square"></i>
+                        </a>
+                    </li>
+                </ul>
+                <h3>Lorne Cousins</h3>
+                <p>Full-Stack Software Developer</p>
+                <p>Location: San Antonio, Tx</p>
+            </div>
+
+            <div class="col-3">
+                <div id="photo4">
+                </div>
+                <ul>
+                    <li>
+                        <a href="https://github.com/Jeremy-Sellers" target="_blank">
+                            <i class="fa fa-github-square" style="color:black"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/jeremy-sellers?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bo97fYDIDSK6l9BxYmtIAAg%3D%3D" target="_blank">
+                            <i class="fa fa-linkedin-square" style="color:darkblue"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:jeremy.c.sellers@gmail.com">
+                            <i class="fa fa-envelope-square"></i>
+                        </a>
+                    </li>
+                </ul>
+                <h3>Jeremy Sellers</h3>
+                <p>Full-Stack Software Developer</p>
+                <p>Location: San Antonio, Tx</p>
+            </div>
+
+        </div>
+    </div>
+
+
 
 
     <footer th:replace="partials/footer.html :: footer"></footer>
+
+    <script th:fragment="bootstrap-js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script th:fragment="jquery" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script th:replace="partials/script.html :: bootstrap-js"></script>
+
     </body>
     <!--  Partials Script  -->
-    <script th:replace="partials/script.html :: bootstrap-js"></script>
+
 </html>
