@@ -1,0 +1,14 @@
+*{margin:0;padding:0;box-sizing: border-box;}
+body{height:100%;width:100%}
+.mainBGSearch{background-color:#C3E0E5;height:fit-content;}
+#BookCardBG{
+    width: auto;
+}
+
+
+#BookImage{
+    height: 120px;
+    width: 80px;
+    border: 3px solid black;
+    transition: all .8s ease-in-out;
+}

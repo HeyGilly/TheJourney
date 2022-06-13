@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+    <head th:replace="partials/head.html :: head ('Welcome to journey 2.0')"></head>
+    <body>
+        <!--  Navigation  -->
+        <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
+
+        <h1> Welcome to the journey 2.0</h1>
+
+
+
+
+        <footer th:replace="partials/footer.html :: footer"></footer>
+    </body>
+    <!--  Partials Script  -->
+    <script th:replace="partials/script.html :: bootstrap-js"></script>
+</html>
