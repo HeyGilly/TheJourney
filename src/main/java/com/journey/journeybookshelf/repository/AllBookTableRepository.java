@@ -1,11 +1,11 @@
-package com.journey.journeybookshelf.repo;
+package com.journey.journeybookshelf.repository;
 
 import com.journey.journeybookshelf.models.AllBookTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface AllBookTableRepo extends JpaRepository<AllBookTable, Long> {
+public interface AllBookTableRepository extends JpaRepository<AllBookTable, Long> {
 
     List<AllBookTable> findAll();
 

@@ -1,15 +1,15 @@
 package com.journey.journeybookshelf.controller;
 
-import com.journey.journeybookshelf.repo.AllBookTableRepo;
+import com.journey.journeybookshelf.repository.AllBookTableRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class BookController {
-    private final AllBookTableRepo booksDao;
+    private final AllBookTableRepository booksDao;
 
-    public BookController(AllBookTableRepo booksDao){
+    public BookController(AllBookTableRepository booksDao){
         this.booksDao = booksDao;
     }
 
