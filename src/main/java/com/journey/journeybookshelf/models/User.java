@@ -6,6 +6,15 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User {
+    //FOr security reasons
+    public User(User copy){
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
+
+
     // Generate a key for id
     // Primary Key
     @Id
