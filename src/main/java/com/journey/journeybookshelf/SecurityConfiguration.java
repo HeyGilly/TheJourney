@@ -1,6 +1,7 @@
 package com.journey.journeybookshelf;
 
-import com.journey.journeybookshelf.services.userDetailsLoader;
+
+import com.journey.journeybookshelf.services.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,9 +13,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final userDetailsLoader usersLoader;
+    private UserDetailsLoader usersLoader;
 
-    public SecurityConfiguration(userDetailsLoader usersLoader) {
+    public SecurityConfiguration(UserDetailsLoader usersLoader) {
         this.usersLoader = usersLoader;
     }
 
@@ -54,10 +55,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/reviews/create", // only authenticated users can create reviews
                         "/reviews/{id}/edit", // only authenticated users can edit reviews
-                        "/main",
-                        "/profile",
-                        "/profile/settings",
-                        "/reviews")
+                        "/main", "/catalog", "/profile", "/reviews","/books" )
                 .authenticated()
         ;
     }
