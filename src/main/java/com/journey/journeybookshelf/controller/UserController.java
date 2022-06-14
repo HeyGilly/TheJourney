@@ -1,5 +1,6 @@
 package com.journey.journeybookshelf.controller;
 
+
 import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.ReviewRepository;
 import com.journey.journeybookshelf.repository.UserRepository;
@@ -64,16 +65,3 @@ public class UserController {
         return "users/profile";
     }
 }
-
-
-
-
-//When to start hashing.. --> wait until deployment
-
-//    @PostMapping("/register")
-//    public String saveUser(@ModelAttribute User user){
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        userDao.save(user);
-//        return "redirect/login";
-//    }
