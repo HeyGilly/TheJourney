@@ -8,10 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
@@ -63,5 +60,27 @@ public class UserController {
         model.addAttribute("user",user);
         model.addAttribute("loggedInUser",loggedInUser);
         return "users/profile";
+    }
+
+    @PostMapping("/profile/{username}")
+    public String updateProfile(@ModelAttribute User userModel){
+        User user = userDao.findByUsername(userModel.getUsername());
+        String hash = passwordEncoder.encode(userModel.getPassword());
+        user.setFirstName(userModel.getFirstName());
+        user.setLastName(userModel.getLastName());
+        user.setEmail(userModel.getEmail());
+        user.setUsername(userModel.getUsername());
+        user.setPassword(hash);
+        user.setBio(userModel.getBio());
+        user.setCity(userModel.getCity());
+        user.setState(userModel.getState());
+        userDao.save(user);
+        return "redirect:/profile/{username}";
+    }
+
+    @PostMapping("/profile/delete")
+    public String deleteProfile(@RequestParam(name= "deleteProfile") long id) {
+        userDao.deleteById(id);
+        return "redirect:/register";
     }
 }

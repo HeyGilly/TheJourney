@@ -14,4 +14,119 @@
     </script>
 
     <script th:fragment="jquery" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script th:fragment="search-js">
+
+        let bookContainer = document.querySelector(".search");
+        let searchBooks = document.getElementById("search-box");
+
+        //Async Function- When you await a promise, the function is paused in a non-blocking way until the promise settles. If the promise fulfills, you get the value back. If the promise rejects, the rejected value is thrown.
+        const getBooks = async (book) => {
+            const response = await fetch(
+                `https://www.googleapis.com/books/v1/volumes?q=${book}`
+            );
+            const data = await response.json();
+            return data;
+        };
+
+        //gets the thumbnail
+        const getThumbnail = ({ imageLinks }) => {
+            const thumbImage = "icons/logo.svg";
+            if (!imageLinks || !imageLinks.thumbnail) {
+                return thumbImage;
+            }
+            return imageLinks.thumbnail;
+        };
+
+        const ListBook = async () => {
+            if (searchBooks.value != "") {
+                bookContainer.innerHTML = `<div class='prompt'><div class="loader"></div></div>`;
+                const data = await getBooks(`${searchBooks.value}&maxResults=6`);
+                if (data.error) {
+                    bookContainer.innerHTML = `<div class='prompt'>Limit exceeded! Try after some time</div>`;
+                } else if (data.totalItems == 0) {
+                    bookContainer.innerHTML = `<div class='prompt'>No results, try a different term!</div>`;
+                } else if (data.totalItems == undefined) {
+                    bookContainer.innerHTML = `<div class='prompt'>Network problem!</div>`;
+                } else {
+
+                    //book data and style to show on page allows books to be clickable and go to preview link (google books website for now)
+                    bookContainer.innerHTML = data.items.map(({volumeInfo}) =>
+                        `<div class='book' style='background-color: lightblue'>
+							<a href='${volumeInfo.previewLink}' target='_blank'>
+							<img class='thumbnail' src='` + getThumbnail(volumeInfo) + `' alt='cover'></a>
+							<div class='book-info'>
+							<h3 class='book-title'>
+							<!--allows user to go to the preview link on google books api-->
+							<a href='${volumeInfo.previewLink}' target='_blank'>${volumeInfo.title}</a>
+							</h3>
+
+							<div class='book-authors'>${volumeInfo.authors}</div>
+
+							<div class='info'>` + (volumeInfo.categories === undefined ? "Other" : volumeInfo.categories) +
+                        `<br></div>
+</div>
+</div>`).join("");
+                }
+            } else {
+                bookContainer.style.display = "none";
+            }
+        };
+
+        //Syncs with the function below, input then it is set to take in an input every 1000ms rather than every single fired input a user makes. This helps to prevent the function from being called several times in a row..
+        const debounce = (fn, time, to = 0) => {
+            to ? clearTimeout(to) : (to = setTimeout(ListBook, time));
+        };
+
+        //Search by 'keypress' on searchBar.
+        searchBooks.addEventListener("input", () => debounce(ListBook, 1000));
+
+        //https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event -- Try out diff events for loading DOM
+        document.addEventListener("DOMContentLoaded", () => {
+            showBooks("sci-fi");
+            showBooks("Adolescent");
+            showBooks("inspirational");
+            showBooks("horror");
+            showBooks("fiction");
+            showBooks("poetry");
+            showBooks("fantasy");
+            showBooks("romance");
+        });
+
+        const prev = (subject) => {
+            startIndex -= 6;
+            if (startIndex <= 0) {
+                startIndex = 0;
+                showBooks(subject, startIndex);
+                document.getElementById(`${subject}-prev`).style.display = "none";
+            } else {
+                document.getElementById(`${subject}-prev`).style.display = "inline-flex";
+                showBooks(subject, startIndex);
+            }
+            //*********	Modal for search result popup-- FROM BOOTSTRAP NOT FUNCTIONAL need to work on this. *********
+            // 	const myModal = document.getElementById('myModal')
+            // 	const myInput = document.getElementById('myInput')
+            //
+            // 	myModal.addEventListener('shown.bs.modal', () => {
+            // 		myInput.focus()
+            // 	})
+        };
+
+        //JS to generate radio selection
+        $(document).ready(function(){
+            // Check Radio-box
+            $(".rating input:radio").attr("checked", false);
+
+            $('.rating input').click(function () {
+                $(".rating span").removeClass('checked');
+                $(this).parent().addClass('checked');
+            });
+
+            $('input:radio').change(
+                function(){
+                    var userRating = this.value;
+                    // alert(userRating);
+                });
+        });
+    </script>
 </div>
