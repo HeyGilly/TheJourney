@@ -36,7 +36,7 @@ public class User {
     private String username;
 
     // Password Max length is 15 characters
-    @Column(name="PASSWORD", nullable = false, length = 16)
+    @Column(name="PASSWORD", nullable = false)
     private String password;
 
     // Only Visiable on the Profile Page
