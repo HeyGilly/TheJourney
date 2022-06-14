@@ -37,6 +37,7 @@ public class User {
 
     // Password Max length is 15 characters
 
+
     @Column(name="PASSWORD", nullable = false, length = 100)
     private String password;
 

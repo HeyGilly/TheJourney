@@ -69,17 +69,7 @@
                     <small>at least one number and one uppercase and lowercase letter, and between 6 through 15 characters</small>
                 </p>
             </div>
-            <!--Confirm Password-->
-            <div class="form-group">
-                <label for="confirm_password" class="text-dark loginLabel">Confirm Password</label>
-                <input type="password"
-                       id="confirm_password"
-                       class="form-control loginInput"
-                       min="6" maxlength="15"
-                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                       title="at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
-                       required>
-            </div>
+
             <!--Email-->
             <div class="form-group">
                 <label for="email" class="text-dark loginLabel" >Email</label>
@@ -92,17 +82,7 @@
                        title="Please provide a valid email"
                        required>
             </div>
-            <!-- validate Email-->
-            <div class="form-group">
-                <label for="validation_email" class="text-dark loginLabel" >Email</label>
-                <input id="validation_email"
-                       class="form-control loginInput"
-                       type="text"
-                       minlength="6" maxlength="254"
-                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                       title="Please provide a valid email"
-                       required>
-            </div>
+
             <!-- City-->
             <div class="form-group">
                 <label for="city" class="text-dark loginLabel" >City</label>
@@ -203,6 +183,8 @@
 <!--<script th:replace="partials/script.html :: jquery"></script>-->
 
 </body>
+<<<<<<< HEAD
+=======
 
 
 
@@ -401,4 +383,5 @@
 </body>
 <!--  Partials Script  -->
 <script th:replace="partials/script.html :: bootstrap-js"></script>
+>>>>>>> main
 </html>

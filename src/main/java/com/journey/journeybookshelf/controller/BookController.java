@@ -33,7 +33,9 @@ public class BookController {
 //    }
 
     @GetMapping("/main")
-    public ModelAndView getAllBooks() {
+    public ModelAndView getAllBooks(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user",user);
         ModelAndView book = new ModelAndView("main/main");
         book.addObject("BOOKS", booksDao.findAll());
         return book;

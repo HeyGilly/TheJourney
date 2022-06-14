@@ -108,3 +108,17 @@ body{height:100%;width:100%}
     font-size: 20px;
 
 }
+
+/*Profile Page*/
+/*-----  Profile  -----*/
+#profileSidebar {
+    background-color: #C8DEDA;
+    height:100vh ;
+    /*width:33.33%;*/
+}
+
+
+#profilePageAfterSettingButtonIsClicked{
+    display:none;
+    background-color: #C8DEDA;
+}
