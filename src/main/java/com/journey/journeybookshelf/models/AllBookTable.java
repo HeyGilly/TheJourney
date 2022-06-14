@@ -42,13 +42,13 @@ public class AllBookTable {
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "allBookTable")
-    private List<Reviews> reviews;
+    private List<Review> reviews;
 
     //----- Empty Constructor
     public AllBookTable() {
     }
     //----- Constructor
-    public AllBookTable(long id, String isbn, String title, String author, String bookImage, String description, Long pageCount, String publishedDate, Integer rating, List<Reviews> reviews) {
+    public AllBookTable(long id, String isbn, String title, String author, String bookImage, String description, Long pageCount, String publishedDate, Integer rating, List<Review> reviews) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
@@ -143,11 +143,11 @@ public class AllBookTable {
         this.rating = rating;
     }
 
-    public List<Reviews> getReviews() {
+    public List<Review> getReviews() {
         return reviews;
     }
 
-    public void setReviews(List<Reviews> reviews) {
+    public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
 }
