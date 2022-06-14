@@ -36,7 +36,8 @@ public class User {
     private String username;
 
     // Password Max length is 15 characters
-    @Column(name="PASSWORD", nullable = false, length = 16)
+
+    @Column(name="PASSWORD", nullable = false, length = 100)
     private String password;
 
     // Only Visiable on the Profile Page
@@ -66,9 +67,9 @@ public class User {
         this.username = username;
         this.password = password;
         this.bio = bio;
-        City = city;
-        State = state;
-        this.reviews = review;
+        this.City = city;
+        this.State = state;
+        this.reviews = reviews;
     }
 
 
