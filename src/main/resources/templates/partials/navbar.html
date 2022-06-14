@@ -3,7 +3,7 @@
     When a user is logged out
  -->
 
-<nav class="navbar container-fluid bg-light shadow" th:fragment="LoggedOutNavbar">
+<nav class="navbar fixed-top container-fluid bg-light shadow" th:fragment="LoggedOutNavbar">
     <div class="container d-inline-flex">
         <section class="w-25">
             <a class="navbar-brand" href="/">
@@ -20,7 +20,7 @@
 </nav>
 
 
-<nav class="navbar container-fluid bg-light shadow" th:fragment="LoggedInNavbar">
+<nav class="navbar fixed-top container-fluid bg-light shadow" th:fragment="LoggedInNavbar">
     <div class="container d-inline-flex">
         <section class="w-25">
             <a class="navbar-brand" href="/main">
@@ -31,8 +31,10 @@
             <a class="nav-link" href="/about">About</a>
             <a class="nav-link" href="/main">Main</a>
             <a class="nav-link" href="/reviews">Reviews</a>
-            <a class="nav-link" href="/profile">Profile</a>
+            <a class="nav-link" th:href="@{/profile/{username}(username=${user.username})}">Profile</a>
+            <a class="nav-link" href="/reviewForm">Leave a review</a>
             <a class="nav-link" href="/login?logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+
 
         </section>
     </div>

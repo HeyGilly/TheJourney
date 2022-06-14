@@ -33,7 +33,9 @@ public class BookController {
 //    }
 
     @GetMapping("/main")
-    public ModelAndView getAllBooks() {
+    public ModelAndView getAllBooks(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user",user);
         ModelAndView book = new ModelAndView("main/main");
         book.addObject("BOOKS", booksDao.findAll());
         return book;
@@ -43,8 +45,7 @@ public class BookController {
     @GetMapping("/reviewForm")
     public String reviewsForm(Model model){
         model.addAttribute("review", new Review());
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = userDao.findByUsername("FirstUser");
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user",user);
         return "main/reviewForm";
     }
@@ -52,14 +53,13 @@ public class BookController {
     public String reviewsSubmit(@ModelAttribute Review review, Model model){
         // This is what was added to get it to work
         // needed to save the user with the userDoa
-//        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User user = principal;
-        User user = userDao.findByUsername("FirstUser");
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = principal;
         review.setUser(user);
         Review newReview = reviewDao.save(review);
         // Calling the new variable to be added
         model.addAttribute("review", newReview);
-        return "main/reviewForm";
+        return "main/main";
     }
     //review form
 

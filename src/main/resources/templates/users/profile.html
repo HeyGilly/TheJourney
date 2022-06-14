@@ -211,7 +211,7 @@
             </form>
             <div class="w-100 d-flex justify-content-center mt-5 pb-5">
                 <form method="post" action="/profile/delete">
-                    <input type="hidden" th:value="${user.username}" name="deleteProfile">
+                    <input type="hidden" th:value="${user.id}" name="deleteProfile">
                     <button class="btn w-75 btn-danger" onclick="return confirm('Are you sure you want to delete this profile?');">Delete Profile</button>
                 </form>
             </div>
@@ -315,6 +315,8 @@
     }
 </script>
 <script th:replace="partials/script.html :: search-js"></script>
+<script th:replace="partials/script.html :: bootstrap-js"></script>
+
 </body>
 </html>
 
