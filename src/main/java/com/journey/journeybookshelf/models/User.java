@@ -50,7 +50,7 @@ public class User {
     private String State;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Reviews> reviews;
+    private List<Review> reviews;
 
 //----- Constructor Empty
 
@@ -58,7 +58,7 @@ public class User {
     }
 
     //----- Constructor
-    public User(long id, String firstName, String lastName, String email, String username, String password, String bio, String city, String state, List<Reviews> reviews) {
+    public User(long id, String firstName, String lastName, String email, String username, String password, String bio, String city, String state, List<Review> review) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -68,7 +68,7 @@ public class User {
         this.bio = bio;
         City = city;
         State = state;
-        this.reviews = reviews;
+        this.reviews = review;
     }
 
 
@@ -145,11 +145,11 @@ public class User {
         State = state;
     }
 
-    public List<Reviews> getReviews() {
+    public List<Review> getReviews() {
         return reviews;
     }
 
-    public void setReviews(List<Reviews> reviews) {
+    public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
 }
