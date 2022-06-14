@@ -4,16 +4,15 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "reviews")
-public class Reviews {
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = true, length = 6)
-    private int ratings;
+    private long rating;
 
-    @Column(nullable = true, length = 100)
+    @Column(nullable = false, length = 100)
     private String reviewTitle;
 
     @Column(nullable = true, length = 2500)
@@ -28,17 +27,27 @@ public class Reviews {
     private User user;
 
     //----- Constructor Empty
-    public Reviews() {
+    public Review() {
     }
     //----- Constructor
-    public Reviews(Long id, int ratings, String reviewTitle, String reviewBody, AllBookTable allBookTable, User user) {
+    public Review(Long id, long rating, String reviewTitle, String reviewBody, AllBookTable allBookTable, User user) {
         this.id = id;
-        this.ratings = ratings;
+        this.rating = rating;
         this.reviewTitle = reviewTitle;
         this.reviewBody = reviewBody;
         this.allBookTable = allBookTable;
         this.user = user;
     }
+
+    public Review(long rating, String reviewTitle, String reviewBody, AllBookTable allBookTable, User user) {
+        this.rating = rating;
+        this.reviewTitle = reviewTitle;
+        this.reviewBody = reviewBody;
+        this.allBookTable = allBookTable;
+        this.user = user;
+    }
+
+
     //----- GETTERS & SETTERS
     public Long getId() {
         return id;
@@ -48,12 +57,12 @@ public class Reviews {
         this.id = id;
     }
 
-    public int getRatings() {
-        return ratings;
+    public long getRating() {
+        return rating;
     }
 
-    public void setRatings(int ratings) {
-        this.ratings = ratings;
+    public void setRating(long rating) {
+        this.rating = rating;
     }
 
     public String getReviewTitle() {
