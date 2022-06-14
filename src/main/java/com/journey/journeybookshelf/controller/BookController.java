@@ -57,7 +57,7 @@ public class BookController {
         Review newReview = reviewDao.save(review);
         // Calling the new variable to be added
         model.addAttribute("review", newReview);
-        return "main/profile";
+        return "main/main";
     }
     //review form
 
