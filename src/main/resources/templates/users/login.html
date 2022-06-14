@@ -1,34 +1,42 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
-<head th:replace="partials/head.html :: head ('Login')"></head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="partials/head.html :: head ('Login')">
+    <title>Login</title>
+</head>
 <body>
 <!--  Navigation  -->
 <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
 
-<main class="d-flex justify-content-center align-items-center h-100 w-100">
-
-    <form th:action="@{/login}" th:object="${loginForm}" method="post" class="border shadow  rounded p-3 text-center w-50">
-        <h1> Login In</h1>
-        <div class="form-group">
-            <label class="p-0 m-0">username:</label><br />
-            <input type="text" name="username" min="5" class="w-75">
-        </div>
-        <div class="form-group">
-            <label class="p-0 m-0">Password:</label><br />
-            <input type="password" name="password" min="6" class="w-75">
-        </div>
-        <div class="mx-auto">
-            <button type="submit" class="btn btn-primary w-75" value="Login">Login</button>
-        </div>
+<div class="col-12 col-md-5 bg-light rounded shadow mx-auto px-sm-5 py-2 px-1 m-1 position-absolute top-50 start-50 translate-middle">
+    <h1>Sign In</h1>
+    <!--After user is logged in it is set to go to the profile page &#45;&#45; Security Configuration Line 41 (basically if the user successfully logs in they will be directed to profile)-->
+    <form th:action="@{/login}" method="post">
+        <label for="username" class="text-dark loginLabel">Username</label>
+        <input id="username" name="username" type="text" class="form-control loginInput"/>
+        <label for="password" class="loginLabel">Password</label>
+        <input id="password" name="password" type="password" class="form-control loginInput"/>
+        <input type="submit" value="Log In" class="btn btn-primary my-2"/>
+        <p class="text-secondary">
+            <small>Need an account? <a href="/register"> Join our community!</a> </small>
+        </p>
     </form>
+    <div th:if="${param.error}" class="d-flex justify-content-center">
+        Invalid Username and Password
+    </div>
+</div>
 
-</main>
+<div th:if="${param.logout}" class="d-flex justify-content-center">
+    You have Successfully logged out!
+</div>
 
 
 
 
 <footer th:replace="partials/footer.html :: footer"></footer>
-</body>
 <!--  Partials Script  -->
 <script th:replace="partials/script.html :: bootstrap-js"></script>
+
+<script th:replace="partials/script.html :: jquery"></script>
+
+</body>
 </html>
