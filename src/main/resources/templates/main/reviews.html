@@ -8,11 +8,9 @@
 <header th:replace="partials/navbar.html :: LoggedInNavbar"></header>
 
 <section class="text-center my-5 pb-3 container-fluid my-5">
-    <p><small class="text-primary p-0 m-0">Communit</small></p>
-    <h2 class="fw-light">Everyday <strong class="fw-bolder">Reviews</strong></h2>
-    <i class="fa-solid fa-left-long col-2"></i><small class="text-secondary">Scroll</small><i class=" col-2 fa-solid fa-right-long"></i>
+    <h2 class="fw-light pt-3">Everyday <strong class="fw-bolder">Reviews</strong></h2>
     <!--User Review Container	-->
-    <div class="row d-flex flex-nowrap container overflow-scroll mx-auto">
+    <div class="row d-flex flex-wrap container mx-auto">
         <!-- Card One -->
         <div class="col-md-3 col mb-3 wholeCard" th:each="review : ${reviews}">
             <!-- Start of Card  -->
