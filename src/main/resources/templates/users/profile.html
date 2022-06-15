@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"  lang="en"                        	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org"  lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <head th:replace="partials/head.html :: head ('My Profile')">
@@ -14,8 +14,7 @@
             <div>
                 <!-- If the User looks at profile page and its their profile -->
                 <!-- Will be introduced to a Welcome username-->
-<!--                <div th:if="${loggedInUser.id == user.id}">-->
-                <div>
+                <div th:if="${loggedInUser.id == user.id}">
                     <div sec:authorize="isAuthenticated()">
                         <h1 class="text-center d-block">Welcome, [[${user.username}]]</h1>
                     </div>

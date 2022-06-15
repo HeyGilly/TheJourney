@@ -1,5 +1,6 @@
 package com.journey.journeybookshelf.controller;
 
+import com.journey.journeybookshelf.models.AllBookTable;
 import com.journey.journeybookshelf.models.Review;
 import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.AllBookTableRepository;
@@ -63,4 +64,12 @@ public class BookController {
     }
     //review form
 
+//    Saves book and maps to api/books <--- singlePage
+    @PostMapping("/api/books")
+    public String createBook(@ModelAttribute AllBookTable book, Model model){
+        booksDao.save(book);
+        model.addAttribute("book", book);
+        System.out.println(book);
+        return "main/single-book";
+    }
 }
