@@ -3,7 +3,18 @@
 <head th:replace="partials/head.html :: head ('Single Book Page')"></head>
 <body>
 <!--  Navigation  -->
-<nav th:replace="partials/navbar.html :: LoggedInNavbar"></nav>
+
+<!--Logged in User-->
+<div sec:authorize="isAuthenticated()">
+	<header th:replace="partials/navbar.html :: LoggedInNavbar"></header>
+</div>
+
+<!--Anonymous User-->
+<div sec:authorize="isAnonymous()">
+	<header th:replace="partials/navbar.html :: LoggedOutNavbar"></header>
+</div>
+
+
 
 <header class="mainBGSearch shadow pb-3">
 	<h1 class="text-center pt-5 display-2"> Search For any Book</h1>
