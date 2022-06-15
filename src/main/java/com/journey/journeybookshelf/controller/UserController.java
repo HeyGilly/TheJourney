@@ -79,41 +79,5 @@ public class UserController {
         return "redirect:/profile/{username}";
     }
 
-//    @PostMapping("/profile/delete")
-//    public String deleteProfile(@RequestParam(name= "deleteProfile") long id, Model model) {
-////        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-////        model.addAttribute("user",user);
-////        long userId = user.getId();
-//        userDao.deleteById(id);
-//        return "redirect:/register";
-//    }
 
-    @GetMapping("/changePassword")
-    public String passwordForm(Model model){
-//        model.addAttribute("review", new Review());
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("user",user);
-        return "users/changePassword";
-    }
-
-    @PostMapping("/changePassword")
-    public String changePassword(@ModelAttribute User userModel){
-        // This is what was added to get it to work
-        // needed to save the user with the userDoa
-        User user = userDao.findByUsername(userModel.getUsername());
-        String hash = passwordEncoder.encode(userModel.getPassword());
-        user.setPassword(hash);
-        userDao.save(user);
-        return "redirect:/profile/{username}";
-    }
-
-//    @PostMapping("/changePassword")
-//    public String updatePassword(Model model){
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        model.addAttribute("user",user);
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        userDao.save(user);
-//        return "redirect:/profile/{username}";
-//    }
 }
