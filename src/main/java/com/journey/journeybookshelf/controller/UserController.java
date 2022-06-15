@@ -78,9 +78,10 @@ public class UserController {
         return "redirect:/profile/{username}";
     }
 
-    @PostMapping("/profile/delete")
-    public String deleteProfile(@RequestParam(name= "deleteProfile") long id) {
-        userDao.deleteById(id);
-        return "redirect:/register";
-    }
+
+//    @PostMapping("/profile/delete")
+//    public String deleteProfile(@RequestParam(name= "deleteProfile") long id) {
+//        userDao.deleteById(id);
+//        return "redirect:/register";
+//    }
 }
