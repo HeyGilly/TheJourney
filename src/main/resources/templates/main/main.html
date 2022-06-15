@@ -7,80 +7,89 @@
 
 <header class="mainBGSearch shadow pb-3">
     <h1 class="text-center pt-5 display-2"> Search For any Book</h1>
-    <section class="d-flex justify-content-center">
-        <form th:action="@{/main}" class="input-group w-50">
-            <input type="search" class="form-control rounded" th:value="${keyword}" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" class="btn btn-outline-primary ml-3">search</button>
-        </form>
+    <section id="search" class="results d-flex justify-content-center">
+        <input id="search-box" type="search" class="search-box form-control rounded w-50"  placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <div class="list-book search">
+            <div class="dropdown"></div>
+        </div>
     </section>
 </header>
 
 
+
 <!-- BOOK LIST DISPLAY -->
-        <!-- Card Container -->
-        <main class="bg-dark w-100 container-fluid row d-flex justify-content-center mx-auto py-5">
-            <!-- Start of Card  -->
-            <div class="card shadow border bg-light col-12 col-sm-5 m-3 col-md-3" id="BookCardBG"  th:each="book : ${BOOKS}">
-                <h5 class="card-title text-center p-0 py-2 w-75 h-25 mx-auto m-0" th:text="${book.title}"></h5>
-                <!--Book Section -->
-                <section class="d-flex justify-content-center">
-                    <img href="${book.book_cover}" th:id="BookImage" class="card-img-top rounded">
-                </section>
-                <!-- Stars -->
-                <section class="text-center p-0 m-0" th:switch="${book.rating}">
-                    <p th:case="'1'">
-                        <i class="fa-solid star fa-star" value="1"></i>
-                        <i class="fa-regular star fa-star" value="2"></i>
-                        <i class="fa-regular star fa-star" value="3"></i>
-                        <i class="fa-regular star fa-star" value="4"></i>
-                        <i class="fa-regular star fa-star" value="5"></i>
-                        <span> 1</span>
-                    </p>
-                    <p th:case="'2'">
-                        <i class="fa-solid star fa-star" value="1"></i>
-                        <i class="fa-solid star fa-star" value="2"></i>
-                        <i class="fa-regular star fa-star" value="3"></i>
-                        <i class="fa-regular star fa-star" value="4"></i>
-                        <i class="fa-regular star fa-star" value="5"></i>
-                        <span> 2</span>
-                    </p>
-                    <p th:case="'3'">
-                        <i class="fa-solid star fa-star" value="1"></i>
-                        <i class="fa-solid star fa-star" value="2"></i>
-                        <i class="fa-solid star fa-star" value="3"></i>
-                        <i class="fa-regular star fa-star" value="4"></i>
-                        <i class="fa-regular star fa-star" value="5"></i>
-                        <span> 3</span>
-                    </p>
-                    <p th:case="'4'">
-                        <i class="fa-solid star fa-star" value="1"></i>
-                        <i class="fa-solid star fa-star" value="2"></i>
-                        <i class="fa-solid star fa-star" value="3"></i>
-                        <i class="fa-solid star fa-star" value="4"></i>
-                        <i class="fa-regular star fa-star" value="5"></i>
-                        <span> 4</span>
-                    </p>
-                    <p th:case="'5'">
-                        <i class="fa-solid star fa-star" value="1"></i>
-                        <i class="fa-solid star fa-star" value="2"></i>
-                        <i class="fa-solid star fa-star" value="3"></i>
-                        <i class="fa-solid star fa-star" value="4"></i>
-                        <i class="fa-solid star fa-star" value="5"></i>
-                        <span> 5</span>
-                    </p>
-                    <!-- To display checked star rating icons -->
-                </section>
-                <!--  Card Body  -->
-                    <p class="card-text text-center mx-auto text-truncate w-75 h-25" th:text="${book.description}"></p>
-            </div>
-            <!-- End of Card --->
-        </main>
+<!-- Card Container -->
+<main class="bg-dark w-100 container-fluid row d-flex justify-content-center mx-auto py-5">
+    <!-- Start of Card  -->
+    <div class="card shadow border bg-light col-12 col-sm-5 m-3 col-md-3" id="BookCardBG"  th:each="book : ${BOOKS}">
+        <!--        <h5 class="card-title text-center p-0 py-2 w-100 h-25 mx-auto m-0" th:text="${book.title}"></h5>-->
+        <!--Book Section -->
+        <section class="d-flex justify-content-center">
+            <img th:src="${book.bookImage}" th:id="BookImage" class="card-img-top rounded">
+        </section>
+
+        <!-- Stars -->
+        <!--                <section class="text-center p-0 m-0" th:switch="${book.rating}">-->
+        <!--                    <p th:case="'1'">-->
+        <!--                        <i class="fa-solid star fa-star" value="1"></i>-->
+        <!--                        <i class="fa-regular star fa-star" value="2"></i>-->
+        <!--                        <i class="fa-regular star fa-star" value="3"></i>-->
+        <!--                        <i class="fa-regular star fa-star" value="4"></i>-->
+        <!--                        <i class="fa-regular star fa-star" value="5"></i>-->
+        <!--                        <span> 1</span>-->
+        <!--                    </p>-->
+        <!--                    <p th:case="'2'">-->
+        <!--                        <i class="fa-solid star fa-star" value="1"></i>-->
+        <!--                        <i class="fa-solid star fa-star" value="2"></i>-->
+        <!--                        <i class="fa-regular star fa-star" value="3"></i>-->
+        <!--                        <i class="fa-regular star fa-star" value="4"></i>-->
+        <!--                        <i class="fa-regular star fa-star" value="5"></i>-->
+        <!--                        <span> 2</span>-->
+        <!--                    </p>-->
+        <!--                    <p th:case="'3'">-->
+        <!--                        <i class="fa-solid star fa-star" value="1"></i>-->
+        <!--                        <i class="fa-solid star fa-star" value="2"></i>-->
+        <!--                        <i class="fa-solid star fa-star" value="3"></i>-->
+        <!--                        <i class="fa-regular star fa-star" value="4"></i>-->
+        <!--                        <i class="fa-regular star fa-star" value="5"></i>-->
+        <!--                        <span> 3</span>-->
+        <!--                    </p>-->
+        <!--                    <p th:case="'4'">-->
+        <!--                        <i class="fa-solid star fa-star" value="1"></i>-->
+        <!--                        <i class="fa-solid star fa-star" value="2"></i>-->
+        <!--                        <i class="fa-solid star fa-star" value="3"></i>-->
+        <!--                        <i class="fa-solid star fa-star" value="4"></i>-->
+        <!--                        <i class="fa-regular star fa-star" value="5"></i>-->
+        <!--                        <span> 4</span>-->
+        <!--                    </p>-->
+        <!--                    <p th:case="'5'">-->
+        <!--                        <i class="fa-solid star fa-star" value="1"></i>-->
+        <!--                        <i class="fa-solid star fa-star" value="2"></i>-->
+        <!--                        <i class="fa-solid star fa-star" value="3"></i>-->
+        <!--                        <i class="fa-solid star fa-star" value="4"></i>-->
+        <!--                        <i class="fa-solid star fa-star" value="5"></i>-->
+        <!--                        <span> 5</span>-->
+        <!--                    </p>-->
+        <!--                    &lt;!&ndash; To display checked star rating icons &ndash;&gt;-->
+        <!--                </section>-->
+        <!--  Card Body  -->
+        <p class="card-text text-center mx-auto text-truncate w-100 h-50" th:text="${book.author}"></p>
+        <button type="submit" th:method="post" th:action="@{api/books}">View Details</button>
+    </div>
+    <!-- End of Card --->
+
+</main>
 
 
 
 
 <footer th:replace="partials/footer.html :: footer"></footer>
-</body>
 <!--  Partials Script  -->
 <script th:replace="partials/script.html :: bootstrap-js"></script>
+
+<!--Search GB API Function: In static js directory-->
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+
+</body>
+
 </html>
