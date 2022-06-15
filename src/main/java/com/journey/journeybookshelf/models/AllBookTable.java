@@ -150,4 +150,20 @@ public class AllBookTable {
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
+
+
+    @Override
+    public String toString() {
+        return "AllBookTable{" +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", bookImage='" + bookImage + '\'' +
+                ", description='" + description + '\'' +
+                ", genre='" + genre + '\'' +
+                ", pageCount=" + pageCount +
+                ", publishedDate='" + publishedDate + '\''+
+                '}';
+    }
 }
