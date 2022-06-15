@@ -79,13 +79,5 @@ public class UserController {
         return "redirect:/profile/{username}";
     }
 
-//    @PostMapping("/profile/delete")
-//    public String deleteProfile(@RequestParam(name= "deleteProfile") long id, Model model) {
-////        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-////        model.addAttribute("user",user);
-////        long userId = user.getId();
-//        userDao.deleteById(id);
-//        return "redirect:/register";
-//    }
 
 }
