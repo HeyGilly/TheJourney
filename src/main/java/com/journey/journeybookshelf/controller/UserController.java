@@ -1,6 +1,7 @@
 package com.journey.journeybookshelf.controller;
 
 
+import com.journey.journeybookshelf.models.Review;
 import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.ReviewRepository;
 import com.journey.journeybookshelf.repository.UserRepository;
@@ -65,12 +66,12 @@ public class UserController {
     @PostMapping("/profile/{username}")
     public String updateProfile(@ModelAttribute User userModel){
         User user = userDao.findByUsername(userModel.getUsername());
-        String hash = passwordEncoder.encode(userModel.getPassword());
+//        String hash = passwordEncoder.encode(userModel.getPassword());
         user.setFirstName(userModel.getFirstName());
         user.setLastName(userModel.getLastName());
         user.setEmail(userModel.getEmail());
         user.setUsername(userModel.getUsername());
-        user.setPassword(hash);
+//        user.setPassword(hash);
         user.setBio(userModel.getBio());
         user.setCity(userModel.getCity());
         user.setState(userModel.getState());
@@ -79,9 +80,4 @@ public class UserController {
     }
 
 
-//    @PostMapping("/profile/delete")
-//    public String deleteProfile(@RequestParam(name= "deleteProfile") long id) {
-//        userDao.deleteById(id);
-//        return "redirect:/register";
-//    }
 }

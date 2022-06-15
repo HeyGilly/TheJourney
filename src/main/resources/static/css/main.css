@@ -122,3 +122,7 @@ body{height:100%;width:100%}
     display:none;
     background-color: #C8DEDA;
 }
+
+#passwordForm{
+    padding-top: 20px;
+}

@@ -1,7 +1,7 @@
 package com.journey.journeybookshelf.services;
 
 import com.journey.journeybookshelf.models.User;
-import com.journey.journeybookshelf.models.UserwithRoles;
+import com.journey.journeybookshelf.models.UserWithRoles;
 import com.journey.journeybookshelf.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,7 +24,7 @@ public class UserDetailsLoader implements UserDetailsService {
             throw new UsernameNotFoundException("No user found for " + username);
         }
 
-        return new UserwithRoles(user);
+        return new UserWithRoles(user);
     }
 }
 
