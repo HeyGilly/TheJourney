@@ -8,7 +8,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
@@ -74,14 +77,20 @@ public class UserController {
         user.setBio(userModel.getBio());
         user.setCity(userModel.getCity());
         user.setState(userModel.getState());
+
         userDao.save(user);
         return "redirect:/profile/{username}";
     }
 
-
-//    @PostMapping("/profile/delete")
-//    public String deleteProfile(@RequestParam(name= "deleteProfile") long id) {
-//        userDao.deleteById(id);
-//        return "redirect:/register";
+//    @PostMapping("/profile/{username}")
+//    public String updatereview(@ModelAttribute Review reviewModel) {
+//        Review review = reviewDao.getReferenceById(reviewModel.getId());
+//        review.setReviewBody(reviewModel.getReviewBody());
+//        review.setReviewTitle(reviewModel.getReviewTitle());
+//        review.setRating(reviewModel.getRating());
+//        reviewDao.save(review);
+//        return "redirect:/profile/{username}";
 //    }
+
+
 }

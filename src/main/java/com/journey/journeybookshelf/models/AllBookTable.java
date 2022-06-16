@@ -37,7 +37,7 @@ public class AllBookTable {
     @Column(name="PUBLISHED_DATE", nullable = false)
     private String publishedDate;
 
-    @Column(name="RATING",nullable = false, length = 6)
+    @Column(name="RATING",nullable = true)
     private Integer rating;
 
 
@@ -149,5 +149,21 @@ public class AllBookTable {
 
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
+    }
+
+
+    @Override
+    public String toString() {
+        return "AllBookTable{" +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", bookImage='" + bookImage + '\'' +
+                ", description='" + description + '\'' +
+                ", genre='" + genre + '\'' +
+                ", pageCount=" + pageCount +
+                ", publishedDate='" + publishedDate + '\''+
+                '}';
     }
 }

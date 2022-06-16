@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"  lang="en"                        	  xmlns:sec="http://www.w3.org/1999/xhtml"
+<!--<html xmlns:th="http://www.thymeleaf.org"  lang="en"                        	  xmlns:sec="http://www.w3.org/1999/xhtml"-->
+
+<html xmlns:th="http://www.thymeleaf.org"  lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <head th:replace="partials/head.html :: head ('My Profile')">
@@ -149,6 +151,7 @@
                     required>
                     <p id="passwordConfirmHelp" class="form-text">at least one number and one uppercase and lowercase letter, and at least 6 or more characters</p>
                 </div>
+
                 <!-- City-->
                 <div class="form-group">
                     <label for="city" class="text-dark loginLabel" >City</label>
@@ -220,6 +223,7 @@
                 <div class="d-flex justify-content-center gap-3">
                     <button type="button" class="btn btn-light" id="cancelButton" onclick="cancelBtnClicked()">Cancel</button>
                     <button type="submit" class="btn btn-success">Update</button>
+                   
                 </div>
             </form>
 <!--            <div class="w-100 d-flex justify-content-center mt-5 pb-5">-->
@@ -230,13 +234,12 @@
 <!--            </div>-->
 
 
+
         </section>
         <!-- Right Section Profile -->
         <main class="w-75">
             <section class="text-center my-5 pb-3 container-fluid my-5">
-                <p><small class="text-primary p-0 m-0">Community</small></p>
-                <h2 class="fw-light">Everyday <strong class="fw-bolder">Reviews</strong></h2>
-                <i class="fa-solid fa-left-long col-2"></i><small class="text-secondary">Scroll</small><i class=" col-2 fa-solid fa-right-long"></i>
+                <h2 class="fw-light pt-3">Everyday <strong class="fw-bolder">Reviews</strong></h2>
                 <!--User Review Container	-->
                 <div class="row d-flex flex-nowrap container overflow-scroll mx-auto">
                     <!-- Card One -->
@@ -301,7 +304,7 @@
                             <!--  Card Body  -->
                             <div class="card-body">
                                 <h5 class="card-title h-25" th:text="${review.reviewTitle}"></h5>
-                                <p class="card-text cardText" th:text="${review.description}"></p>
+                                <p class="card-text cardText" th:text="${review.reviewBody}"></p>
                             </div>
                             <!-- FOOTER -->
                             <div class="card-footer">
