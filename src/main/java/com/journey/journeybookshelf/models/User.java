@@ -60,7 +60,7 @@ public class User {
     }
 
     //----- Constructor
-    public User(long id, String firstName, String lastName, String email, String username, String password, String bio, String city, String state, List<Review> review) {
+    public User(long id, String firstName, String lastName, String email, String username, String password, String bio, String city, String state, List<Review> reviews) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

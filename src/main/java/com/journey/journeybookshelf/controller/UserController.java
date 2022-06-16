@@ -1,7 +1,6 @@
 package com.journey.journeybookshelf.controller;
 
 
-import com.journey.journeybookshelf.models.Review;
 import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.ReviewRepository;
 import com.journey.journeybookshelf.repository.UserRepository;
@@ -9,7 +8,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
@@ -75,9 +77,21 @@ public class UserController {
         user.setBio(userModel.getBio());
         user.setCity(userModel.getCity());
         user.setState(userModel.getState());
+
         userDao.save(user);
         return "redirect:/profile/{username}";
     }
+
+//    @PostMapping("/profile/{username}")
+//    public String updatereview(@ModelAttribute Review reviewModel) {
+//        Review review = reviewDao.getReferenceById(reviewModel.getId());
+//        review.setReviewBody(reviewModel.getReviewBody());
+//        review.setReviewTitle(reviewModel.getReviewTitle());
+//        review.setRating(reviewModel.getRating());
+//        reviewDao.save(review);
+//        return "redirect:/profile/{username}";
+//    }
+
 
 
 }

@@ -3,6 +3,7 @@ package com.journey.journeybookshelf.controller;
 import com.journey.journeybookshelf.models.Review;
 import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.ReviewRepository;
+import com.journey.journeybookshelf.repository.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ReviewController {
 
     private final ReviewRepository reviewDao;
+    private final UserRepository userDao;
 
-    public ReviewController(ReviewRepository reviewDao) {
+    public ReviewController(ReviewRepository reviewDao, UserRepository userDao) {
         this.reviewDao = reviewDao;
+        this.userDao = userDao;
     }
 
     @GetMapping("/reviews")
@@ -32,6 +35,7 @@ public class ReviewController {
 //    public String showProfile(Model model){
 //        return "main/reviews";
 //    }
+
 
     @PostMapping("/review/{id}")
     public String updateReview(@ModelAttribute Review review, @PathVariable long id,Model model){

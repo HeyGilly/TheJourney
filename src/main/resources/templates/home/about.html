@@ -1,10 +1,23 @@
 <!DOCTYPE html>
     <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
-    <head th:replace="partials/head.html :: head ('About The Team')"></head>
+    <head th:replace="partials/head.html :: head ('About The Team')">
+        <title>About us</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" th:href="@{/css/main.css}">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    </head>
     <body>
 
     <!--  Navigation  -->
-    <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
+    <div sec:authorize="isAuthenticated()">
+        <nav th:replace="partials/navbar.html :: LoggedInNavbar"></nav>
+    </div>
+
+    <div sec:authorize="isAnonymous()">
+        <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
+    </div>
+
+
 
     <div  class="container">
         <div class="bordered;1px solid red">
@@ -67,7 +80,7 @@
                 </ul>
                 <h3>Yasmine Rico</h3>
                 <p>Full-Stack Software Developer</p>
-                <p>Location: San Antonio, Tx</p>
+                <p class="row p-2 mb-5">Location: San Antonio, Tx</p>
             </div>
 
             <div class="col-3">
@@ -92,7 +105,7 @@
                 </ul>
                 <h3>Nicholas Gilmore</h3>
                 <p>Full-Stack Software Developer</p>
-                <p>Location: San Antonio, Tx</p>
+                <p class="row p-2 mb-5">Location: San Antonio, Tx</p>
             </div>
 
             <div class="col-3">
@@ -117,7 +130,7 @@
                 </ul>
                 <h3>Lorne Cousins</h3>
                 <p>Full-Stack Software Developer</p>
-                <p>Location: San Antonio, Tx</p>
+                <p class="row p-2 mb-5">Location: San Antonio, Tx</p>
             </div>
 
             <div class="col-3">
@@ -142,7 +155,7 @@
                 </ul>
                 <h3>Jeremy Sellers</h3>
                 <p>Full-Stack Software Developer</p>
-                <p>Location: San Antonio, Tx</p>
+                <p class="row p-2 mb-5">Location: San Antonio, Tx</p>
             </div>
 
         </div>
