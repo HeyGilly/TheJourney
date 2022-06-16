@@ -1,6 +1,7 @@
 package com.journey.journeybookshelf.controller;
 
 
+import com.journey.journeybookshelf.models.Review;
 import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.ReviewRepository;
 import com.journey.journeybookshelf.repository.UserRepository;
@@ -82,6 +83,7 @@ public class UserController {
         return "redirect:/profile/{username}";
     }
 
+<<<<<<< HEAD
 //    @PostMapping("/profile/{username}")
 //    public String updatereview(@ModelAttribute Review reviewModel) {
 //        Review review = reviewDao.getReferenceById(reviewModel.getId());
@@ -92,5 +94,7 @@ public class UserController {
 //        return "redirect:/profile/{username}";
 //    }
 
+=======
+>>>>>>> main
 
 }

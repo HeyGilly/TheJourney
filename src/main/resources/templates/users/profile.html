@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <!--<html xmlns:th="http://www.thymeleaf.org"  lang="en"                        	  xmlns:sec="http://www.w3.org/1999/xhtml"-->
 
+=======
+>>>>>>> main
 <html xmlns:th="http://www.thymeleaf.org"  lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
@@ -39,12 +42,9 @@
                     <h1 class="text-center d-block">[[${user.username}]]</h1>
                 </div>
             </div>
-        <!-------  Profile IMG   ------->
-            <div class="d-flex justify-content-center">
-                <img class="w-50 rounded-3 p-0 m-0 shadow" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="closeup photography of woman smiling">
-            </div>
-        <!-------  Profile IMG   ------->
+
         <!-- Personal Information  --->
+
         <!-- This information will be replaced with a form when the setting button is clicked.  --->
                 <div class="p-5" id="profilePageBeforeSettingButtonIsClicked">
                     <p th:text="'Bio: ' + ${user.bio}" />
@@ -55,6 +55,7 @@
                     <!-- City State -->
                     <p th:text="'Location: ' + ${user.city} + ', ' + ${user.state}" />
 
+                    <!--Setting gear button-->
                     <div th:if="${loggedInUser.id == user.id}">
                         <div sec:authorize="isAuthenticated()">
                             <div class="d-flex justify-content-center">
@@ -232,9 +233,12 @@
 <!--                    <button class="btn w-75 btn-danger" onclick="return confirm('Are you sure you want to delete this profile?');">Delete Profile</button>-->
 <!--                </form>-->
 <!--            </div>-->
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> main
         </section>
         <!-- Right Section Profile -->
         <main class="w-75">
@@ -306,19 +310,55 @@
                                 <h5 class="card-title h-25" th:text="${review.reviewTitle}"></h5>
                                 <p class="card-text cardText" th:text="${review.reviewBody}"></p>
                             </div>
+
                             <!-- FOOTER -->
-                            <div class="card-footer">
-                                <small class="text-muted">07/20/2013</small>
+                            <div th:if="${loggedInUser.id == user.id}">
+                                <div sec:authorize="isAuthenticated()">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" th:value="${review.id}" class="btn btn-warning w-25 edit-review">
+                                            <i class="fa-solid fa-gear unclickable" ></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
+                            <!-- If the user looks at another user's profile -->
+                            <!-- Will see the username of the page owner-->
+                            <div class="reviewAfterSettingButtonClicked hide" th:data-id="${review.id}">
+
+                                <form
+                                      th:action="@{/review/{id}/ (id=${review.id})}"
+                                      th:object="${review}"
+                                      method="post"
+                                      class="p-5 review-update-form"
+                                >
+                                        <input
+                                                name="reviewTitle"
+                                               th:value="${review.reviewTitle}"
+                                        >
+                                        <input
+                                            name="reviewBody"
+                                            th:value="${review.reviewBody}"
+                                        >
+                                        <input
+                                                name="rating"
+                                                th:value="${review.rating}"
+                                        >
+                                    <button type="submit">Submit</button>
+                                </form>
+
+                            </div>
+
                         </div>
-                        <!-- End of Card --->
                     </div>
+                        <!-- End of Card --->
                 </div>
             </section>
         </main>
+
     </div>
 
 <footer th:replace="partials/footer.html :: footer"></footer>
+<script th:replace="partials/script.html :: bootstrap-js"></script>
 
 <script>
     function settingBtnClicked() {
@@ -329,9 +369,24 @@
         document.getElementById("profilePageAfterSettingButtonIsClicked").style.display = "none";
         document.getElementById("profilePageBeforeSettingButtonIsClicked").style.display = "block";
     }
+
+    function editReviewBtnClicked(event){
+        const reviewId = event.target.value;
+
+
+
+        document.querySelector(`.reviewAfterSettingButtonClicked[data-id="${reviewId}"]`).classList.toggle(`hide`)
+    }
+
+
+    $('.edit-review').click(editReviewBtnClicked);
+
+    // function cancelEditBtnClicked() {
+    //     document.getElementById("reviewAfterSettingButtonClicked").style.display = "none";
+    //     document.getElementById("reviewAfterSettingButtonClicked").style.display = "block";
+    // }
 </script>
 <script th:replace="partials/script.html :: search-js"></script>
-<script th:replace="partials/script.html :: bootstrap-js"></script>
 
 </body>
 </html>

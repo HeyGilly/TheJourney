@@ -125,4 +125,15 @@ body{height:100%;width:100%}
 
 #passwordForm{
     padding-top: 20px;
+<<<<<<< HEAD
+=======
+}
+
+.hide{
+    display: none;
+}
+
+.unclickable {
+    pointer-events: none;
+>>>>>>> main
 }

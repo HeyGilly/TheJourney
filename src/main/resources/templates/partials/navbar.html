@@ -29,6 +29,7 @@
     </nav>
 </div>
 
+<<<<<<< HEAD
 
 <!--<div sec:authorize="isAuthenticated()">-->
     <nav class="navbar fixed-top container-fluid bg-light shadow" th:fragment="LoggedInNavbar">
@@ -52,3 +53,44 @@
 </body>
 </html>
 
+=======
+<nav class="navbar fixed-top container-fluid bg-light shadow" th:fragment="LoggedOutNavbar">
+    <div class="container d-inline-flex">
+        <section class="w-25">
+            <a class="navbar-brand" href="/">
+                Journey
+            </a>
+        </section>
+        <section class="d-inline-flex w-75 justify-content-end">
+            <a class="nav-link" href="/">Home </a>
+            <a class="nav-link" href="/about">About</a>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/register">Register</a>
+        </section>
+    </div>
+</nav>
+
+
+<nav class="navbar fixed-top container-fluid bg-light shadow" th:fragment="LoggedInNavbar">
+    <div class="container d-inline-flex">
+        <section class="w-25">
+            <a class="navbar-brand" href="/main">
+                Journey
+            </a>
+        </section>
+        <section class="d-inline-flex w-75 justify-content-end">
+            <a class="nav-link" href="/about">About</a>
+            <a class="nav-link" href="/main">Main</a>
+            <a class="nav-link" href="/reviews">Reviews</a>
+            <a th:href="@{/profile/{username}(username=${#authentication.principal.username})}">Profile</a>
+            <a class="nav-link" href="/reviewForm">Leave a review</a>
+            <form th:action="@{/logout}" th:method="post">
+                <button class="btn-link btn col-2">Logout</button>
+            </form>
+
+
+        </section>
+    </div>
+</nav>
+
+>>>>>>> main
