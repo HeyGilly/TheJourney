@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials/head.html :: head ('Welcome to journey 2.0')"></head>
 <body>
 <!--  Navigation  -->
@@ -74,7 +75,11 @@
         <!--                </section>-->
         <!--  Card Body  -->
         <p class="card-text text-center mx-auto text-truncate w-100 h-50" th:text="${book.author}"></p>
-        <button type="submit" th:method="post" th:action="@{api/books}">View Details</button>
+
+   <form th:action="@{/books/{id}(id=${book.id})}">
+        <button type="submit">View Details</button>
+   </form>
+
     </div>
     <!-- End of Card --->
 
