@@ -7,10 +7,7 @@ import com.journey.journeybookshelf.repository.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ReviewController {
@@ -47,6 +44,12 @@ public class ReviewController {
         findReview.setRating(review.getRating());
         reviewDao.save(findReview);
         return "redirect:/main";
+    }
+
+    @PostMapping("/review/delete")
+    public String deleteReview(@RequestParam(name= "deleteReview") long id) {
+        reviewDao.deleteById(id);
+        return "redirect:/reviews";
     }
 
 }

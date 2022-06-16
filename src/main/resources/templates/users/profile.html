@@ -338,6 +338,12 @@
                                         >
                                     <button type="submit">Submit</button>
                                 </form>
+                                    <div class="w-100 d-flex justify-content-center mt-5 pb-5">
+                                        <form class="deleteForm" th:method="post" th:action="@{/review/delete}">
+                                            <input type="hidden" th:value="${review.id}" name="deleteReview">
+                                            <button class="btn w-75 btn-danger" >Delete</button>
+                                        </form>
+                                    </div>
 
                             </div>
 
@@ -381,6 +387,15 @@
 </script>
 <script th:replace="partials/script.html :: search-js"></script>
 
+<script>
+    $('.deleteForm .btn').click(function(e){
+        e.preventDefault()
+        if (confirm("Are you sure you want to delete this review?")) {
+            $(".deleteForm").submit();
+        }
+    } )
+
+</script>
 </body>
 </html>
 
