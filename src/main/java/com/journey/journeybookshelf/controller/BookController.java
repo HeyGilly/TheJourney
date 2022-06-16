@@ -11,8 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.awt.print.Book;
 
 @Controller
 public class BookController {
@@ -62,9 +65,21 @@ public class BookController {
         model.addAttribute("review", newReview);
         return "main/main";
     }
-    //review form
 
-//    Saves book and maps to api/books <--- singlePage
+
+
+    @GetMapping("/books/{id}")
+    public String showBook(@PathVariable long id, Model model){
+        AllBookTable book = booksDao.findById(id).get();
+        model.addAttribute("book", book);
+        return "main/single-book";
+    }
+
+
+
+
+
+    //    Saves book and maps to api/books <--- singlePage
     @PostMapping("/api/books")
     public String createBook(@ModelAttribute AllBookTable book, Model model){
         booksDao.save(book);
