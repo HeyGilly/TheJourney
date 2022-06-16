@@ -5,6 +5,7 @@ import com.journey.journeybookshelf.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 //    Reviews findReviewByBookId(Long allBookTable);
@@ -12,4 +13,6 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     //referenced to
     List<Review> findAllByUser(User user);
+
+    Review findById(long id);
 }

@@ -66,12 +66,12 @@ public class UserController {
     @PostMapping("/profile/{username}")
     public String updateProfile(@ModelAttribute User userModel){
         User user = userDao.findByUsername(userModel.getUsername());
-//        String hash = passwordEncoder.encode(userModel.getPassword());
+        String hash = passwordEncoder.encode(userModel.getPassword());
         user.setFirstName(userModel.getFirstName());
         user.setLastName(userModel.getLastName());
         user.setEmail(userModel.getEmail());
         user.setUsername(userModel.getUsername());
-//        user.setPassword(hash);
+        user.setPassword(hash);
         user.setBio(userModel.getBio());
         user.setCity(userModel.getCity());
         user.setState(userModel.getState());
