@@ -89,6 +89,12 @@
 </main>
 <p th:text="${book.description}"> </p>
 
+<form th:action="@{/books/{id}/review(id=${book.id})}">
+	<button type="submit">Write a Review</button>
+</form>
+
+
+
 <footer th:replace="partials/footer.html :: footer"></footer>
 <!--  Partials Script  -->
 <script th:replace="partials/script.html :: bootstrap-js"></script>

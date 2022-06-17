@@ -1,7 +1,6 @@
 package com.journey.journeybookshelf.controller;
 
 import com.journey.journeybookshelf.models.AllBookTable;
-import com.journey.journeybookshelf.models.Review;
 import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.AllBookTableRepository;
 import com.journey.journeybookshelf.repository.ReviewRepository;
@@ -43,26 +42,6 @@ public class BookController {
         return book;
     }
 
-    //review form
-    @GetMapping("/reviewForm")
-    public String reviewsForm(Model model){
-        model.addAttribute("review", new Review());
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("user",user);
-        return "main/reviewForm";
-    }
-    @PostMapping("/reviewForm")
-    public String reviewsSubmit(@ModelAttribute Review review, Model model){
-        // This is what was added to get it to work
-        // needed to save the user with the userDoa
-        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = principal;
-        review.setUser(user);
-        Review newReview = reviewDao.save(review);
-        // Calling the new variable to be added
-        model.addAttribute("review", newReview);
-        return "redirect:/reviews";
-    }
 
 
 
