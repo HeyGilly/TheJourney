@@ -13,7 +13,7 @@
         }
     </script>
 
-    //token only required when logged in -- should fix our error with loading
+    <!--token only required when logged in -- should fix our error with loading -->
     <div sec:authorize="isAuthenticated()">
     <input id="csrf" type="hidden" name="_csrf" th:value="${_csrf.token}"/>
     </div>

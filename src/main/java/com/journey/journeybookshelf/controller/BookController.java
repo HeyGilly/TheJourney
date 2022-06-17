@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.awt.print.Book;
-
 @Controller
 public class BookController {
     private final AllBookTableRepository booksDao;
@@ -63,7 +61,7 @@ public class BookController {
         Review newReview = reviewDao.save(review);
         // Calling the new variable to be added
         model.addAttribute("review", newReview);
-        return "main/main";
+        return "redirect:/reviews";
     }
 
 
