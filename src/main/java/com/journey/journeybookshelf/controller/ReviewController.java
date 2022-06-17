@@ -68,13 +68,16 @@ public class ReviewController {
     public String reviewsSubmit(@PathVariable(name="id") long bookId, @ModelAttribute Review review, Model model){
         // This is what was added to get it to work
         // needed to save the user with the userDoa
+        Review reviewToSave= new Review();
+        reviewToSave.setReviewBody(review.getReviewBody());
+        reviewToSave.setReviewTitle(review.getReviewTitle());
+        reviewToSave.setRating(review.getRating());
+        reviewToSave.setAllBookTable(booksDao.findById(bookId).get());
+        System.out.println(review.getId());
         User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = principal;
-        review.setUser(user);
-        review.setAllBookTable(booksDao.findById(bookId).get());
-        Review newReview = reviewDao.save(review);
-        // Calling the new variable to be added
-        model.addAttribute("review", newReview);
+        reviewToSave.setUser(user);
+        Review newReview = reviewDao.save(reviewToSave);
         return "redirect:/reviews";
     }
 
