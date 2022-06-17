@@ -37,7 +37,7 @@ public class AllBookTable {
     @Column(name="PUBLISHED_DATE", nullable = false)
     private String publishedDate;
 
-    @Column(name="RATING",nullable = true)
+    @Column(name="RATING", nullable = true)
     private Integer rating;
 
 
