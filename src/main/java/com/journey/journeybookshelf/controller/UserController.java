@@ -1,7 +1,6 @@
 package com.journey.journeybookshelf.controller;
 
 
-import com.journey.journeybookshelf.models.Review;
 import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.ReviewRepository;
 import com.journey.journeybookshelf.repository.UserRepository;
@@ -9,7 +8,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
@@ -78,6 +80,8 @@ public class UserController {
         userDao.save(user);
         return "redirect:/profile/{username}";
     }
+
+
 
 
 }
