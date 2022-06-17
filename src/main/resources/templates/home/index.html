@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
-    <head th:replace="partials/head.html :: head ('Welcome to journey 2.0')"></head>
-    <body class="">
+<head th:replace="partials/head.html :: head ('Welcome to journey 2.0')">
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body class="">
         <!--  Navigation  -->
         <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
 
-        <header id="introSection" class="d-flex align-items-center text-white position-relative">
-            <div class="bg-dark h-100 w-100 opacity-25 position-absolute"></div>
-            <div class="position-relative w-75 container text-lg-end text-center p-3">
-                <h1 class="introHeading z-index-5">Discover your Journey</h1>
-                <p class="introPara">Discover your next Journey through the world of endless imagination.</p>
-                <a class="btn  btn-primary" href="#aboutJourney" role="button">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </header>
-
-        <!--Arrow pointing down to tell user there is more to the page-->
-        <div class="d-none d-sm-flex justify-content-center text-light">
-            <i class="fa-solid introArrow fa-circle-arrow-down"></i>
+<header id="introSection" class="d-flex align-items-center text-white position-relative">
+    <div class="bg-dark h-100 w-100 opacity-25 position-absolute"></div>
+        <div class="position-relative w-75 container text-lg-end text-center p-3">
+            <h1 class="introHeading z-index-5">Discover your Journey</h1>
+            <p class="introPara">Discover your next Journey through the world of endless imagination.</p>
+            <a class="btn  btn-primary" href="#aboutJourney" role="button">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
+</header>
+
+    <!--Arrow pointing down to tell user there is more to the page-->
+    <div class="d-none d-sm-flex justify-content-center text-light">
+        <i class="fa-solid introArrow fa-circle-arrow-down"></i>
+    </div>
 
         <!--About App Section-->
         <main class=" w-100 container-fluid p-sm-5 p-0">
@@ -77,331 +80,90 @@
 
         <hr class="w-75 mx-auto">
 
-        <!--Everyday Review -  Community-->
-        <section class="text-center my-5 pb-3 container-fluid my-5">
-            <p><small class="text-primary p-0 m-0">Community</small></p>
-            <h2 class="fw-light">Everyday <strong class="fw-bolder">Reviews</strong></h2>
-            <i class="fa-solid fa-left-long col-2"></i><small class="text-secondary">Scroll</small><i class=" col-2 fa-solid fa-right-long"></i>
-            <!--User Review Container	-->
-            <div class="row d-flex flex-nowrap container overflow-scroll mx-auto">
-                <!-- Card One -->
-                <div class="col-md-3 col mb-3 wholeCard">
-                    <!-- Start of Card  -->
-                    <div class="card m-2 shadow  w-100 w-md-25">
-                        <!-- HEADER -->
-                        <div class="d-flex w-100 h-25">
-                            <!--  User Image    -->
-                            <img src="images/index/userProfile/userProfilePic_02.jpg" class="bg-dark profilePicIndex rounded-circle shadow m-3" width="42px" height="42px">
-                            <!-- Username -->
-                            <p class="pt-4">BookLover</p>
-                        </div>
-                        <!--Book Section -->
-                        <div class="d-flex justify-content-center">
-                            <img src="images/index/indexBookReviews/it.jpeg" class="card-img-top rounded userReviewBook">
-                        </div>
-                        <!-- Stars -->
-                        <div class="text-center my-2">
-                            <!-- To display checked star rating icons -->
+<section class="text-center my-5 pb-3 container-fluid my-5">
+        <p><small class="text-primary p-0 m-0">Community</small></p>
+        <h2 class="fw-light">Everyday <strong class="fw-bolder">Reviews</strong></h2>
+        <i class="fa-solid fa-left-long col-2"></i><small class="text-secondary">Scroll</small><i class=" col-2 fa-solid fa-right-long"></i>
+        <!--User Review Container	-->
+        <div class="row d-flex flex-nowrap container overflow-scroll mx-auto">
+            <!-- Card One -->
+            <div class="col-md-3 col mb-3 wholeCard" th:each="review : ${reviews}" th:unless="${review.id > 6}">
+                <!-- Start of Card  -->
+                <div class="card m-2 shadow  w-100 w-md-25">
+                    <!-- HEADER -->
+                    <div class="d-flex w-100 h-25">
+                        <!--  User Image    -->
+                        <img src="images/index/userProfile/userProfilePic_02.jpg" class="bg-dark profilePicIndex rounded-circle shadow m-3" width="42px" height="42px">
+                        <!-- Username -->
+                        <a th:href="|/profile/${review.getUser().getUsername()}|"> <p class="pt-4" th:text="${review.user.username}"></p></a>
+                    </div>
+                    <!--Book Section -->
+                    <div class="d-flex justify-content-center">
+                        <img src="images/index/indexBookReviews/it.jpeg" class="card-img-top rounded userReviewBook">
+                    </div>
+                    <!-- Stars -->
+                    <div class="text-center my-2" th:switch="${review.rating}">
+                        <p th:case="'1'">
+                            <i class="fa-solid star fa-star" value="1"></i>
+                            <i class="fa-regular star fa-star" value="2"></i>
+                            <i class="fa-regular star fa-star" value="3"></i>
+                            <i class="fa-regular star fa-star" value="4"></i>
+                            <i class="fa-regular star fa-star" value="5"></i>
+                            <span> 1</span>
+                        </p>
+                        <p th:case="'2'">
                             <i class="fa-solid star fa-star" value="1"></i>
                             <i class="fa-solid star fa-star" value="2"></i>
-                            <i class="fa-solid star fa-star" value="3"></i>
-                            <i class="fa-solid star fa-star" value="4"></i>
+                            <i class="fa-regular star fa-star" value="3"></i>
+                            <i class="fa-regular star fa-star" value="4"></i>
                             <i class="fa-regular star fa-star" value="5"></i>
-                            <span> 4</span>
-                        </div>
-                        <!--  Card Body  -->
-                        <div class="card-body">
-                            <h5 class="card-title h-25">Scarier then I thought</h5>
-                            <p class="card-text cardText">Some parts were truly creepy at first and initially, as often happens with King, I couldn't put it down. But then, as often happens with King... </p>
-                        </div>
-                        <!-- FOOTER -->
-                        <div class="card-footer">
-                            <small class="text-muted">07/20/2013</small>
-                        </div>
-                    </div>
-                    <!-- End of Card --->
-                </div>
-                <!-- Card Two -->
-                <div class="col-md-3 col mb-3 wholeCard">
-                    <!-- Start of Card  -->
-                    <div class="card m-2 shadow  w-100 w-md-25">
-                        <!-- HEADER -->
-                        <div class="d-flex w-100 h-25">
-                            <!--  User Image    -->
-                            <img src="images/index/userProfile/userProfilePic_01.jpg" class="bg-dark profilePicIndex rounded-circle shadow m-3" width="42px" height="42px">
-                            <!-- Username -->
-                            <p class="pt-4">Book4Pedro</p>
-                        </div>
-                        <!--Book Section -->
-                        <div class="d-flex justify-content-center">
-                            <img src="images/index/indexBookReviews/TheGivingTree.jpg" class="card-img-top rounded userReviewBook">
-                        </div>
-                        <!-- Stars -->
-                        <div class="text-center my-2">
-                            <!-- To display checked star rating icons -->
-                            <i class="fa-solid star fa-star" value="1"></i>
-                            <i class="fa-solid star fa-star" value="2"></i>
-                            <i class="fa-solid star fa-star" value="3"></i>
-                            <i class="fa-solid star fa-star" value="4"></i>
-                            <i class="fa-regular star fa-star" value="5"></i>
-                            <span> 4</span>
-                        </div>
-                        <!--  Card Body  -->
-                        <div class="card-body">
-                            <h5 class="card-title h-25">I recently read this book to my little boy.</h5>
-                            <p class="card-text cardText">It's not the first time I've read it. It's probably not even the tenth time. But it's the first time I've read the book in a decade, and given the fact that my memory is... </p>
-                        </div>
-                        <!-- FOOTER -->
-                        <div class="card-footer">
-                            <small class="text-muted">04/20/2022</small>
-                        </div>
-                    </div>
-                    <!-- End of Card --->
-                </div>
-                <!-- Card Three -->
-                <div class="col-md-3 col mb-3 wholeCard">
-                    <!-- Start of Card  -->
-                    <div class="card m-2 shadow  w-100 w-md-25">
-                        <!-- HEADER -->
-                        <div class="d-flex w-100 h-25">
-                            <!--  User Image    -->
-                            <img src="images/index/userProfile/userProfilePic_03.jpg" class="bg-dark profilePicIndex rounded-circle shadow m-3" width="42px" height="42px">
-                            <!-- Username -->
-                            <p class="pt-4">Wonder93Years</p>
-                        </div>
-                        <!--Book Section -->
-                        <div class="d-flex justify-content-center">
-                            <img src="images/index/indexBookReviews/yourBed.jpg" class="card-img-top rounded userReviewBook">
-                        </div>
-                        <!-- Stars -->
-                        <div class="text-center my-2">
-                            <!-- To display checked star rating icons -->
+                            <span> 2</span>
+                        </p>
+                        <p th:case="'3'">
                             <i class="fa-solid star fa-star" value="1"></i>
                             <i class="fa-solid star fa-star" value="2"></i>
                             <i class="fa-solid star fa-star" value="3"></i>
                             <i class="fa-regular star fa-star" value="4"></i>
                             <i class="fa-regular star fa-star" value="5"></i>
                             <span> 3</span>
-                        </div>
-                        <!--  Card Body  -->
-                        <div class="card-body">
-                            <h5 class="card-title h-25">Start Your Day with a Task Complete</h5>
-                            <p class="card-text cardText">
-                                It is easy to blame your lot in life on some outside force, to stop trying because you believe fate is against you. It is easy to think...
-                            </p>
-                        </div>
-                        <!-- FOOTER -->
-                        <div class="card-footer">
-                            <small class="text-muted">02/05/2017</small>
-                        </div>
-                    </div>
-                    <!-- End of Card --->
-                </div>
-                <!-- Card Four -->
-                <div class="col-md-3 col mb-3 wholeCard">
-                    <!-- Start of Card  -->
-                    <div class="card m-2 shadow  w-100 w-md-25">
-                        <!-- HEADER -->
-                        <div class="d-flex w-100 h-25">
-                            <!--  User Image    -->
-                            <img src="images/index/userProfile/userProfilePic_04.jpg" class="bg-dark profilePicIndex rounded-circle shadow m-3" width="42px" height="42px">
-                            <!-- Username -->
-                            <p class="pt-4">nothisispatrick</p>
-                        </div>
-                        <!--Book Section -->
-                        <div class="d-flex justify-content-center">
-                            <img src="images/index/indexBookReviews/1984.jpg" class="card-img-top rounded userReviewBook">
-                        </div>
-                        <!-- Stars -->
-                        <div class="text-center my-2">
-                            <!-- To display checked star rating icons -->
+                        </p>
+                        <p th:case="'4'">
                             <i class="fa-solid star fa-star" value="1"></i>
                             <i class="fa-solid star fa-star" value="2"></i>
                             <i class="fa-solid star fa-star" value="3"></i>
                             <i class="fa-solid star fa-star" value="4"></i>
                             <i class="fa-regular star fa-star" value="5"></i>
                             <span> 4</span>
-                        </div>
-                        <!--  Card Body  -->
-                        <div class="card-body">
-                            <h5 class="card-title h-25">Who is to say what is good </h5>
-                            <p class="card-text cardText">
-                                This book is far from perfect. Its characters lack depth, its rhetoric is sometimes didactic, its plot (well, half of it anyway) was lifted from Zumyatin’s We, and the lengthy Goldstein treatise shoved into the middle is a flaw which alters the structure of the novel like a scar disfigures a face.
-                            </p>
-                        </div>
-                        <!-- FOOTER -->
-                        <div class="card-footer">
-                            <small class="text-muted">12/19/2019</small>
-                        </div>
-                    </div>
-                    <!-- End of Card --->
-                </div>
-                <!-- Card Five -->
-                <div class="col-md-3 col mb-3 wholeCard">
-                    <!-- Start of Card  -->
-                    <div class="card m-2 shadow  w-100 w-md-25">
-                        <!-- HEADER -->
-                        <div class="d-flex w-100 h-25">
-                            <!--  User Image    -->
-                            <img src="images/index/userProfile/userProfilePic_05.jpg" class="bg-dark profilePicIndex rounded-circle shadow m-3" width="42px" height="42px">
-                            <!-- Username -->
-                            <p class="pt-4">ChopSuey</p>
-                        </div>
-                        <!--Book Section -->
-                        <div class="d-flex justify-content-center">
-                            <img src="images/index/indexBookReviews/alchemist.jpg" class="card-img-top rounded userReviewBook">
-                        </div>
-                        <!-- Stars -->
-                        <div class="text-center my-2">
-                            <!-- To display checked star rating icons -->
+                        </p>
+                        <p th:case="'5'">
                             <i class="fa-solid star fa-star" value="1"></i>
                             <i class="fa-solid star fa-star" value="2"></i>
                             <i class="fa-solid star fa-star" value="3"></i>
                             <i class="fa-solid star fa-star" value="4"></i>
                             <i class="fa-solid star fa-star" value="5"></i>
                             <span> 5</span>
-                        </div>
-                        <!--  Card Body  -->
-                        <div class="card-body">
-                            <h5 class="card-title h-25">A path through love </h5>
-                            <p class="card-text cardText">
-                                There are too many things one can learn from “The Alchemist”. Its all about following your dream and about taking the risk of following your dreams, which is actually so difficult to do and there are very few people in this world who actually do,
-                            </p>
-                        </div>
-                        <!-- FOOTER -->
-                        <div class="card-footer">
-                            <small class="text-muted">11/13/2017</small>
-                        </div>
+                        </p>
+                        <!-- To display checked star rating icons -->
                     </div>
-                    <!-- End of Card --->
-                </div>
-                <!-- Card Six -->
-                <div class="col-md-3 col mb-3 wholeCard">
-                    <!-- Start of Card  -->
-                    <div class="card m-2 shadow  w-100 w-md-25">
-                        <!-- HEADER -->
-                        <div class="d-flex w-100 h-25">
-                            <!--  User Image    -->
-                            <img src="images/index/userProfile/userProfilePic_06.jpg" class="bg-dark profilePicIndex rounded-circle shadow m-3" width="42px" height="42px">
-                            <!-- Username -->
-                            <p class="pt-4">Avocadorable</p>
-                        </div>
-                        <!--Book Section -->
-                        <div class="d-flex justify-content-center">
-                            <img src="images/index/indexBookReviews/catch.jpeg" class="card-img-top rounded userReviewBook">
-                        </div>
-                        <!-- Stars -->
-                        <div class="text-center my-2">
-                            <!-- To display checked star rating icons -->
-                            <i class="fa-solid star fa-star" value="1"></i>
-                            <i class="fa-solid star fa-star" value="2"></i>
-                            <i class="fa-solid star fa-star" value="3"></i>
-                            <i class="fa-regular star fa-star" value="4"></i>
-                            <i class="fa-regular star fa-star" value="5"></i>
-                            <span> 3</span>
-                        </div>
-                        <!--  Card Body  -->
-                        <div class="card-body">
-                            <h5 class="card-title h-25">When ever living moment there is a book</h5>
-                            <p class="card-text cardText">
-                                There was only one catch and that was Catch-22, which specified that a concern for one’s own safety in the face of dangers that were real and immediate was the process of a rational mind.
-                            </p>
-                        </div>
-                        <!-- FOOTER -->
-                        <div class="card-footer">
-                            <small class="text-muted">05/04/2022</small>
-                        </div>
+                    <!--  Card Body  -->
+                    <div class="card-body">
+                        <h5 class="card-title h-25" th:text="${review.reviewTitle}"></h5>
+                        <p class="card-text cardText" th:text="${review.reviewBody}"></p>
                     </div>
-                    <!-- End of Card --->
-                </div>
-                <!-- Card Seven -->
-                <div class="col-md-3 col mb-3 wholeCard">
-                    <!-- Start of Card  -->
-                    <div class="card m-2 shadow  w-100 w-md-25">
-                        <!-- HEADER -->
-                        <div class="d-flex w-100 h-25">
-                            <!--  User Image    -->
-                            <img src="images/index/userProfile/userProfilePic_07.jpg" class="bg-dark profilePicIndex rounded-circle shadow m-3" width="42px" height="42px">
-                            <!-- Username -->
-                            <p class="pt-4">AllGoodNamesRGone</p>
-                        </div>
-                        <!--Book Section -->
-                        <div class="h-50">
-                            <div class="d-flex justify-content-center">
-                                <img src="images/index/indexBookReviews/elon.jpeg" class="card-img-top rounded userReviewBook">
-                            </div>
-                            <!-- Stars -->
-                            <div class="text-center my-2">
-                                <!-- To display checked star rating icons -->
-                                <i class="fa-solid star fa-star" value="1"></i>
-                                <i class="fa-solid star fa-star" value="2"></i>
-                                <i class="fa-solid star fa-star" value="3"></i>
-                                <i class="fa-solid star fa-star" value="4"></i>
-                                <i class="fa-regular star fa-star" value="5"></i>
-                                <span> 4</span>
-                            </div>
-                        </div>
-                        <!--  Card Body  -->
-                        <div class="card-body h-25">
-                            <h5 class="card-title h-25">A master brain that has a plan</h5>
-                            <p class="card-text cardText">
-                                Elon Musk is not exactly a name that rolls easily off the tongue, like say Tony Stark, the fictional person to whom he is most often compared, or even Steve Jobs, a real-world visionary, whose mantle Musk now wears.
-                            </p>
-                        </div>
-                        <!-- FOOTER -->
-                        <div class="card-footer">
-                            <small class="text-muted">02/18/2019</small>
-                        </div>
+                    <!-- FOOTER -->
+                    <div class="card-footer">
+                        <small class="text-muted">07/20/2013</small>
                     </div>
-                    <!-- End of Card --->
                 </div>
-                <!-- Card Eight -->
-                <div class="col-md-3 col mb-3 wholeCard">
-                    <!-- Start of Card  -->
-                    <div class="card m-2 shadow  w-100 w-md-25">
-                        <!-- HEADER -->
-                        <div class="d-flex w-100 h-25">
-                            <!--  User Image    -->
-                            <img src="images/index/userProfile/userProfilePic_08.jpg" class="bg-dark profilePicIndex rounded-circle shadow m-3" width="42px" height="42px">
-                            <!-- Username -->
-                            <p class="pt-4">averagestudent</p>
-                        </div>
-                        <!--Book Section -->
-                        <div class="h-50">
-                            <div class="d-flex justify-content-center">
-                                <img src="images/index/indexBookReviews/fahrenheit.jpeg" class="card-img-top rounded userReviewBook">
-                            </div>
-                            <!-- Stars -->
-                            <div class="text-center my-2">
-                                <!-- To display checked star rating icons -->
-                                <i class="fa-solid star fa-star" value="1"></i>
-                                <i class="fa-solid star fa-star" value="2"></i>
-                                <i class="fa-solid star fa-star" value="3"></i>
-                                <i class="fa-regular star fa-star" value="4"></i>
-                                <i class="fa-regular star fa-star" value="5"></i>
-                                <span> 3</span>
-                            </div>
-                        </div>
-                        <!--  Card Body  -->
-                        <div class="card-body h-25">
-                            <h5 class="card-title h-25">A book to remember for all time</h5>
-                            <p class="card-text cardText">
-                                I am in 6th grade. My Language Arts teacher assigns us a book report; tells us we can choose the book but that our grade will be based on the maturity of the novel the report is based upon.
-                            </p>
-                        </div>
-                        <!-- FOOTER -->
-                        <div class="card-footer">
-                            <small class="text-muted">07/10/2021</small>
-                        </div>
-                    </div>
-                    <!-- End of Card --->
-                </div>
+                <!-- End of Card --->
             </div>
-        </section>
+        </div>
+</section>
+        <!-- Reviews shown in cards -->
 
 
         <footer th:replace="partials/footer.html :: footer"></footer>
-    </body>
+</body>
     <!--  Partials Script  -->
     <script th:replace="partials/script.html :: bootstrap-js"></script>
 </html>
