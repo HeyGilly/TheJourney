@@ -99,7 +99,7 @@
                     </div>
                     <!--Book Section -->
                     <div class="d-flex justify-content-center">
-                        <img src="images/index/indexBookReviews/it.jpeg" class="card-img-top rounded userReviewBook">
+                        <img th:src="${review.allBookTable.bookImage}">
                     </div>
                     <!-- Stars -->
                     <div class="text-center my-2" th:switch="${review.rating}">
