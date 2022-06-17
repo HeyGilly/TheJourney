@@ -1,6 +1,7 @@
 package com.journey.journeybookshelf.controller;
 
 import com.journey.journeybookshelf.models.AllBookTable;
+import com.journey.journeybookshelf.models.Review;
 import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.AllBookTableRepository;
 import com.journey.journeybookshelf.repository.ReviewRepository;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class BookController {
@@ -46,9 +49,11 @@ public class BookController {
 
 
     @GetMapping("/books/{id}")
-    public String showBook(@PathVariable long id, Model model){
+    public String showBook(@PathVariable long id, Model model, Review review){
         AllBookTable book = booksDao.findById(id).get();
         model.addAttribute("book", book);
+        List<Review> reviewsList = reviewDao.findAllByallBookTable(book);
+        model.addAttribute("reviewsList", reviewsList);
         return "main/single-book";
     }
 
