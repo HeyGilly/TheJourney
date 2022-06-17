@@ -50,7 +50,7 @@
 <h1>This is our single book page</h1>
 
 <!--th:field must match Model name-->
-<form th:action="@{/reviewForm}" class="w-50 mx-auto border p-3 shadow rounded" id="reviewForm" method="post" th:object="${review}">
+<form th:action="@{/books/{id}/review(id=${book.id})}" class="w-50 mx-auto border p-3 shadow rounded" id="reviewForm" th:method="post" th:object="${review}">
     <section class="form-group">
         <label for="reviewTitle" class="text-dark">Title:</label>
         <input id="reviewTitle"
@@ -82,7 +82,6 @@
             <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
         </div>
     </section>
-
     <input type="submit" class=" w-100 loginButton btn btn-primary btn-block mt-3">
 </form>
 
