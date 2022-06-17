@@ -51,6 +51,7 @@
 
 <!--th:field must match Model name-->
 <form th:action="@{/books/{id}/review(id=${book.id})}" class="w-50 mx-auto border p-3 shadow rounded" id="reviewForm" th:method="post" th:object="${review}">
+
     <section class="form-group">
         <label for="reviewTitle" class="text-dark">Title:</label>
         <input id="reviewTitle"
@@ -84,7 +85,8 @@
     </section>
     <input type="submit" class=" w-100 loginButton btn btn-primary btn-block mt-3">
 </form>
-
+<h1>id;<span th:text="${review.id}"></span></h1>
+<h1>Hello!</h1>
 <footer th:replace="partials/footer.html :: footer"></footer>
 
 <!--<script th:replace="partials/partials.html :: search-js"></script>-->
