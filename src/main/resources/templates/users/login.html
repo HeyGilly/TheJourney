@@ -2,13 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="partials/head.html :: head ('Login')">
     <title>Login</title>
-
-    <style>
-        input:user-invalid{
-            background-color: red;
-        }
-    </style>
-
 </head>
 <body>
 <!--  Navigation  -->
@@ -17,7 +10,7 @@
 
 
 <!--Background Body-->
-<main class="vh-100" style="background-color:#649BFD2D">
+<main class="vh-100 mainLoginBG">
     <!--LOGIN Container-->
     <section class="container py-5 h-100">
         <!--Container Container-->
@@ -49,7 +42,6 @@
                                     <div class="d-flex align-items-center mb-3 pb-1">
                                         <img src="../images/book_logo.png" alt="Journey Logo">
                                     </div>
-
                                     <!-- Header-->
                                     <h1 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h1>
                                     <!-- UserName -->
@@ -60,7 +52,6 @@
                                            type="text"
                                            class="form-control loginWrongInput"
                                            required/>
-
                                     </div>
                                     <!-- Password -->
                                     <div class="form-outline mb-4" >
@@ -70,12 +61,7 @@
                                                type="password"
                                                class="form-control"
                                                required/>
-
                                     </div>
-
-
-
-
                                     <div class="pt-1 mb-4">
                                         <input type="submit" value="Log In" class="btn btn-dark btn-lg btn-block"/>
                                     </div>
