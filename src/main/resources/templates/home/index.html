@@ -10,10 +10,12 @@
 
 <header id="introSection" class="d-flex align-items-center text-white position-relative">
     <div class="bg-dark h-100 w-100 opacity-25 position-absolute"></div>
-        <div class="position-relative w-75 container text-lg-end text-center p-3">
-            <h1 class="introHeading z-index-5">Discover your Journey</h1>
-            <p class="introPara">Discover your next Journey through the world of endless imagination.</p>
-            <a class="btn  btn-primary" href="#aboutJourney" role="button">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="position-relative container text-center mx-auto w-100 p-3">
+<!--            <h1 class="introHeading z-index-5">Discover a journey through a book </h1>-->
+<!--            <p class="introPara">Discover your next Journey through the world of endless imagination.</p>-->
+            <h1 class="introHeading-SmallScreen d-block d-lg-none w-100">Discover your next Journey through the world of endless imagination.</h1>
+            <h1 class="introHeading-largerScreen mx-auto d-none d-lg-block w-75">Discover your next Journey through the world of endless imagination.</h1>
+            <a class="btn  mt-5  btn-primary" href="#aboutJourney" role="button">Learn More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 </header>
 
@@ -26,16 +28,17 @@
         <main class=" w-100 container-fluid p-sm-5 p-0">
             <div class="text-center container pt-5">
                 <!--Small Text-->
-                <small class="text-primary p-0 m-0">Introduction</small>
+                <!--<small class="text-primary p-0 m-0">Introduction</small>-->
                 <!--Title-->
-                <h2><span class="fw-light" id="aboutJourney">About</span> <strong>journey</strong></h2>
+                <h2 id="aboutJourney" class="h2-index">About Journey </h2>
                 <!-- Paragraph -->
-                <p class="mt-4 indexPara  mx-auto">
-                    Introduce yourself to the works of your favorite authors’ story-telling, or entice yourself through the opinions of other members.
-                    Browse by genre, author, title, customized recommendations, or follow the paths that other members have taken, based off of their reviews.
-                    Write your own reviews, to help guide others through their own Journey.  List your favorite reads, your favorite book, and your
-                    list of books you wish to read.  You also have the option to purchase your selected book through our third party.  Any day is a
-                    fine day to take a Journey, let us help you find your way!
+                <p class="mt-4 indexPara-SmallerScreen px-2 fw-light mx-auto d-block d-lg-none">
+                    Introduce yourself to the works of your favorite authors’ story-telling, or entice yourself through the numerous reviews of other members.
+                    Browse by author, title, or follow the paths of fellow members based on their reviews.
+                </p>
+                <p class="mt-4 indexPara-largerScreen w-75 fw-light mx-auto d-none d-lg-block">
+                    Introduce yourself to the works of your favorite authors’ story-telling, or entice yourself through the numerous reviews of other members.
+                    Browse by author, title, or follow the paths of fellow members based on their reviews.
                 </p>
                 <a class="btn btn-primary my-5" href="/register" role="button">Join the Community <i class="fa-solid fa-arrow-right"></i></a>
             </div>
@@ -45,18 +48,16 @@
 
         <!--Offering Section - Services-->
         <section class="d-flex flex-column w-100 container text-center my-5">
-            <!--	Offer Small Text	-->
-            <small class="text-primary p-0 m-0">Services</small>
             <!--	Offer Title	-->
-            <h2><span class="fw-light">We're</span> <strong>Offering</strong></h2>
+            <h2 class="h2-index">We're Offering</h2>
             <!--	Offering Group	-->
             <div class="card-group my-5">
                 <!--	Offer One	-->
                 <div class="card">
                     <img src="images/index/OfferingIMG/indexOffering_01.jpg"  width="100%" height="220px"  alt="books">
                     <div class="card-body">
-                        <h5 class="card-title">Browse By Genre</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">Browse By Author</h5>
+                        <p class="card-text">Tell us what titles or author you’ve enjoyed and see where your new path begins. </p>
                     </div>
                 </div>
                 <!--	Offer Two	-->
@@ -64,7 +65,7 @@
                     <img src="images/index/OfferingIMG/indexOffering_02.jpg" width="100%" height="220px"  alt="books">
                     <div class="card-body">
                         <h5 class="card-title">Leave Personal Reviews</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Write your reviews over any book to help guide others through their Journey or entice yourself through the numerous reviews of other members. </p>
                     </div>
                 </div>
                 <!--	Offer Three	-->
@@ -72,7 +73,7 @@
                     <img src="images/index/OfferingIMG/indexOffering_03.jpg"  width="100%" height="220px" alt="books">
                     <div class="card-body">
                         <h5 class="card-title">Find Common Users</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">You'll find like-minded readers and see their profile that will display reviews for other books.</p>
                     </div>
                 </div>
             </div>
@@ -81,28 +82,25 @@
         <hr class="w-75 mx-auto">
 
 <section class="text-center my-5 pb-3 container-fluid my-5">
-        <p><small class="text-primary p-0 m-0">Community</small></p>
-        <h2 class="fw-light">Everyday <strong class="fw-bolder">Reviews</strong></h2>
+        <h2 class="h2-index">Everyday Reviews</h2>
         <i class="fa-solid fa-left-long col-2"></i><small class="text-secondary">Scroll</small><i class=" col-2 fa-solid fa-right-long"></i>
         <!--User Review Container	-->
         <div class="row d-flex flex-nowrap container overflow-scroll mx-auto">
             <!-- Card One -->
             <div class="col-md-3 col mb-3 wholeCard" th:each="review : ${reviews}" th:unless="${review.id > 6}">
                 <!-- Start of Card  -->
-                <div class="card m-2 shadow  w-100 w-md-25">
+                <div class="card m-2 shadow p-1 px-sm-3 w-100 w-md-25">
                     <!-- HEADER -->
-                    <div class="d-flex w-100 h-25">
-                        <!--  User Image    -->
-                        <img src="images/index/userProfile/userProfilePic_02.jpg" class="bg-dark profilePicIndex rounded-circle shadow m-3" width="42px" height="42px">
+                    <div class="d-flex justify-content-center">
                         <!-- Username -->
-                        <a th:href="|/profile/${review.getUser().getUsername()}|"> <p class="pt-4" th:text="${review.user.username}"></p></a>
+                        <a class="text-decoration-none" th:href="|/profile/${review.getUser().getUsername()}|"> <p class="pt-4 fw-bold" th:text="${review.user.username}"></p></a>
                     </div>
                     <!--Book Section -->
                     <div class="d-flex justify-content-center">
-                        <img th:src="${review.allBookTable.bookImage}">
+                        <img th:src="${review.allBookTable.bookImage}" alt="Book Image">
                     </div>
                     <!-- Stars -->
-                    <div class="text-center my-2" th:switch="${review.rating}">
+                    <div class="text-center p-0 pt-3 m-0"  th:switch="${review.rating}">
                         <p th:case="'1'">
                             <i class="fa-solid star fa-star" value="1"></i>
                             <i class="fa-regular star fa-star" value="2"></i>
@@ -146,13 +144,9 @@
                         <!-- To display checked star rating icons -->
                     </div>
                     <!--  Card Body  -->
-                    <div class="card-body">
-                        <h5 class="card-title h-25" th:text="${review.reviewTitle}"></h5>
-                        <p class="card-text cardText" th:text="${review.reviewBody}"></p>
-                    </div>
-                    <!-- FOOTER -->
-                    <div class="card-footer">
-                        <small class="text-muted">07/20/2013</small>
+                    <div class="card-body p-0 m-0 pb-4">
+                        <h5 class="card-title h-25 text-uppercase" th:text="${review.reviewTitle}"></h5>
+                        <p class="card-text mx-auto" th:text="${review.reviewBody}"></p>
                     </div>
                 </div>
                 <!-- End of Card --->
