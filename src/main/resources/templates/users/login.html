@@ -2,32 +2,100 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="partials/head.html :: head ('Login')">
     <title>Login</title>
+
+    <style>
+        input:user-invalid{
+            background-color: red;
+        }
+    </style>
+
 </head>
 <body>
 <!--  Navigation  -->
 <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
 
-<div class="col-12 col-md-5 bg-light rounded shadow mx-auto px-sm-5 py-2 px-1 m-1 position-absolute top-50 start-50 translate-middle">
-    <h1>Sign In</h1>
-    <!--After user is logged in it is set to go to the profile page &#45;&#45; Security Configuration Line 41 (basically if the user successfully logs in they will be directed to profile)-->
-    <form th:action="@{/login}" method="post">
-        <label for="username" class="text-dark loginLabel">Username</label>
-        <input id="username" name="username" type="text" class="form-control loginInput"/>
-        <label for="password" class="loginLabel">Password</label>
-        <input id="password" name="password" type="password" class="form-control loginInput"/>
-        <input type="submit" value="Log In" class="btn btn-primary my-2"/>
-        <p class="text-secondary">
-            <small>Need an account? <a href="/register"> Join our community!</a> </small>
-        </p>
-    </form>
-    <div th:if="${param.error}" class="d-flex justify-content-center">
-        Invalid Username and Password
-    </div>
-</div>
 
-<div th:if="${param.logout}" class="d-flex justify-content-center">
-    You have Successfully logged out!
-</div>
+
+<!--Background Body-->
+<main class="vh-100" style="background-color:#649BFD2D">
+    <!--LOGIN Container-->
+    <section class="container py-5 h-100">
+        <!--Container Container-->
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <!--LOGIN Container-->
+            <div class="col col-xl-10">
+                <!--Start of Card-->
+                <div class="card shadow" style="border-radius: 1rem;">
+                    <!--Left Side-->
+                    <div class="row g-0">
+                        <!--Left Side-->
+                        <aside class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="../images/natureBook.jpg" alt="login form" class="img-fluid h-100 p-1" style="border-radius: 1rem 0 0 1rem;" />
+                        </aside>
+                        <!--Right Side-->
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center text-dark">
+                            <div class="card-body p-4 p-lg-5 text-black">
+                                <!--Start of Form -->
+                                <form th:action="@{/login}" method="post" class="loginForm ">
+                                    <!--Error Message -->
+                                    <h3 th:if="${param.error}" class="d-flex justify-content-center text-danger">
+                                        Invalid Username and Password
+                                    </h3>
+                                    <!--Logged Out Message -->
+                                    <h3 th:if="${param.logout}" class="d-flex justify-content-center">
+                                        You have Successfully logged out!
+                                    </h3>
+                                    <!-- Journey Logo -->
+                                    <div class="d-flex align-items-center mb-3 pb-1">
+                                        <img src="../images/book_logo.png" alt="Journey Logo">
+                                    </div>
+
+                                    <!-- Header-->
+                                    <h1 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h1>
+                                    <!-- UserName -->
+                                    <div class="form-outline mb-4" data-error="Username Is Invalid">
+                                        <label for="username" class="text-dark loginLabel">Username</label>
+                                        <input id="username"
+                                           name="username"
+                                           type="text"
+                                           class="form-control loginWrongInput"
+                                           required/>
+
+                                    </div>
+                                    <!-- Password -->
+                                    <div class="form-outline mb-4" >
+                                        <label for="password" class="loginLabel">Password</label>
+                                        <input id="password"
+                                               name="password"
+                                               type="password"
+                                               class="form-control"
+                                               required/>
+
+                                    </div>
+
+
+
+
+                                    <div class="pt-1 mb-4">
+                                        <input type="submit" value="Log In" class="btn btn-dark btn-lg btn-block"/>
+                                    </div>
+                                    <p class="mb-5 pb-lg-2">Don't have an account? <a href="/register">Register here</a></p>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+
+
+
 
 
 
@@ -37,6 +105,5 @@
 <script th:replace="partials/script.html :: bootstrap-js"></script>
 
 <script th:replace="partials/script.html :: jquery"></script>
-
 </body>
 </html>
