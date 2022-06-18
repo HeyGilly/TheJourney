@@ -4,7 +4,7 @@ body{height:100%;width:100%;font-family: 'Poppins', sans-serif;}
 #BookCardBG{
     width: auto;
 }
-h1, h2, h3, h4{
+h1, h2, h3, h4, h5{
     font-family: 'Playfair Display', serif;
 }
 .h2-index{
@@ -55,49 +55,57 @@ h1, h2, h3, h4{
     border: 3px solid black;
     transition: all .8s ease-in-out;
 }
-
-#open-book{
-    background-image: url("../images/openbook.png");
-    height: 60vh;
-    background-size: cover;
+/*------     ABOUT THE TEAM PAGE    -----*/
+/*-----  about page  -----*/
+.headerAboutPage{
+    background-color:#649BFD2D;
+    height: 20vh;
+}
+.aboutH1{
+    font-weight: bolder;
+    font-size: 62px;
 }
 
-#photo1{
-    background-image: url("../images/yasmineRico.jpeg");
-    /*width: 50%;*/
-    /*height: 100%;*/
-    /*border-radius: 50%;*/
-    width:78px;
-    height:90px;
-    background-size:cover;
-    background-position:center;
-    border-radius:50%;
-
+.aboutSocialMediaIcon{
+    height: 32px;
 }
 
-#photo2{
-    background-image: url("../images/NickG.jpg");
-    /*width: 50%;*/
-    /*height: 100%;*/
-    /*border-radius: 50%;*/
-    width:78px;
-    height:90px;
-    background-size:cover;
-    background-position:center;
-    border-radius:50%;
-}
+/*#photo1{*/
+/*    background-image: url("../images/yasmineRico.jpeg");*/
+/*    !*width: 50%;*!*/
+/*    !*height: 100%;*!*/
+/*    !*border-radius: 50%;*!*/
+/*    width:78px;*/
+/*    height:90px;*/
+/*    background-size:cover;*/
+/*    background-position:center;*/
+/*    border-radius:50%;*/
 
-#photo3{
-    background-image: url("../images/lorne.jpg");
-    /*width: 50%;*/
-    /*height: 100%;*/
-    /*border-radius: 50%;*/
-    width:78px;
-    height:90px;
-    background-size:cover;
-    background-position:center;
-    border-radius:50%;
-}
+/*}*/
+
+/*#photo2{*/
+/*    background-image: url("../images/NickG.jpg");*/
+/*    !*width: 50%;*!*/
+/*    !*height: 100%;*!*/
+/*    !*border-radius: 50%;*!*/
+/*    width:78px;*/
+/*    height:90px;*/
+/*    background-size:cover;*/
+/*    background-position:center;*/
+/*    border-radius:50%;*/
+/*}*/
+
+/*#photo3{*/
+/*    background-image: url("../images/lorne.jpg");*/
+/*    !*width: 50%;*!*/
+/*    !*height: 100%;*!*/
+/*    !*border-radius: 50%;*!*/
+/*    width:78px;*/
+/*    height:90px;*/
+/*    background-size:cover;*/
+/*    background-position:center;*/
+/*    border-radius:50%;*/
+/*}*/
 
 #photo4{
     background-image: url("../images/jeremy.jpg");
@@ -121,7 +129,14 @@ h1, h2, h3, h4{
 
 }
 
-/*Profile Page*/
+/*------   Login Page     -----*/
+/*-----  Login  -----*/
+.mainLoginBG{
+    background-color:#649BFD2D;
+}
+
+
+/*------     Profile Page     -----*/
 /*-----  Profile  -----*/
 #profileSidebar {
     background-color: #C8DEDA;
