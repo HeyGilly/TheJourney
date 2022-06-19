@@ -9,7 +9,7 @@
 <!--NavbarWhen a user is logged out :)-->
 
 <div sec:authorize="isAnonymous()">
-    <nav th:fragment="LoggedOutNavbar" class="navbar navbar-expand-lg fixed-top shadow bg-light">
+    <nav th:fragment="LoggedOutNavbar" class="navbar navbar-expand-lg fixed-top shadow bg-light mb-2">
         <section class="25">
         <a class="navbar-brand" href="/">
             <img src="./images/book_logo.png" alt="" width="50" height="40">Journey</a>
@@ -32,7 +32,7 @@
 
 <!--NavbarWhen a user is logged in :)-->
 <div sec:authorize="isAuthenticated()">
-    <nav th:fragment="LoggedInNavbar" class="navbar navbar-expand-lg fixed-top shadow bg-light">
+    <nav th:fragment="LoggedInNavbar" class="navbar navbar-expand-lg fixed-top shadow bg-light mb2">
         <div class="container-fluid">
             <a class="navbar-brand" href="/main">
                 <img src="./images/book_logo.png" alt="" width="50" height="40">Journey</a>
