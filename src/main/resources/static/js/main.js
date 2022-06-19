@@ -4,7 +4,7 @@ let searchBooks = document.getElementById("search-box");
 const debounce = (fn, time, to = 0) => {
 	to ? clearTimeout(to) : (to = setTimeout(showSearchedBooks, time));
 };
-searchBooks.addEventListener("input", () => debounce(showSearchedBooks(), 2000));
+searchBooks.addEventListener("input", () => debounce(showSearchedBooks(), 4000));
 
 //utilizing fetch callback
 const getBooks = async (book) => {
@@ -38,14 +38,13 @@ const showSearchedBooks = async () => {
 			bookContainer.innerHTML = `<div class='prompt'>Network problem!</div>`;
 		} else {
 			bookContainer.innerHTML = data.items.map(({ volumeInfo }) =>
-				`<div class='book'><div class="book-result"></div><img class='thumbnail' src='${getThumbnail(volumeInfo)}' alt='cover'></div>
-                <div class='book-info'><h3 class='book-title'><div class="book-result">${volumeInfo.title}</a></h3>
+				`<div class='book'><div class="book-result"></div>
+					<img class='thumbnail' src='${getThumbnail(volumeInfo)}' alt='cover'></div>
+                <div class='book-info'>
+                    <h3 class='book-title'><div class="book-result">${volumeInfo.title}</a></h3>
                 <div class='book-authors'>${volumeInfo.authors}</div>
                 <div class='info'>` +
-				(volumeInfo.categories === undefined
-					? "Others"
-					: volumeInfo.categories) +
-				`</div>
+				(volumeInfo.categories === undefined ? "Others" : volumeInfo.categories) + `</div>
 
                 <form method="post" action="api/books">
                 <input type="hidden" name="_csrf" value="${$("#csrf").val()}"/>
