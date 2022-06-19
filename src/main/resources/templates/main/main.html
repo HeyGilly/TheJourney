@@ -17,7 +17,6 @@
 </header>
 
 
-
 <!-- BOOK LIST DISPLAY -->
 <!-- Card Container -->
 <main class="bg-dark w-100 container-fluid row d-flex justify-content-center mx-auto py-5">
@@ -26,75 +25,12 @@
         <!--        <h5 class="card-title text-center p-0 py-2 w-100 h-25 mx-auto m-0" th:text="${book.title}"></h5>-->
         <!--Book Section -->
         <section class="d-flex justify-content-center">
-            <img th:src="${book.bookImage}" th:id="BookImage" class="card-img-top rounded">
+            <a th:href="@{/books/{id}(id=${book.id})}"><img th:src="${book.bookImage}" th:id="BookImage" class="card-img-top rounded"></a>
         </section>
+        <p class="card-text text-center mx-auto d-inline-block text-truncate" style="max-width: 150px;" th:text="${book.title}"></p>
 
-        <!-- Stars -->
-        <!--                <section class="text-center p-0 m-0" th:switch="${book.rating}">-->
-        <!--                    <p th:case="'1'">-->
-        <!--                        <i class="fa-solid star fa-star" value="1"></i>-->
-        <!--                        <i class="fa-regular star fa-star" value="2"></i>-->
-        <!--                        <i class="fa-regular star fa-star" value="3"></i>-->
-        <!--                        <i class="fa-regular star fa-star" value="4"></i>-->
-        <!--                        <i class="fa-regular star fa-star" value="5"></i>-->
-        <!--                        <span> 1</span>-->
-        <!--                    </p>-->
-        <!--                    <p th:case="'2'">-->
-        <!--                        <i class="fa-solid star fa-star" value="1"></i>-->
-        <!--                        <i class="fa-solid star fa-star" value="2"></i>-->
-        <!--                        <i class="fa-regular star fa-star" value="3"></i>-->
-        <!--                        <i class="fa-regular star fa-star" value="4"></i>-->
-        <!--                        <i class="fa-regular star fa-star" value="5"></i>-->
-        <!--                        <span> 2</span>-->
-        <!--                    </p>-->
-        <!--                    <p th:case="'3'">-->
-        <!--                        <i class="fa-solid star fa-star" value="1"></i>-->
-        <!--                        <i class="fa-solid star fa-star" value="2"></i>-->
-        <!--                        <i class="fa-solid star fa-star" value="3"></i>-->
-        <!--                        <i class="fa-regular star fa-star" value="4"></i>-->
-        <!--                        <i class="fa-regular star fa-star" value="5"></i>-->
-        <!--                        <span> 3</span>-->
-        <!--                    </p>-->
-        <!--                    <p th:case="'4'">-->
-        <!--                        <i class="fa-solid star fa-star" value="1"></i>-->
-        <!--                        <i class="fa-solid star fa-star" value="2"></i>-->
-        <!--                        <i class="fa-solid star fa-star" value="3"></i>-->
-        <!--                        <i class="fa-solid star fa-star" value="4"></i>-->
-        <!--                        <i class="fa-regular star fa-star" value="5"></i>-->
-        <!--                        <span> 4</span>-->
-        <!--                    </p>-->
-        <!--                    <p th:case="'5'">-->
-        <!--                        <i class="fa-solid star fa-star" value="1"></i>-->
-        <!--                        <i class="fa-solid star fa-star" value="2"></i>-->
-        <!--                        <i class="fa-solid star fa-star" value="3"></i>-->
-        <!--                        <i class="fa-solid star fa-star" value="4"></i>-->
-        <!--                        <i class="fa-solid star fa-star" value="5"></i>-->
-        <!--                        <span> 5</span>-->
-        <!--                    </p>-->
-        <!--                    &lt;!&ndash; To display checked star rating icons &ndash;&gt;-->
-        <!--                </section>-->
-        <!--  Card Body  -->
-        <p class="card-text text-center mx-auto text-truncate w-100 h-50" th:text="${book.author}"></p>
-
-   <form th:action="@{/books/{id}(id=${book.id})}">
-        <button type="submit">View Details</button>
-   </form>
 
     </div>
     <!-- End of Card --->
 
 </main>
-
-
-
-
-<footer th:replace="partials/footer.html :: footer"></footer>
-<!--  Partials Script  -->
-<script th:replace="partials/script.html :: bootstrap-js"></script>
-
-<!--Search GB API Function: In static js directory-->
-<script type="text/javascript" th:src="@{/js/main.js}"></script>
-
-</body>
-
-</html>
