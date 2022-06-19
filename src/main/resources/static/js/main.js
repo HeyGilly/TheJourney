@@ -23,3 +23,46 @@ const getThumbnail = ({ imageLinks }) => {
 	}
 	return imageLinks.thumbnail;
 };
+
+
+const showSearchedBooks = async () => {
+	if (searchBooks.value != "") {
+		bookContainer.style.display = "flex";
+		bookContainer.innerHTML = `<div class='prompt'><div class="loader"></div></div>`;
+		const data = await getBooks(`${searchBooks.value}&maxResults=6`);
+		if (data.error) {
+			bookContainer.innerHTML = `<div class='prompt'>Limit exceeded! Try after some time</div>`;
+		} else if (data.totalItems == 0) {
+			bookContainer.innerHTML = `<div class='prompt'>No results, try a different term!</div>`;
+		} else if (data.totalItems == undefined) {
+			bookContainer.innerHTML = `<div class='prompt'>Network problem!</div>`;
+		} else {
+			bookContainer.innerHTML = data.items.map(({ volumeInfo }) =>
+				`<div class='book'><div class="book-result"></div><img class='thumbnail' src='${getThumbnail(volumeInfo)}' alt='cover'></div>
+                <div class='book-info'><h3 class='book-title'><div class="book-result">${volumeInfo.title}</a></h3>
+                <div class='book-authors'>${volumeInfo.authors}</div>
+                <div class='info'>` +
+				(volumeInfo.categories === undefined
+					? "Others"
+					: volumeInfo.categories) +
+				`</div>
+
+                <form method="post" action="api/books">
+                <input type="hidden" name="_csrf" value="${$("#csrf").val()}"/>
+                <input type="hidden" name="title" value="${volumeInfo.title}">
+                <input type="hidden" name="isbn" value="${volumeInfo.industryIdentifiers[0].identifier}">
+                <input type="hidden" name="author" value="${volumeInfo.authors}">
+                <input type="hidden" name="bookImage" value="${getThumbnail(volumeInfo)}">
+                <input type="hidden" name="description" value="${volumeInfo.description}">
+                <input type="hidden" name="genre" value="${volumeInfo.categories}">
+                <input type="hidden" name="pageCount" value="${volumeInfo.pageCount}">
+                <input type="hidden" name="publishedDate" value="${volumeInfo.publishedDate}">
+                <button type="submit" class="btn btn-primary">View Details</button>
+                </form>
+                </div>
+                </div>`).join("");
+		}
+	} else {
+		bookContainer.style.display = "none";
+	}
+};
