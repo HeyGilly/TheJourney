@@ -10,6 +10,7 @@
 
 <div sec:authorize="isAnonymous()">
     <nav th:fragment="LoggedOutNavbar" class="navbar navbar-expand-lg fixed-top shadow bg-light">
+        <div class="container-fluid">
         <a class="navbar-brand col-4" href="/">
             <img src="./images/book_logo.png" alt="" width="50" height="40">Journey</a>
 
@@ -25,7 +26,7 @@
                 <a class="nav-link link-dark" href="/register">Register</a>
             </div>
         </div>
-
+        </div>
     </nav>
 </div>
 
