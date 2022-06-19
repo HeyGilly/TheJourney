@@ -6,13 +6,16 @@
 <!--  Navigation  -->
 <nav th:replace="partials/navbar.html :: LoggedInNavbar"></nav>
 
-<header class="mainBGSearch shadow pb-3 mt-5">
-    <h1 class="text-center pt-5 display-2"> Search For any Book</h1>
-    <section id="search" class="results d-flex justify-content-center">
-        <input id="search-box" type="search" class="search-box form-control rounded w-50"  placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-    </section>
-
+<header class="mainHeader  col mt-5">
+    <div class="mainBGSearch shadow pb-3 mt-3 d-flex justify-content-center">
+        <h3 class="text-center pt-5 display-2 text-light"> Search For Your Next Literary Journey</h3>
+        <section id="search" class="results d-flex justify-content-center">
+            <input id="search-box" type="search" class="search-box form-control rounded w-50"  placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        </section>
+    </div>
 </header>
+
+
 <!-- API Book List results will be on a dropdown from search bar-->
 <div class="list-book search">
     <div class="dropdown align-items-col"></div>
@@ -20,17 +23,13 @@
 
 <!-- BOOK LIST DISPLAY -->
 <!-- Card Container -->
-<main class="bg-dark w-100 container-fluid row d-flex justify-content-center mx-auto py-5">
+<main class="w-100 container-fluid row d-flex justify-content-center mx-auto py-5">
     <!-- Start of Card  -->
-    <div class="card shadow border bg-light col-12 col-sm-5 m-3 col-md-3" id="BookCardBG"  th:each="book : ${BOOKS}">
-        <!--        <h5 class="card-title text-center p-0 py-2 w-100 h-25 mx-auto m-0" th:text="${book.title}"></h5>-->
+    <div class="shadow border bg-light col-12 col-sm-5 m-3 col-md-3" id="BookCardBG"  th:each="book : ${BOOKS}">
         <!--Book Section -->
         <section class="d-flex justify-content-center">
             <a th:href="@{/books/{id}(id=${book.id})}"><img th:src="${book.bookImage}" th:id="BookImage" class="card-img-top rounded"></a>
         </section>
-        <p class="card-text text-center mx-auto d-inline-block text-truncate" style="max-width: 150px;" th:text="${book.title}"></p>
-
-
     </div>
     <!-- End of Card --->
 
