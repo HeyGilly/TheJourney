@@ -20,7 +20,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav d-flex justify-content-end col-8">
+            <div class="navbar-nav d-flex justify-content-end col-11">
                 <a class="nav-link link-dark" aria-current="page" href="/about">About Us</a>
                 <a class="nav-link link-dark" href="/login">Login</a>
                 <a class="nav-link link-dark" href="/register">Register</a>
@@ -34,13 +34,13 @@
 <div sec:authorize="isAuthenticated()">
     <nav th:fragment="LoggedInNavbar" class="navbar navbar-expand-lg fixed-top shadow bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/main">
+            <a class="navbar-brand col-4" href="/main">
                 <img src="./images/book_logo.png" alt="" width="50" height="40">Journey</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav d-flex justify-content-end">
+                <div class="navbar-nav d-flex justify-content-end col-11">
                     <a class="nav-link link-dark" href="/main">Home</a>
                     <a class="nav-link link-dark" href="/reviews">Reviews</a>
                     <a class="nav-link link-dark" href="/about">About Us</a>
