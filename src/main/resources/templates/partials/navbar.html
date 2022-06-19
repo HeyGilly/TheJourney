@@ -9,14 +9,16 @@
 <!--NavbarWhen a user is logged out :)-->
 
 <div sec:authorize="isAnonymous()">
-    <nav th:fragment="LoggedOutNavbar" class="navbar navbar-expand-lg bg-light">
+    <nav th:fragment="LoggedOutNavbar" class="navbar navbar-expand-lg fixed-top shadow bg-light">
+        <section class="25">
         <a class="navbar-brand" href="/">
             <img src="./images/book_logo.png" alt="" width="50" height="40">Journey</a>
+        </section>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+<section class="w-75">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link link-dark" aria-current="page" href="/about">About</a>
@@ -24,12 +26,13 @@
                 <a class="nav-link link-dark" href="/register">Register</a>
             </div>
         </div>
+</section>
     </nav>
 </div>
 
 <!--NavbarWhen a user is logged in :)-->
 <div sec:authorize="isAuthenticated()">
-    <nav th:fragment="LoggedInNavbar" class="navbar navbar-expand-lg bg-light">
+    <nav th:fragment="LoggedInNavbar" class="navbar navbar-expand-lg fixed-top shadow bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/main">
                 <img src="./images/book_logo.png" alt="" width="50" height="40">Journey</a>
