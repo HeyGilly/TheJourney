@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');*{margin:0;padding:0;box-sizing: border-box;}
 body{height:100%;width:100%;font-family: 'Poppins', sans-serif;}
-.mainBGSearch{background-color:#C3E0E5;height:fit-content;}
+.mainBGSearch{
+    background-color:#649BFD2D;
+    height: fit-content;
+}
 #BookCardBG{
     width: auto;
 }
