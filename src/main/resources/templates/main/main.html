@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials/head.html :: head ('Welcome to journey 2.0')"></head>
+
 <body>
 <!--  Navigation  -->
 <nav th:replace="partials/navbar.html :: LoggedInNavbar"></nav>
@@ -43,8 +44,7 @@
 
 
 <footer th:replace="partials/footer.html :: footer"></footer>
-<!--  Partials Script  -->
-<script th:replace="partials/script.html :: bootstrap-js"></script>
+
 
 <!--Search GB API Function: In static js directory-->
 <script type="text/javascript" th:src="@{/js/main.js}"></script>
