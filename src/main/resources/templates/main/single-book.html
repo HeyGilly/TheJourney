@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html"
 	  lang="en">
 <head th:replace="partials/head.html :: head ('Single Book Page')"></head>
-<body>
+<body class="mainLoginBG">
 <!--  Navigation  -->
 
 <!--Logged in User-->
@@ -17,7 +17,7 @@
 
 
 
-<header class="mainBGSearch ">
+<header class="mainBGSearch">
 	<h1 class="text-center pt-5 display-2" th:text="${book.title}"></h1>
 </header>
 <!-- BOOK LIST DISPLAY -->
@@ -72,7 +72,7 @@
 	<!-- End of Card --->
 </main>
 
-<main class="w-75">
+<main class="w-100">
 	<section class="text-center my-5 pb-3 container-fluid my-5">
 		<h2 class="fw-light pt-3">Everyday <strong class="fw-bolder">Reviews</strong></h2>
 
@@ -81,9 +81,9 @@
 			<!-- Card One -->
 			<div class="col-md-3 col mb-3 wholeCard" th:each="review : ${reviewsList}">
 				<!-- Start of Card  -->
-				<div class="overflow-auto h-75 card m-2 shadow  w-100 w-md-25">
+				<div class="overflow-auto h-75 card m-2 shadow  w-100 w-md-25 rounded">
 					<!-- HEADER -->
-					<div class="d-flex w-100 h-25 justify-content-center text-decoration-none fw-bold">
+					<div class="d-flex justify-content-center text-decoration-none fw-bold">
 						<!-- Username -->
 						<a th:href="|/profile/${review.getUser().getUsername()}|"> <p class="pt-4" th:text="${review.user.username}"></p></a>
 					</div>
