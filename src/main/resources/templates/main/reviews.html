@@ -8,13 +8,14 @@
 <header th:replace="partials/navbar.html :: LoggedInNavbar"></header>
 
 <section class="text-center my-5 pb-3 container-fluid my-5">
-    <h2 class="fw-light pt-3">Everyday <strong class="fw-bolder">Reviews</strong></h2>
+    <h2 class="fw-light pt-3 mt-5 d-flex justify-content-center align-items-center fw-bolder" style="background-color:#649BFD2D;
+    height: 20vh; border-radius: 0 0 12px 12px; font-size: 62px">Everyday Reviews</strong></h2>
     <!--User Review Container	-->
     <div class="row d-flex flex-wrap container mx-auto">
         <!-- Card One -->
-        <div class="col-md-3 col mb-3 wholeCard" th:each="review : ${reviews}">
+        <div class="col-md-3 col mb-3 wholeCard" style="width: 15rem;" th:each="review : ${reviews}">
             <!-- Start of Card  -->
-            <div class="card m-2 shadow  w-100 w-md-25">
+            <div class="card m-2 shadow p-2 w-100 w-md-25">
                 <!-- HEADER -->
                 <div class="d-flex w-100 h-25">
 
