@@ -168,3 +168,9 @@ h1, h2, h3, h4, h5{
     pointer-events: none;
 }
 
+.singleBookBG{
+    background-image: url("../images/andrew-neel-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+}
+

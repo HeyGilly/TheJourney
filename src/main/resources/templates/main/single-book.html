@@ -17,24 +17,18 @@
 
 
 
-<header class="mainBGSearch shadow pb-3">
-	<h1 class="text-center pt-5 display-2"> Search For any Book</h1>
-<!--	<section id="search" class="results d-flex justify-content-center">-->
-<!--		<input id="search-box" type="search" class="search-box form-control rounded w-50"  placeholder="Search" aria-label="Search" aria-describedby="search-addon" />-->
-<!--		<div class="list-book search">-->
-<!--			<div class="dropdown"></div>-->
-<!--		</div>-->
-<!--	</section>-->
+<header class="mainBGSearch ">
+	<h1 class="text-center pt-5 display-2" th:text="${book.title}"></h1>
 </header>
 <!-- BOOK LIST DISPLAY -->
 <!-- Card Container -->
-<main class="bg-dark w-100 container-fluid row d-flex justify-content-center mx-auto py-4">
+<main class="bg-dark w-100 container-fluid row d-flex justify-content-center mx-auto py-4 singleBookBG">
 	<!-- Start of Card  -->
 	<div class="card shadow border bg-light col-12 col-sm-5 mt-2 col-md-3 pt-3" id="BookCardBG">
-		<div class="card mb-3" style="max-width: 540px;">
+		<div class="card mb-3" style="width: 70vw;">
 			<div class="row g-0">
 				<div class="col-md-4">
-					<img th:src="${book.bookImage}" class="card-img-top pt-4" alt="...">
+					<img th:src="${book.bookImage}" class="card-img-top p-2" alt="...">
 				</div>
 				<div class="col-md-8">
 					<div class="card-body">
@@ -46,7 +40,7 @@
 			</div>
 		</div>
 
-		<div class="card border-info mb-3" style="max-width: 18rem;">
+		<div class="card border-dark mb-3" style="max-width: 50%;">
 			<div class="card-header"><h3>Book Details</h3></div>
 			<div class="card-body d-flex flex-column">
 				<section class="p-2 flex-fill">
@@ -72,7 +66,7 @@
 			</div>
 	</div>
 		<form th:action="@{/books/{id}/review(id=${book.id})}">
-			<button class="p-2 m-3 btn btn-outline-info btn-lg" type="submit">Write a Review</button>
+			<button class="p-2 m-3 btn btn-outline-dark btn-lg" type="submit">Write a Review</button>
 		</form>
 </div>
 	<!-- End of Card --->
@@ -87,9 +81,9 @@
 			<!-- Card One -->
 			<div class="col-md-3 col mb-3 wholeCard" th:each="review : ${reviewsList}">
 				<!-- Start of Card  -->
-				<div class="card m-2 shadow  w-100 w-md-25">
+				<div class="overflow-auto h-75 card m-2 shadow  w-100 w-md-25">
 					<!-- HEADER -->
-					<div class="d-flex w-100 h-25">
+					<div class="d-flex w-100 h-25 justify-content-center text-decoration-none fw-bold">
 						<!-- Username -->
 						<a th:href="|/profile/${review.getUser().getUsername()}|"> <p class="pt-4" th:text="${review.user.username}"></p></a>
 					</div>
