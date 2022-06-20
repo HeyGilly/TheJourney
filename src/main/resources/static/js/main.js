@@ -30,7 +30,7 @@ const showSearchedBooks = async () => {
 		bookContainer.style.display = "flex";
 		bookContainer.innerHTML =
 			`<div class='prompt'><div class="loader"></div></div>`;
-		const data = await getBooks(`${searchBooks.value}&maxResults=6`);
+		const data = await getBooks(`${searchBooks.value}&maxResults=5`);
 		if (data.error) {
 			bookContainer.innerHTML = `<div class='prompt'>Network Problem!</div>`;
 		} else if (data.totalItems == 0) {
@@ -40,7 +40,7 @@ const showSearchedBooks = async () => {
 		} else {
 			bookContainer.innerHTML = data.items.map(({ volumeInfo }) =>
 				`<div class='book col'>
-					<div class="book-result col-12 col-sm-5 m-3 col-md-3" style="width: 10rem; display: flex; flex-direction:column; justify-content: space-around;"></div>
+					<div class="book-result" style="width: 10rem; display: flex; flex-direction:column; justify-content: space-around; "></div>
 					<form method="post" action="api/books">
 						<input type="hidden" name="_csrf" value="${$("#csrf").val()}"/>
 						<input type="hidden" name="title" value="${volumeInfo.title}">

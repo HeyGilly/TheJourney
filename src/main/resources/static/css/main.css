@@ -7,7 +7,7 @@ body{height:100%;width:100%;font-family: 'Poppins', sans-serif;}
     position: absolute;
     z-index: 3;
     width: 80%;
-    left: 90px;
+    left: 160px;
     top: 23em;
     background-color: white;
     display: flex;
@@ -15,6 +15,22 @@ body{height:100%;width:100%;font-family: 'Poppins', sans-serif;}
     justify-content: center;
     align-items: center;
     border-radius: 25px;
+}
+@media only screen and (max-width: 980px) {
+    .results {
+        position: absolute;
+        z-index: 3;
+        width: 80%;
+        left: 50px;
+        top: 23em;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+
+    }
 }
 .mainBGSearch{
     position: relative;
@@ -31,9 +47,21 @@ body{height:100%;width:100%;font-family: 'Poppins', sans-serif;}
     position: relative;
     z-index: -1;
 }
+.list-book{
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+
+}
 #BookCardBG{
     width: auto;
 }
+@media only screen and(max-width: 980px) {
+    .bookListDisplay {
+        margin-top: 20px;
+    }
+}
+
 h1, h2, h3, h4, h5{
     font-family: 'Playfair Display', serif;
 }
