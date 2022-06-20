@@ -17,17 +17,20 @@
         <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
     </div>
 
+<div class="mx-0 mx-sm-5">
+    <header class="headerAboutPage mt-5 d-flex justify-content-center align-items-center">
+        <h1 class="aboutH1 d-none d-md-block fw-bolder pt-5 text-center"> Meet the Team</h1>
+        <h3 class="aboutH1SmallScreen text-center fw-bold pt-5 px-2 d-block d-md-none"> Meet the Team</h3>
+    </header>
 
-<header class="headerAboutPage mt-5 d-flex justify-content-center align-items-center">
-    <h1 class="aboutH1 text-center"> Meet the Team</h1>
-</header>
+
 
 
 
 <!--   Card ONE   -->
-<main class="row mx-auto d-flex justify-content-around py-5 my-5">
+<main class="row mx-auto d-flex justify-content-evenly py-5 my-5">
     <!--  Yasmine Rico User Card-->
-    <div class=" col-12 col-lg-5 card m-1 shadow position-relative">
+    <div class=" col-12 col-lg-5 card my-3 shadow position-relative">
         <div class="row g-0">
             <!--  Image Container-->
             <div class="col-md-4">
@@ -35,38 +38,38 @@
                 <img
                         src="../images/yasmineRico.jpeg"
                         alt="Yasmine Rico"
-                        class="img-fluid rounded-start p-1 h-100 w-auto pt-2"
+                        class="img-fluid rounded-start p-1 w-auto pt-2"
                 />
             </div>
             <!--  Text & Social Media Container-->
             <div class="col-md-8 position-relative">
                 <!--  Card Body  -->
                 <div class="card-body">
-                    <!--  Title Name-->
-                    <h5 class="card-title p-0 m-0">Yasmine Rico</h5>
+                    <!--  Social Media-->
+                    <div class="card-text p-2 d-flex">
+                        <!--  Title Name-->
+                        <h5 class="card-title p-0 m-0 d-inline-block">Yasmine Rico</h5>
+                        <!-- Linkedin -->
+                        <a class="btn btn-primary border-0 d-flex align-items-center mx-3" style="background-color: #0082ca;" href="https://www.linkedin.com/in/yasminerico/" role="button">
+                            <i class="fab fa-linkedin-in aboutSocialMediaIcon"></i>
+                        </a>
+                        <!-- Github -->
+                        <a class="btn btn-primary border-0 d-flex align-items-center" style="background-color: #333333;" href="https://github.com/YasmineRico" role="button">
+                            <i class="fab fa-github aboutSocialMediaIcon"></i>
+                        </a>
+                    </div>
                     <p><small class="text-muted mb-5 ">Full-Stack Software Developer</small></p>
-                    <p class="card-text">
+                    <p class="card-text  p-0 m-0">
                         Software Developer and Air Force Veteran with Security+ and experience in leadership and client-level information technology
                         support functions by managing and troubleshooting hardware and software.
                     </p>
-                    <!--  Social Media-->
-                    <div class="card-text position-absolute top-0 end-0 p-2">
-                        <!-- Linkedin -->
-                        <a class="btn btn-primary border-0" style="background-color: #0082ca;" href="https://www.linkedin.com/in/yasminerico/" role="button">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <!-- Github -->
-                        <a class="btn btn-primary border-0 " style="background-color: #333333;" href="https://github.com/YasmineRico" role="button">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!--  Lorne Cousins User Card-->
-    <div class="col-12 col-lg-5 card m-1 shadow position-relative" >
+    <div class="col-12 col-lg-5 card my-3 shadow position-relative" >
         <div class="row g-0">
             <!--  Image Container-->
             <div class="col-md-4">
@@ -74,39 +77,39 @@
                 <img
                         src="../images/lorne.jpg"
                         alt="Lorne Cousins"
-                        class="img-fluid rounded-start p-1 h-100 w-auto"
+                        class="img-fluid rounded-start p-1  w-auto"
                 />
             </div>
             <!--  Text & Social Media Container-->
             <div class="col-md-8 position-relative">
                 <!--  Card Body  -->
                 <div class="card-body">
-                    <!--  Title Name-->
-                    <h5 class="card-title p-0 m-0">Lorne Cousins</h5>
+                    <!--  Social Media-->
+                    <div class="card-text p-2 d-flex">
+                        <!--  Title Name-->
+                        <h5 class="card-title p-0 m-0 d-inline-block ">Lorne Cousins</h5>
+                        <!-- Linkedin -->
+                        <a class="btn btn-primary border-0 d-flex align-items-center mx-3" style="background-color: #0082ca;" href="https://www.linkedin.com/in/lorne-cousins88/" role="button">
+                            <i class="fab fa-linkedin-in aboutSocialMediaIcon"></i>
+                        </a>
+                        <!-- Github -->
+                        <a class="btn btn-primary border-0 d-flex align-items-center" style="background-color: #333333;" href="https://github.com/lornecousins" role="button">
+                            <i class="fab fa-github aboutSocialMediaIcon"></i>
+                        </a>
+                    </div>
                     <p><small class="text-muted mb-5 ">Full-Stack Software Developer</small></p>
-                    <p class="card-text">
+                    <p class="card-text  p-0 m-0">
                         Air Force Veteran and Software Developer with expert level
                         of attention to detail and problem solving skills. I represented the USAF as
                         a Ceremonial Guardsman that developed precision in appearance, professionalism, and integrity.
                     </p>
-                    <!--  Social Media-->
-                    <div class="card-text position-absolute top-0 end-0 p-2">
-                        <!-- Linkedin -->
-                        <a class="btn btn-primary border-0" style="background-color: #0082ca;" href="https://www.linkedin.com/in/lorne-cousins88/" role="button">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <!-- Github -->
-                        <a class="btn btn-primary border-0 " style="background-color: #333333;" href="https://github.com/lornecousins" role="button">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!--  Jeremy Sellers User Card-->
-    <div class="col-12 col-lg-5 card m-1 shadow">
+    <div class="col-12 col-lg-5 card my-3 shadow">
         <div class="row g-0">
             <!--  Image Container-->
             <div class="col-md-4">
@@ -114,38 +117,39 @@
                 <img
                         src="../images/jeremy.jpg"
                         alt="Jeremy Sellers"
-                        class="img-fluid rounded-start p-1 h-100 w-auto"
+                        class="img-fluid rounded-start p-1  w-auto"
                 />
             </div>
             <!--  Text & Social Media Container-->
             <div class="col-md-8 position-relative">
                 <!--  Card Body  -->
                 <div class="card-body">
-                    <!--  Title Name-->
-                    <h5 class="card-title p-0 m-0">Jeremy Sellers</h5>
-                    <p><small class="text-muted mb-5 ">Full-Stack Software Developer</small></p>
-                    <p class="card-text">
-                        Motivated Software Developer and Marine Corps Veteran with experience in
-                        leadership and problem-solving. Leveraging previous industry skills in software
-                        development to create programs and code that is business and user solutions focused.
                     <!--  Social Media-->
-                    <div class="card-text position-absolute top-0 end-0 p-2">
+                    <div class="card-text p-2 d-flex">
+                        <!--  Title Name-->
+                        <h5 class="card-title p-0 m-0 d-inline-block ">Jeremy Sellers</h5>
                         <!-- Linkedin -->
-                        <a class="btn btn-primary border-0" style="background-color: #0082ca;" href="https://www.linkedin.com/in/jeremy-sellers/" role="button">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a class="btn btn-primary border-0 d-flex align-items-center mx-3" style="background-color: #0082ca;" href="https://www.linkedin.com/in/jeremy-sellers/" role="button">
+                            <i class="fab fa-linkedin-in aboutSocialMediaIcon"></i>
                         </a>
                         <!-- Github -->
-                        <a class="btn btn-primary border-0 " style="background-color: #333333;" href="https://github.com/Jeremy-Sellers" role="button">
-                            <i class="fab fa-github"></i>
+                        <a class="btn btn-primary border-0 d-flex align-items-center" style="background-color: #333333;" href="https://github.com/Jeremy-Sellers" role="button">
+                            <i class="fab fa-github aboutSocialMediaIcon"></i>
                         </a>
                     </div>
+                    <p><small class="text-muted mb-5 ">Full-Stack Software Developer</small></p>
+                    <p class="card-text p-0 m-0">
+                    Motivated Software Developer and Marine Corps Veteran with experience in
+                        leadership and problem-solving. Leveraging previous industry skills in software
+                        development to create programs and code that is business and user solutions focused.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 
     <!--  Nicholas Gilmore User Card-->
-    <div class="col-12 col-lg-5 card m-1 shadow">
+    <div class="col-12 col-lg-5 card my-3 shadow">
         <div class="row g-0">
             <!--  Image Container-->
             <div class="col-md-4">
@@ -153,37 +157,38 @@
                 <img
                         src="../images/NickG.jpg"
                         alt="Hey I'm Gilly"
-                        class="img-fluid rounded-start p-1 h-100 w-auto"
+                        class="img-fluid rounded-start p-1  w-auto"
                 />
             </div>
             <!--  Text & Social Media Container-->
             <div class="col-md-8 position-relative">
                 <!--  Card Body  -->
                 <div class="card-body">
-                    <!--  Title Name-->
-                    <h5 class="card-title p-0 m-0">Nicholas Gilmore</h5>
-                    <p><small class="text-muted mb-5 ">Full-Stack Software Developer</small></p>
-                    <p class="card-text">
-                        An ambitious Software Developer U.S. Marine Veteran with 2+ years of hands-on experience designing,
-                        developing and implementing applications and solutions using design applications and programming languages.
                     <!--  Social Media-->
-                    <div class="card-text position-absolute top-0 end-0 p-2">
+                    <div class="card-text p-2 d-flex">
+                        <!--  Title Name-->
+                        <h5 class="card-title p-0 m-0 d-inline-block ">Nicholas Gilmore</h5>
                         <!-- Linkedin -->
-                        <a class="btn btn-primary border-0" style="background-color: #0082ca;" href="https://www.linkedin.com/in/heygilly/" role="button">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a class="btn btn-primary border-0  d-flex align-items-center mx-3 h-50" style="background-color: #0082ca;" href="https://www.linkedin.com/in/heygilly/" role="button">
+                            <i class="fab fa-linkedin-in aboutSocialMediaIcon"></i>
                         </a>
                         <!-- Github -->
-                        <a class="btn btn-primary border-0 " style="background-color: #333333;" href="https://github.com/heyGilly" role="button">
-                            <i class="fab fa-github"></i>
+                        <a class="btn btn-primary border-0 d-flex align-items-center h-50" style="background-color: #333333;" href="https://github.com/heyGilly" role="button">
+                            <i class="fab fa-github aboutSocialMediaIcon"></i>
                         </a>
                     </div>
+                    <p><small class="text-muted mb-5 ">Full-Stack Software Developer</small></p>
+                    <p class="card-text aboutText p-0 m-0">
+                        An ambitious Software Developer U.S. Marine Veteran with 2+ years of hands-on experience designing,
+                        developing and implementing applications and solutions using design applications and programming languages.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 
 </main>
-
+</div>
     <footer th:replace="partials/footer.html :: footer"></footer>
 
     <script th:fragment="bootstrap-js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
