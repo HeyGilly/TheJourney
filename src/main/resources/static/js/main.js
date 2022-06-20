@@ -30,7 +30,7 @@ const showSearchedBooks = async () => {
 		bookContainer.style.display = "flex";
 		bookContainer.innerHTML =
 			`<div class='prompt'><div class="loader"></div></div>`;
-		const data = await getBooks(`${searchBooks.value}&maxResults=4`);
+		const data = await getBooks(`${searchBooks.value}&maxResults=5`);
 		if (data.error) {
 			bookContainer.innerHTML = `<div class='prompt'>Network Problem!</div>`;
 		} else if (data.totalItems == 0) {
@@ -40,23 +40,22 @@ const showSearchedBooks = async () => {
 		} else {
 			bookContainer.innerHTML = data.items.map(({ volumeInfo }) =>
 				`<div class='book col'>
-					<div class="book-result" style="width: 8rem; display: flex; flex-direction:row; justify-content: space-evenly"></div>
-					<img class='thumbnail' src='${getThumbnail(volumeInfo)}' alt='cover'></div>
+					<div class="book-result" style="width: 10rem; display: flex; flex-direction:column; justify-content: space-around; "></div>
+					<form method="post" action="api/books">
+						<input type="hidden" name="_csrf" value="${$("#csrf").val()}"/>
+						<input type="hidden" name="title" value="${volumeInfo.title}">
+						<input type="hidden" name="isbn" value="${volumeInfo.industryIdentifiers[0].identifier}">
+						<input type="hidden" name="author" value="${volumeInfo.authors}">
+						<input type="hidden" name="bookImage" value="${getThumbnail(volumeInfo)}">
+						<input type="hidden" name="description" value="${volumeInfo.description}">
+						<input type="hidden" name="genre" value="${volumeInfo.categories}">
+						<input type="hidden" name="pageCount" value="${volumeInfo.pageCount}">
+						<input type="hidden" name="publishedDate" value="${volumeInfo.publishedDate}">
+						<button type="submit" class="btn"><img class='thumbnail' src='${getThumbnail(volumeInfo)}' alt='cover'>
+						</button>
+                    </form>
                 </div>
-                 <form method="post" action="api/books" class="col">
-                <input type="hidden" name="_csrf" value="${$("#csrf").val()}"/>
-                <input type="hidden" name="title" value="${volumeInfo.title}">
-                <input type="hidden" name="isbn" value="${volumeInfo.industryIdentifiers[0].identifier}">
-                <input type="hidden" name="author" value="${volumeInfo.authors}">
-                <input type="hidden" name="bookImage" value="${getThumbnail(volumeInfo)}">
-                <input type="hidden" name="description" value="${volumeInfo.description}">
-                <input type="hidden" name="genre" value="${volumeInfo.categories}">
-                <input type="hidden" name="pageCount" value="${volumeInfo.pageCount}">
-                <input type="hidden" name="publishedDate" value="${volumeInfo.publishedDate}">
-                <button type="submit" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; display: flex; flex-direction: column;">
-                View Details
-                </button>
-                </form>
+               
                 </div>`).join("");
 		}
 	} else {
