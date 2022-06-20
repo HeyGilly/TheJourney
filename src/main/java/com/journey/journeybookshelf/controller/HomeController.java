@@ -3,6 +3,7 @@ package com.journey.journeybookshelf.controller;
 import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.ReviewRepository;
 import com.journey.journeybookshelf.repository.UserRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,8 @@ public class HomeController {
     // Index Page
     @GetMapping("/")
     public String home(Model model){
-        model.addAttribute("reviews", reviewDao.findAll());
+        // The Reviews are going to be in descending order
+        model.addAttribute("reviews", reviewDao.findAll(Sort.by("id").descending()));
         return "home/index";}
 
 
