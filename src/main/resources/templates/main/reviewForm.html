@@ -47,7 +47,7 @@
 </head>
 <body>
 <header th:replace="partials/navbar.html :: LoggedInNavbar"></header>
-<h1>This is our single book page</h1>
+<h1 class="mt-5 d-flex justify-content-center align-items-center fw-bolder" style="background-color: #649BFD2D;    height: 20vh; border-radius: 0 0 12px 12px;;">Write A Review</h1>
 
 <!--th:field must match Model name-->
 <form th:action="@{/books/{id}/review(id=${book.id})}" class="w-50 mx-auto border p-3 shadow rounded" id="reviewForm" th:method="post" th:object="${review}">
@@ -85,10 +85,9 @@
     </section>
     <input type="submit" class=" w-100 loginButton btn btn-primary btn-block mt-3">
 </form>
-<h1>id;<span th:text="${review.id}"></span></h1>
-<h1>Hello!</h1>
+
 <footer th:replace="partials/footer.html :: footer"></footer>
 
-<!--<script th:replace="partials/partials.html :: search-js"></script>-->
+
 </body>
 </html>
