@@ -40,10 +40,8 @@ const showSearchedBooks = async () => {
 		} else {
 			bookContainer.innerHTML = data.items.map(({ volumeInfo }) =>
 				`<div class='book col'>
-					<div class="book-result" style="width: 8rem; display: flex; flex-direction:row; justify-content: space-evenly"></div>
-					<img class='thumbnail' src='${getThumbnail(volumeInfo)}' alt='cover'></div>
-                </div>
-                 <form method="post" action="api/books" class="col">
+					<div class="book-result" style="width: 8rem; display: flex; flex-direction:column; justify-content: space-evenly"></div>
+					  <form method="post" action="api/books" class="col">
                 <input type="hidden" name="_csrf" value="${$("#csrf").val()}"/>
                 <input type="hidden" name="title" value="${volumeInfo.title}">
                 <input type="hidden" name="isbn" value="${volumeInfo.industryIdentifiers[0].identifier}">
@@ -53,10 +51,11 @@ const showSearchedBooks = async () => {
                 <input type="hidden" name="genre" value="${volumeInfo.categories}">
                 <input type="hidden" name="pageCount" value="${volumeInfo.pageCount}">
                 <input type="hidden" name="publishedDate" value="${volumeInfo.publishedDate}">
-                <button type="submit" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; display: flex; flex-direction: column;">
-                View Details
+                <button type="submit" class="btn"><img class='thumbnail' src='${getThumbnail(volumeInfo)}' alt='cover'>
                 </button>
                 </form>
+                </div>
+               
                 </div>`).join("");
 		}
 	} else {
