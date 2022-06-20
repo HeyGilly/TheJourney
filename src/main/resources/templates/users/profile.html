@@ -22,7 +22,7 @@
 <!--	<h3>[[${user.username}]]</h3>-->
 <!--</div>-->
 
-    <div class="d-flex w-100 h-100">
+    <div class="d-flex w-100 h-100 p-4">
         <!-- Left Bar Section Profile -->
         <section id="profileSidebar" class="profileSidebar w-25 d-none d-md-block pt-5">
             <!-------  Header   ------->
@@ -45,13 +45,13 @@
 
         <!-- This information will be replaced with a form when the setting button is clicked.  --->
                 <div class="p-5" id="profilePageBeforeSettingButtonIsClicked">
-                    <p th:text="'Bio: ' + ${user.bio}" />
+                    <p> <b>Bio: </b><span th:text="${user.bio}" /></p>
                     <!--			<p th:text="${user.bio}">Please Create a Bio!</p>-->
                     <!--    Personal Email    -->
-                    <p th:text="'Email: ' + ${user.email}" />
+                    <p> <b>Email: </b><span th:text="${user.email}" /></p>
                     <!--			<p><strong>Personal Email: </strong><span th:text="${user.email}">@Email.com</span></p>-->
                     <!-- City State -->
-                    <p th:text="'Location: ' + ${user.city} + ', ' + ${user.state}" />
+                    <p> <b>Location: </b><span th:text="${user.city} + ', ' + ${user.state}" /></p>
 
                     <!--Setting gear button-->
                     <div th:if="${loggedInUser.id == user.id}">
@@ -82,7 +82,7 @@
                 <!--   Settings for   -->
                 <!-- First Name-->
                 <section class="form-group">
-                    <label for="firstName" class="text-dark loginLabel">First Name</label>
+                    <label for="firstName" class="text-dark loginLabel"><b>First Name</b></label>
                     <input id="firstName"
                            th:field="*{firstName}"
                            th:value="${firstName}"
@@ -96,7 +96,7 @@
                 <!--   Settings for   -->
                 <!-- Last Name-->
                 <section class="form-group">
-                    <label for="lastName" class="text-dark loginLabel">Last Name</label>
+                    <label for="lastName" class="text-dark loginLabel"><b>Last Name</b></label>
                     <input id="lastName"
                            th:field="*{lastName}"
                            th:value="${lastName}"
@@ -109,7 +109,7 @@
                 </section>
                 <!--   Settings for User BIo   -->
                 <div class="mb-3">
-                    <label for="settingUserBio" class="form-label">Bio:</label>
+                    <label for="settingUserBio" class="form-label"><b></b>Bio:</b></label>
                     <input
                             th:field="*{bio}"
                             th:value="${bio}"
@@ -121,7 +121,7 @@
                 </div>
                 <!--   Settings for Email Address   -->
                 <div class="mb-3">
-                    <label for="settingEmail" class="form-label">Email address</label>
+                    <label for="settingEmail" class="form-label"><b>Email address</b></label>
                     <input
                             th:field="*{email}"
                             th:value="${email}"
@@ -137,7 +137,7 @@
                 <!--   Settings for Password   -->
                 <div class="mb-3">
                     <!--   Second Password     -->
-                    <label for="settingPassword" class="form-label">Password</label>
+                    <label for="settingPassword" class="form-label"><b>Password</b></label>
                     <input
                             th:field="*{password}"
                             th:value="${password}"
@@ -153,7 +153,7 @@
 
                 <!-- City-->
                 <div class="form-group">
-                    <label for="city" class="text-dark loginLabel" >City</label>
+                    <label for="city" class="text-dark loginLabel" ><b>City</b></label>
                     <input id="city"
                            th:field="*{city}"
                            th:value="${city}"
@@ -164,7 +164,7 @@
                 </div>
                 <!-- State -->
                 <div class="form-group mt-3">
-                    <label for="state" class="text-dark loginLabel" >State</label>
+                    <label for="state" class="text-dark loginLabel" ><b>State</b></label>
                     <select id="state" name="state" th:field="*{state}" th:value="${state}">
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
