@@ -8,24 +8,22 @@
 
 <header class="mainHeader  col mt-5">
     <div class="mainBGSearch shadow pb-3">
-        <h4 class="text-center pt-5 display-2 text-light"> Search For Your Next Literary Journey</h4>
-        <section id="search" class="results d-flex justify-content-center">
-            <input id="search-box" type="search" class="search-box form-control rounded w-50"  placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-        </section>
+        <h4 class="text-center pt-5 display-2 text-light"> Discover Your Next Literary Journey</h4>
     </div>
 </header>
-
-
-
-
-<!-- API Book List results will be on a dropdown from search bar-->
+<section id="search" class="results d-flex justify-content-center">
+    <input id="search-box" type="search" class="search-box form-control rounded w-50"  placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+</section>
 <div class="list-book search">
-    <div class="dropdown align-items-col"></div>
+    <div class="dropdown bg-light"></div>
 </div>
+
+
 
 <!-- BOOK LIST DISPLAY -->
 <!-- Card Container -->
 <main class="w-100 container-fluid row d-flex justify-content-center mx-auto py-5">
+    <h2>Journey Book</h2>
     <!-- Start of Card  -->
     <div class="shadow border bg-light col-12 col-sm-5 m-3 col-md-3" id="BookCardBG"  th:each="book : ${BOOKS}">
         <!--Book Section -->

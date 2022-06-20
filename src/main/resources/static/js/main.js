@@ -4,12 +4,12 @@ let searchBooks = document.getElementById("search-box");
 const debounce = (fn, time, to = 0) => {
 	to ? clearTimeout(to) : (to = setTimeout(showSearchedBooks, time));
 };
-searchBooks.addEventListener("input", () => debounce(showSearchedBooks(), 1000));
+searchBooks.addEventListener("input", () => debounce(showSearchedBooks(), 0));
 
 //utilizing fetch callback
 const getBooks = async (book) => {
 	const response = await fetch(
-		`https://www.googleapis.com/books/v1/volumes?q=${book}`
+		`https://www.googleapis.com/books/v1/volumes?q=${book}&printType=books`
 	);
 	const data = await response.json();
 	return data;
@@ -17,7 +17,7 @@ const getBooks = async (book) => {
 
 //shows thumbnail and returns a default thumbnail if a cover is not available for book.
 const getThumbnail = ({ imageLinks }) => {
-	const journeyThumbnail= "book/icon.svg"; //Need a default thumbnail for books without covers
+	const journeyThumbnail= "../images/thumbnail-replacement.jpg"; //Need a default thumbnail for books without covers
 	if (!imageLinks || !imageLinks.thumbnail) {
 		return journeyThumbnail;
 	}
@@ -30,7 +30,7 @@ const showSearchedBooks = async () => {
 		bookContainer.style.display = "flex";
 		bookContainer.innerHTML =
 			`<div class='prompt'><div class="loader"></div></div>`;
-		const data = await getBooks(`${searchBooks.value}&maxResults=5`);
+		const data = await getBooks(`${searchBooks.value}&maxResults=4`);
 		if (data.error) {
 			bookContainer.innerHTML = `<div class='prompt'>Network Problem!</div>`;
 		} else if (data.totalItems == 0) {
@@ -40,10 +40,10 @@ const showSearchedBooks = async () => {
 		} else {
 			bookContainer.innerHTML = data.items.map(({ volumeInfo }) =>
 				`<div class='book col'>
-					<div class="book-result col" style="width: 5rem;"></div>
+					<div class="book-result" style="width: 8rem; display: flex; flex-direction:row; justify-content: space-evenly"></div>
 					<img class='thumbnail' src='${getThumbnail(volumeInfo)}' alt='cover'></div>
-           
-                <form method="post" action="api/books" class="col">
+                </div>
+                 <form method="post" action="api/books" class="col">
                 <input type="hidden" name="_csrf" value="${$("#csrf").val()}"/>
                 <input type="hidden" name="title" value="${volumeInfo.title}">
                 <input type="hidden" name="isbn" value="${volumeInfo.industryIdentifiers[0].identifier}">
@@ -53,9 +53,10 @@ const showSearchedBooks = async () => {
                 <input type="hidden" name="genre" value="${volumeInfo.categories}">
                 <input type="hidden" name="pageCount" value="${volumeInfo.pageCount}">
                 <input type="hidden" name="publishedDate" value="${volumeInfo.publishedDate}">
-                <button type="submit" class="btn btn-dark">View Details</button>
+                <button type="submit" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; display: flex; flex-direction: column;">
+                View Details
+                </button>
                 </form>
-                </div>
                 </div>`).join("");
 		}
 	} else {
