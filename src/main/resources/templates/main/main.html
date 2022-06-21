@@ -17,6 +17,8 @@
     <section id="search" class="results shadow p-4">
         <h3>Search Thousands Of Books</h3>
         <input id="search-box" type="search" class="search-box form-control rounded w-50"  placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <span><button class="searchBtn">Search</button></span>
+
     </section>
 </div>
 
@@ -30,7 +32,7 @@
 <main class="w-100 container-fluid row d-flex justify-content-center mx-auto py-5 mt-5 bookListDisplay">
     <h2>Journey BookShelf</h2>
     <!-- Start of Card  -->
-    <div class="shadow border d-flex justify-content-evenly" id="BookCardBG"  th:each="book : ${BOOKS}">
+    <div class="" id="BookCardBG"  th:each="book : ${BOOKS}">
         <!--Book Section -->
         <section class="d-flex justify-content-center">
             <a th:href="@{/books/{id}(id=${book.id})}"><img th:src="${book.bookImage}" th:id="BookImage"></a>
