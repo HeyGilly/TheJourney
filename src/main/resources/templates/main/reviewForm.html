@@ -2,90 +2,71 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="partials/head.html :: head ('review form')"
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-<style>
-    .rating {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-    }
-
-    .rating > input{
-        display:none;
-    }
-
-    .rating > label {
-        position: relative;
-        width: 1.1em;
-        font-size: 24px;
-        color: #FFD700;
-        cursor: pointer;
-    }
-
-    .rating > label::before{
-        content: "\2605";
-        position: absolute;
-        opacity: 0;
-    }
-
-    .rating > label:hover:before,
-    .rating > label:hover ~ label:before {
-        opacity: 1 !important;
-    }
-
-    .rating > input:checked ~ label:before{
-        opacity:1;
-    }
-
-    .rating:hover > input:checked ~ label:before{
-        opacity: 0.4;
-    }
-    .rating{
-        font-size: 24px;
-    }
-
-</style>
 
 </head>
 <body>
+
 <header th:replace="partials/navbar.html :: reviewFormNavbar"></header>
-<h1 class="mt-5 d-flex justify-content-center align-items-center fw-bolder" style="background-color: #649BFD2D;    height: 20vh; border-radius: 0 0 12px 12px;;">Write A Review</h1>
 
-<!--th:field must match Model name-->
-<form th:action="@{/books/{id}/review(id=${book.id})}" class="w-50 mx-auto border p-3 shadow rounded" id="reviewForm" th:method="post" th:object="${review}">
+<!--Header of Page-->
+<div class="mx-0 mx-sm-5">
+    <header class="headerAboutPage mt-5 d-flex justify-content-center align-items-center">
+        <h1 class="aboutH1 d-none d-md-block fw-bolder pt-5 text-center">Write a review</h1>
+        <h3 class="aboutH1SmallScreen text-center fw-bold pt-5 px-2 d-block d-md-none">Write a review</h3>
+    </header>
+</div>
 
-    <section class="form-group">
-        <label for="reviewTitle" class="text-dark">Title:</label>
-        <input id="reviewTitle"
-               th:field="*{reviewTitle}"
-               class="form-control"
-               type="text"
-               minlength="3" maxlength="50"
-               title="Minimum title length 4 characters, maximum length 50"
-               pattern="{4,50}"
-               required>
+
+<!--Container Holding Two sections-->
+<div class="row d-flex justify-content-center pt-5 mt-5">
+    <!--    Section ONE Book INformation-->
+    <section class=" col-10 col-md-4 d-flex justify-content-center flex-column">
+        <h5 class="" th:text="${book.title}"></h5>
+        <p class="" th:text="'by ' +${book.author}"> </p>
+        <img class="reviewFormImage" th:src="${book.bookImage}"  alt="..."/>
     </section>
-    <!--Description-->
-    <section class="form-group">
-        <label for="description" class="text-dark">Review:</label>
-        <textarea id="description"
-                  th:field="*{reviewBody}"
-                  class="form-control" required>
-		</textarea>
-    </section>
-    <!-- Rating-->
-    <section class="form-group">
-        <label for="rating" class="text-dark">Rating:</label>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <div id="rating" class="rating" th:field="*{rating}">
-            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-        </div>
-    </section>
-    <input type="submit" class=" w-100 loginButton btn btn-primary btn-block mt-3">
-</form>
+    <!--    Section TWO - MAIN FORM-->
+    <main class=" col-10 col-md-4">
+        <h3 class="mb-4 text-center">Leave A Review</h3>
+        <!--FORM-->
+        <form th:action="@{/books/{id}/review(id=${book.id})}" class="rounded" id="reviewForm" th:method="post" th:object="${review}">
+            <section class="form-group">
+                <label for="reviewTitle" class="text-dark">Title:</label>
+                <input id="reviewTitle"
+                       th:field="*{reviewTitle}"
+                       class="form-control"
+                       type="text"
+                       minlength="3" maxlength="50"
+                       title="Minimum title length 4 characters, maximum length 50"
+                       pattern="{4,50}"
+                       required>
+            </section>
+            <!--Description-->
+            <section class="form-group">
+                <label for="description" class="text-dark">Review:</label>
+                <textarea id="description"
+                          th:field="*{reviewBody}"
+                          rows="5"
+                          no-resize
+                          class="form-control" required>
+    </textarea>
+            </section>
+            <!-- Rating-->
+            <section class="form-group">
+                <label for="rating" class="text-dark">Rating:</label>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <div id="rating" class="rating" th:field="*{rating}">
+                    <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                </div>
+            </section>
+            <input type="submit" class=" w-100 loginButton btn btn-primary btn-block mt-3">
+        </form>
+    </main>
+</div>
 
 <footer th:replace="partials/footer.html :: footer"></footer>
 

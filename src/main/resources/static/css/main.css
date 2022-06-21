@@ -2,7 +2,10 @@
 body{height:100%;width:100%;font-family: 'Poppins', sans-serif;}
 
 /* Main Page */
-
+.searchBarBookImages{
+    height:240px;
+    width: auto;
+}
 .results{
     position: absolute;
     z-index: 3;
@@ -106,12 +109,10 @@ h1, h2, h3, h4, h5{
     transition: all .8s ease-in-out;
 }
 
-
 #BookImage{
     height: 300px;
     width: 190px;
     border: 3px solid black;
-    transition: all .8s ease-in-out;
 }
 /*------     ABOUT THE TEAM PAGE    -----*/
 /*-----  about page  -----*/
@@ -168,9 +169,61 @@ h1, h2, h3, h4, h5{
     pointer-events: none;
 }
 
+
+/*------     Review Form Page    -----*/
+/*-----  Create a form Page  -----*/
+.reviewFormImage{
+    height: auto; !important;
+    width: 240px; !important;
+    border-radius: 12px;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.rating > input{
+    display:none;
+}
+
+.rating > label {
+    position: relative;
+    width: 1.1em;
+    font-size: 24px;
+    color: #FFD700;
+    cursor: pointer;
+}
+
+.rating > label::before{
+    content: "\2605";
+    position: absolute;
+    opacity: 0;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+    opacity: 1 !important;
+}
+
+.rating > input:checked ~ label:before{
+    opacity:1;
+}
+
+.rating:hover > input:checked ~ label:before{
+    opacity: 0.4;
+}
+.rating{
+    font-size: 24px;
+}
+
+/* Background for Single Book The WOod Grain */
+
 .singleBookBG{
     background-image: url("../images/andrew-neel-unsplash.jpg");
     background-size: cover;
     background-position: center;
 }
+
 
