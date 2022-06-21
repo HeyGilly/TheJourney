@@ -226,4 +226,27 @@ h1, h2, h3, h4, h5{
     background-position: center;
 }
 
+/*!*register page *!*/
+input:optional {
+    border-color: gray;
+}
+input:required:valid {
+    border-color: green;
+}
+
+input:required:focus:valid {
+    background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+    background-size: 25px;
+}
+input:focus:invalid {
+    background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% lightsalmon;
+    background-size: 25px;
+}
+
+input{
+    border-color: black;
+}
+
+
+
 
