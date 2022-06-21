@@ -87,7 +87,7 @@
         <!--User Review Container	-->
         <div class="row d-flex flex-nowrap container overflow-scroll mx-auto">
             <!-- Card One -->
-            <section class="col-md-3 col mb-3 wholeCard" th:each="review : ${reviews}" th:unless="${review.id > 6}">
+            <section class="col-md-3 col mb-3 wholeCard" th:each="review : ${reviews}" th:unless="${reviewStat.index > 5}">
                 <!-- lets context and img go side by side with ROW -->
                 <div class="row g-0">
                     <!-- Image Container -->
