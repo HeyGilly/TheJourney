@@ -54,8 +54,8 @@ const showSearchedBooks = async () => {
 						<input type="hidden" name="pageCount" value="${volumeInfo.pageCount}">
 						<input type="hidden" name="publishedDate" value="${volumeInfo.publishedDate}">
 						<button type="submit" class="btn">
-						<img class='thumbnail searchBarBookImages' src='${getThumbnail(volumeInfo)}' alt='cover'><div class='book-info'><h3 class='book-title' style=" width: 200px; white-space: nowrap;overflow: hidden; text-overflow: ellipsis;"><div class="book-result">${volumeInfo.title}</a></h3>
-                <div class='book-authors'>${volumeInfo.authors}</div>
+						<img class='thumbnail searchBarBookImages' src='${getThumbnail(volumeInfo)}' alt='cover'><div class='book-info'><h4 class='book-title' style=" width: 200px; white-space: nowrap;overflow: hidden; text-overflow: ellipsis;"><div class="book-result">${volumeInfo.title}</a></h4>
+                <div class='book-authors'style=" width: 200px; white-space: nowrap;overflow: hidden; text-overflow: ellipsis;">${volumeInfo.authors}</div>
 						</button>
                     </form>
                 </div>
