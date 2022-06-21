@@ -4,7 +4,7 @@ let searchBooks = document.getElementById("search-box");
 const debounce = (fn, to = 0) => {
 	to ? clearTimeout(to) : (to = setTimeout(showSearchedBooks, 0));
 };
-searchBooks.addEventListener("input", () => debounce(showSearchedBooks(), 0));
+searchBooks.addEventListener("click", () => debounce(showSearchedBooks(), 0));
 
 //utilizing fetch callback
 const getBooks = async (book) => {
@@ -40,7 +40,7 @@ const showSearchedBooks = async () => {
 		} else {
 			bookContainer.innerHTML = data.items.map(({ volumeInfo }) =>
 				`<div class='book col col-sm-3'>
-					<div class="book-result" style="width: 10rem; display: flex; flex-direction:column; justify-content: space-around; "></div>
+					<div class="book-result" style="width: 10rem; display: flex; justify-content: space-evenly; "></div>
 					<form method="post" action="api/books">
 						<input type="hidden" name="_csrf" value="${$("#csrf").val()}"/>
 						<input type="hidden" name="title" value="${volumeInfo.title}">
