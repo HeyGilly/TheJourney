@@ -1,7 +1,7 @@
 let bookContainer = document.querySelector(".search");
 let searchBooks = document.getElementById("search-box");
 
-const debounce = (fn, to = 13) => {
+const debounce = (enter, to = 0) => {
 	to ? clearTimeout(to) : (to = setTimeout(showSearchedBooks, 0));
 };
 searchBooks.addEventListener("click", () => debounce(showSearchedBooks(), 0));
@@ -54,7 +54,7 @@ const showSearchedBooks = async () => {
 						<input type="hidden" name="pageCount" value="${volumeInfo.pageCount}">
 						<input type="hidden" name="publishedDate" value="${volumeInfo.publishedDate}">
 						<button type="submit" class="btn">
-						<img class='thumbnail searchBarBookImages' src='${getThumbnail(volumeInfo)}' alt='cover'><div class='book-info'><h3 class='book-title'><div class="book-result">${volumeInfo.title}</a></h3>
+						<img class='thumbnail searchBarBookImages' src='${getThumbnail(volumeInfo)}' alt='cover'><div class='book-info'><h3 class='book-title' style=" width: 200px; white-space: nowrap;overflow: hidden; text-overflow: ellipsis;"><div class="book-result">${volumeInfo.title}</a></h3>
                 <div class='book-authors'>${volumeInfo.authors}</div>
 						</button>
                     </form>
