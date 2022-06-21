@@ -4,82 +4,89 @@
     <meta charset="UTF-8">
     <title>Reviews</title>
 </head>
-<body>
-<header th:replace="partials/navbar.html :: LoggedInNavbar"></header>
+<body class="pb-5 mb-5">
+<nav th:replace="partials/navbar.html :: LoggedInNavbar"></nav>
 
-<section class="text-center my-5 pb-3 container-fluid my-5">
-    <h2 class="fw-light pt-3 mt-5 d-flex justify-content-center align-items-center fw-bolder" style="background-color:#649BFD2D;
-    height: 20vh; border-radius: 0 0 12px 12px; font-size: 62px">Everyday Reviews</strong></h2>
-    <!--User Review Container	-->
-    <div class="row d-flex flex-wrap container mx-auto">
-        <!-- Card One -->
-        <div class="col-md-3 col mb-3 wholeCard" style="width: 15rem;" th:each="review : ${reviews}">
-            <!-- Start of Card  -->
-            <div class="card m-2 shadow p-2 w-100 w-md-25">
-                <!-- HEADER -->
-                <div class="d-flex w-100 h-25">
+<!--Main Section -->
+<div class="mx-0 mx-sm-5">
+    <header class="headerAboutPage mt-5 d-flex justify-content-center align-items-center">
+        <h1 class="aboutH1 d-none d-md-block fw-bolder pt-5 text-center">Everyday Review</h1>
+        <h3 class="aboutH1SmallScreen text-center fw-bold pt-5 px-2 d-block d-md-none">Everyday Review</h3>
+    </header>
+</div>
 
-                    <a th:href="|/profile/${review.getUser().getUsername()}|"> <p class="pt-4" th:text="${review.user.username}"></p></a>
+<!--Main Section -->
+<div class="px-4 mt-5 pt-5">
+    <!-- spacing around cards -->
+    <main class="row d-flex flex-wrap justify-content-around" >
+        <!-- *CARD STARTS -->
+        <section class="card border-0 shadow m-2" style="max-width: 483px;" th:each="review : ${reviews}">
+            <!-- lets context and img go side by side with ROW -->
+            <div class="row g-0">
+                <!-- Image Container -->
+                <div class="col-md-4 px-2 py-2 col-10">
+                    <!-- Image -->
+                    <img th:src="${review.allBookTable.bookImage}" alt="..." class="img-fluid rounded-start"/>
                 </div>
-                <!--Book Section -->
-                <div class="d-flex justify-content-center">
-                    <img th:src="${review.allBookTable.bookImage}">
-                </div>
-                <!-- Stars -->
-                <div class="text-center my-2" th:switch="${review.rating}">
-                    <p th:case="'1'">
-                        <i class="fa-solid star fa-star" value="1"></i>
-                        <i class="fa-regular star fa-star" value="2"></i>
-                        <i class="fa-regular star fa-star" value="3"></i>
-                        <i class="fa-regular star fa-star" value="4"></i>
-                        <i class="fa-regular star fa-star" value="5"></i>
-                        <span> 1</span>
-                    </p>
-                    <p th:case="'2'">
-                        <i class="fa-solid star fa-star" value="1"></i>
-                        <i class="fa-solid star fa-star" value="2"></i>
-                        <i class="fa-regular star fa-star" value="3"></i>
-                        <i class="fa-regular star fa-star" value="4"></i>
-                        <i class="fa-regular star fa-star" value="5"></i>
-                        <span> 2</span>
-                    </p>
-                    <p th:case="'3'">
-                        <i class="fa-solid star fa-star" value="1"></i>
-                        <i class="fa-solid star fa-star" value="2"></i>
-                        <i class="fa-solid star fa-star" value="3"></i>
-                        <i class="fa-regular star fa-star" value="4"></i>
-                        <i class="fa-regular star fa-star" value="5"></i>
-                        <span> 3</span>
-                    </p>
-                    <p th:case="'4'">
-                        <i class="fa-solid star fa-star" value="1"></i>
-                        <i class="fa-solid star fa-star" value="2"></i>
-                        <i class="fa-solid star fa-star" value="3"></i>
-                        <i class="fa-solid star fa-star" value="4"></i>
-                        <i class="fa-regular star fa-star" value="5"></i>
-                        <span> 4</span>
-                    </p>
-                    <p th:case="'5'">
-                        <i class="fa-solid star fa-star" value="1"></i>
-                        <i class="fa-solid star fa-star" value="2"></i>
-                        <i class="fa-solid star fa-star" value="3"></i>
-                        <i class="fa-solid star fa-star" value="4"></i>
-                        <i class="fa-solid star fa-star" value="5"></i>
-                        <span> 5</span>
-                    </p>
-                    <!-- To display checked star rating icons -->
-                </div>
-                <!--  Card Body  -->
-                <div class="card-body">
-                    <h5 class="card-title h-25" th:text="${review.reviewTitle}"></h5>
-                    <p class="card-text cardText" th:text="${review.reviewBody}"></p>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <!-- Title -->
+                        <h5 class="card-title m-0 p-0" th:text="${review.reviewTitle}"></h5>
+                        <!-- Username -->
+                        <a th:href="|/profile/${review.getUser().getUsername()}|"> <p class="p-0 m-0" th:text="'By '+${review.user.username}"></p></a>
+                        <!-- Stars -->
+                        <div class="my-2" th:switch="${review.rating}">
+                            <p th:case="'1'">
+                                <i class="fa-solid star fa-star" value="1"></i>
+                                <i class="fa-regular star fa-star" value="2"></i>
+                                <i class="fa-regular star fa-star" value="3"></i>
+                                <i class="fa-regular star fa-star" value="4"></i>
+                                <i class="fa-regular star fa-star" value="5"></i>
+                                <span> 1</span>
+                            </p>
+                            <p th:case="'2'">
+                                <i class="fa-solid star fa-star" value="1"></i>
+                                <i class="fa-solid star fa-star" value="2"></i>
+                                <i class="fa-regular star fa-star" value="3"></i>
+                                <i class="fa-regular star fa-star" value="4"></i>
+                                <i class="fa-regular star fa-star" value="5"></i>
+                                <span> 2</span>
+                            </p>
+                            <p th:case="'3'">
+                                <i class="fa-solid star fa-star" value="1"></i>
+                                <i class="fa-solid star fa-star" value="2"></i>
+                                <i class="fa-solid star fa-star" value="3"></i>
+                                <i class="fa-regular star fa-star" value="4"></i>
+                                <i class="fa-regular star fa-star" value="5"></i>
+                                <span> 3</span>
+                            </p>
+                            <p th:case="'4'">
+                                <i class="fa-solid star fa-star" value="1"></i>
+                                <i class="fa-solid star fa-star" value="2"></i>
+                                <i class="fa-solid star fa-star" value="3"></i>
+                                <i class="fa-solid star fa-star" value="4"></i>
+                                <i class="fa-regular star fa-star" value="5"></i>
+                                <span> 4</span>
+                            </p>
+                            <p th:case="'5'">
+                                <i class="fa-solid star fa-star" value="1"></i>
+                                <i class="fa-solid star fa-star" value="2"></i>
+                                <i class="fa-solid star fa-star" value="3"></i>
+                                <i class="fa-solid star fa-star" value="4"></i>
+                                <i class="fa-solid star fa-star" value="5"></i>
+                                <span> 5</span>
+                            </p>
+                            <!-- To display checked star rating icons -->
+                        </div>
+                        <!-- Body -->
+                        <p class="card-text cardText bg-light" style="height:90px;overflow-y: scroll" th:text="${review.reviewBody}"></p>
+                    </div>
                 </div>
             </div>
-            <!-- End of Card --->
-        </div>
-    </div>
-</section>
-<!-- Reviews shown in cards -->
+        </section>
+    </main>
+</div>
+
 
 <footer th:replace="partials/footer.html :: footer"></footer>
 
