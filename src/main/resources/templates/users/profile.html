@@ -343,9 +343,10 @@
                                 >
                                 </section>
                                 <section class="form-group p-1">
-                                    <label for="rating" class="text-dark loginLabel"><b>Rate 1-5</b></label>
-                                <input id="rating"
-
+                                    <label for="rating" class="text-dark loginLabel"><b>Rating</b></label>
+                                <input type="number"
+                                        id="rating"
+                                       min="1" max="5"
                                         name="rating"
                                         th:value="${review.rating}"
                                 >
