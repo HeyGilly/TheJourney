@@ -46,14 +46,15 @@ body{height:100%;width:100%;font-family: 'Poppins', sans-serif;}
     height: 8em;
     margin-bottom: 1em;
     margin-top: 2em;
-    height: fit-content;
 }
 .mainHeader{
     background-image: url("../images/mainPic.jpg");
-    height: 50vh;
+    height: 45vh;
     background-size: cover;
     position: relative;
     z-index: -1;
+    border-radius: 0 0 12px 12px;
+
 }
 .list-book{
     margin-top: 120px;
