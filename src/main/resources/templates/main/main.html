@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials/head.html :: head ('Welcome to journey 2.0')"></head>
 
-<body>
+<body class="mainBody">
 <!--  Navigation  -->
 <nav th:replace="partials/navbar.html :: LoggedInNavbar"></nav>
 
@@ -17,6 +17,7 @@
     <section id="search" class="results shadow p-4">
         <h3>Search Thousands Of Books</h3>
         <input id="search-box" type="search" class="search-box form-control rounded w-50"  placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+
     </section>
 </div>
 
@@ -28,28 +29,24 @@
 <!-- BOOK LIST DISPLAY -->
 <!-- Card Container -->
 <main class="w-100 container-fluid row d-flex justify-content-center mx-auto py-5 mt-5 bookListDisplay">
-    <h2>Journey BookShelf</h2>
+    <h2 class="d-flex justify-content-center">Journey BookShelf</h2>
     <!-- Start of Card  -->
-    <div class="shadow border" id="BookCardBG"  th:each="book : ${BOOKS}">
+    <div class="" id="BookCardBG"  th:each="book : ${BOOKS}">
         <!--Book Section -->
-        <section class="d-flex justify-content-center">
+        <section class="d-flex justify-content-center align-items-center mt-2">
             <a th:href="@{/books/{id}(id=${book.id})}"><img th:src="${book.bookImage}" th:id="BookImage"></a>
         </section>
     </div>
     <!-- End of Card --->
 </main>
 
-
-
-
-
-
-
+<div sec:authorize="isAuthenticated()">
+    <input id="csrf" type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+</div>
 
 <footer th:replace="partials/footer.html :: footer"></footer>
+<script th:fragment="jquery" src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-<!--  Partials Script  -->
-<script th:replace="partials/script.html :: bootstrap-js"></script>
 
 <!--Search GB API Function: In static js directory-->
 <script type="text/javascript" th:src="@{/js/main.js}"></script>
