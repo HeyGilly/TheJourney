@@ -47,7 +47,7 @@ const showSearchedBooks = async () => {
 		} else {
 			bookContainer.innerHTML = data.items.map(({ volumeInfo }) =>
 				`<div class='book'>
-					<div class="book-result" style="width: 5rem; display: flex; justify-content:flex-start; align-items: center;"></div>
+					<div class="book-result" style="width: 5rem; display: flex; justify-content:flex-start; align-items: center; margin-top: 90px;"></div>
 					<form method="post" action="api/books">
 						<input type="hidden" name="_csrf" value="${$("#csrf").val()}"/>
 						<input type="hidden" name="title" value="${volumeInfo.title}">
