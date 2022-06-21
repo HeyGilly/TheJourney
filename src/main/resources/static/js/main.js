@@ -4,9 +4,14 @@ let searchBooks = document.getElementById("search-box");
 const debounce = (fn, to = 0) => {
 	to ? clearTimeout(to) : (to = setTimeout(showSearchedBooks, 0));
 };
-searchBooks.addEventListener("click", () => debounce(showSearchedBooks(), 0));
 
 
+
+searchBooks.addEventListener("keydown", (e) => {
+	if (e.keyCode === 13) {
+		debounce(showSearchedBooks(), 0);
+	}
+});
 
 //utilizing fetch callback
 const getBooks = async (book) => {
