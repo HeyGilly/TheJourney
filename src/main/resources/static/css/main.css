@@ -2,7 +2,10 @@
 body{height:100%;width:100%;font-family: 'Poppins', sans-serif;}
 
 /* Main Page */
-
+.searchBarBookImages{
+    height:240px;
+    width: auto;
+}
 .results{
     position: absolute;
     z-index: 3;
