@@ -36,7 +36,7 @@
                                             <label for="firstName" class="text-dark loginLabel">First Name</label>
                                             <input id="firstName"
                                                    th:field="*{firstName}"
-                                                   class="form-control"
+                                                   class="form-control registerInput"
                                                    type="text"
                                                    minlength="3" maxlength="50"
                                                    title="Uppercase & Lowercase letters only, no punctuation, numbers, or special characters and between 3 and 50 characters"
@@ -48,7 +48,7 @@
                                             <label for="lastName" class="text-dark loginLabel">Last Name</label>
                                             <input id="lastName"
                                                    th:field="*{lastName}"
-                                                   class="form-control"
+                                                   class="form-control registerInput"
                                                    type="text"
                                                    minlength="3" maxlength="50"
                                                    title="Uppercase & Lowercase letters only, no punctuation, numbers, or special characters and between 3 and 50 characters"
@@ -62,7 +62,7 @@
                                         <label for="username" class="text-dark loginLabel">Username</label>
                                         <input id="username"
                                                th:field="*{username}"
-                                               class="form-control loginInput"
+                                               class="form-control registerInput"
                                                type="text"
                                                minlength="4" maxlength="15"
                                                title="letters and numbers only, no punctuation or special characters and between 4 and 15 characters"
@@ -77,7 +77,7 @@
                                         <label for="password" class="loginLabel">Password</label>
                                         <input type="password"
                                                id="password"
-                                               class="form-control loginInput"
+                                               class="form-control registerInput"
                                                th:field="*{password}"
                                                min="6" maxlength="15"
                                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}"
@@ -93,7 +93,7 @@
                                         <label for="email" class="text-dark loginLabel" >Email</label>
                                         <input id="email"
                                                th:field="*{email}"
-                                               class="form-control loginInput"
+                                               class="form-control registerInput"
                                                type="email"
                                                minlength="6" maxlength="254"
                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -106,7 +106,7 @@
                                         <label for="city" class="text-dark loginLabel" >City</label>
                                         <input id="city"
                                                th:field="*{City}"
-                                               class="form-control loginInput"
+                                               class="form-control registerInput"
                                                type="text"
                                                minlength="3" maxlength="250"
 
