@@ -5,6 +5,7 @@ import com.journey.journeybookshelf.models.User;
 import com.journey.journeybookshelf.repository.AllBookTableRepository;
 import com.journey.journeybookshelf.repository.ReviewRepository;
 import com.journey.journeybookshelf.repository.UserRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +26,7 @@ public class ReviewController {
 
     @GetMapping("/reviews")
     public String allReviews(Model model){
-        model.addAttribute("reviews", reviewDao.findAll());
+        model.addAttribute("reviews", reviewDao.findAll(Sort.by("id").descending()));
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user", user);
         return "main/reviews";
