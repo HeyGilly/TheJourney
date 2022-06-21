@@ -68,7 +68,7 @@
                                                title="letters and numbers only, no punctuation or special characters and between 4 and 15 characters"
                                                pattern="^[a-zA-Z][a-zA-Z0-9-_.]{4,15}$"
                                                required>
-                                        <p class="error-message"
+                                        <p class="error-message text-danger border-bottom border-danger"
                                            th:each="error : ${#fields.errors('username')}"
                                            th:text="${error}">Validation error</p>
                                         <p class="text-secondary">
