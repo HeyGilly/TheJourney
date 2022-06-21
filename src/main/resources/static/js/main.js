@@ -1,10 +1,12 @@
 let bookContainer = document.querySelector(".search");
 let searchBooks = document.getElementById("search-box");
 
-const debounce = (fn, to = 0) => {
+const debounce = (fn, to = 13) => {
 	to ? clearTimeout(to) : (to = setTimeout(showSearchedBooks, 0));
 };
 searchBooks.addEventListener("click", () => debounce(showSearchedBooks(), 0));
+
+
 
 //utilizing fetch callback
 const getBooks = async (book) => {
