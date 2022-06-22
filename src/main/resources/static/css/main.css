@@ -252,6 +252,34 @@ input{
     border-color: black;
 }
 
+/*Error Pages*/
 
+/*Error 4XX */
+.Error4{
+    height: 100%;
+    width: 100%;
 
+  }
+@media only screen and (max-width: 1090px) {
+    .Error4 {
+        height: 900px;
+        width: 120%;
+        margin-top: 40px;
+
+    }
+}
+
+.Error5{
+    height: 100%;
+    width: 100%;
+}
+
+@media only screen and (max-width: 980px) {
+    .Error5 {
+        height: 800px;
+        width: 130%;
+        margin-top: 40px;
+
+    }
+}
 

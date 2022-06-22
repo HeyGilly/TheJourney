@@ -6,11 +6,12 @@
   <link rel="stylesheet" th:href="@{/css/main.css}">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   <title th:text="'Ooops, ' + ${error}"></title>
-
 </head>
+
 <body>
 
 <!--  Navigation  -->
+
 <div sec:authorize="isAuthenticated()">
   <nav th:replace="partials/navbar.html :: LoggedInNavbar"></nav>
 </div>
@@ -22,18 +23,13 @@
 
 <th:block th:switch="${error}">
   <div th:case="'Not Found'">
-
+    <h1>Page not found!!</h1>
   </div>
   <div th:case="'Forbidden'">
     <h1>You don't have permission to view this page.</h1>
-
   </div>
 </th:block>
-<div class="goBack">
-  <img src="/images/ErrorPage404.jpeg" class="Error4">
+<img src="/images/ErrorPage5xx.jpg" class="Error5">
 
-
-
-</div>
 </body>
 </html>
