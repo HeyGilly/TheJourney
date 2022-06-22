@@ -301,6 +301,8 @@ input{
 .errorContainer .error4btn:hover {
     background-color: black;
 }
+
+/*Sizing for Error 4xx Button at Smaller Screen*/
 @media screen and (max-width: 800px) {
     .errorContainer .error4btn{
         font-size: 10px;
@@ -314,13 +316,13 @@ input{
 /* Error 500 */
 
 /* Make the image responsive */
-.error Error5 {
+.errorContainer error5Pic {
     width: 130%;
     height: 900%;
 }
 
 /* Style the button and place it in the middle of the container/image */
-.error .error5 {
+.errorContainer .error5btn {
     position: absolute;
     top: 50%;
     left: 15%;
@@ -334,18 +336,26 @@ input{
     cursor: pointer;
     border-radius: 5px;
 }
+@media only screen and (max-width: 800px) {
+    .errorContainer .error5btn {
+        font-size: 12px;
+        left: 110px;
+        padding: 11px 15px;
 
-.error .error5:hover {
+    }
+}
+
+.errorContainer .error5btn:hover {
     background-color: black;
 }
 
-.Error5{
+.error5Pic{
     height: 100%;
     width: 100%;
 }
 
 @media only screen and (max-width: 1080px) {
-    .Error5 {
+    .error5Pic {
         height: 800px;
         width: 130%;
 

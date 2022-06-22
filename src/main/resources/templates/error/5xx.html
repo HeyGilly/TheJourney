@@ -30,13 +30,13 @@
   </div>
 </th:block>
 
-<div class="error">
-  <img src="/images/ErrorPage5xx.jpg" class="Error5">
+<div class="errorContainer">
+  <img src="/images/ErrorPage5xx.jpg" class="error5Pic">
   <div sec:authorize="isAuthenticated()">
-    <a href="/main"><button class="btn error5">Go Back To Home Page</button></a>
+    <a href="/main"><button class="btn error5btn">Go Back To Home Page</button></a>
   </div>
   <div sec:authorize="isAnonymous()">
-    <a href="/"><button class="btn error5">Go Back To Home Page</button></a>
+    <a href="/"><button class="btn error5btn">Go Back To Home Page</button></a>
   </div>
 </div>
 
