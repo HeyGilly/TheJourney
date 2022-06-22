@@ -273,7 +273,7 @@
                         <!-- Image Container -->
                         <div class="col-md-4 px-2 py-2 col-10">
                             <!-- Image -->
-                            <img th:src="${review.allBookTable.bookImage}" alt="..." class="img-fluid rounded-start"/>
+                            <a th:href="@{/books/{id}(id=${review.allBookTable.id})}"><img th:src="${review.allBookTable.bookImage}" alt="..." class="img-fluid rounded-start"/></a>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
