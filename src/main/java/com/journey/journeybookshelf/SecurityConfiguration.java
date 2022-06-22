@@ -55,7 +55,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/reviews/create", // only authenticated users can create reviews
                         "/reviews/{id}/edit", // only authenticated users can edit reviews
-                        "/main", "/books/{id}", "/profile","/profile/{username}", "/reviews","/books" )
+                        "/main", "/books/{id}", "/profile","/profile/{username}", "/reviews","/books", "books/api" )
                 .authenticated()
         ;
     }
