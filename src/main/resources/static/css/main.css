@@ -1,5 +1,97 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');*{margin:0;padding:0;box-sizing: border-box;}
-body{height:100%;width:100%;font-family: 'Poppins', sans-serif;}
+*{padding:0;margin:0;}
+body{height:100%;width:100%;font-family: 'Poppins', sans-serif;box-sizing:border-box;}
+
+h1, h2, h3, h4, h5{font-family: 'Playfair Display', serif;}
+
+
+/*===== INDEX page =====*/
+/*--- Introduction section ---*/
+#introSection{
+    height: 75vh;
+    background-color: #649BFD2D;
+    background-image: url("../images/library.jpg");
+    background-size: cover;
+    z-index: -1;
+}
+.darkbgIntroSection{
+    height: 71vh;
+}
+/*--- Introduction medium and below Screen H1 ---*/
+/*header font size */
+#introSectionButton-smallerScreen{
+    width: 140px;
+    height: auto;
+    transition: all .8s ease-in-out;
+}
+/*button font size */
+#introSectionButtonFontSmall{
+   font-size: 42px;
+}
+/*--- Introduction medium and Above Screen ---*/
+#introHeading-largerScreen{
+    font-size: 68px;
+}
+/*Button Container*/
+#introSectionButton-largerScreen{
+    width: 240px;
+    height: 50px;
+    transition: all .8s ease-in-out;
+}
+/*Button font size */
+#introSectionButtonFontLarge{
+    font-size: 22px;
+}
+/*BOTH - Hover Over Button*/
+#introSectionButton-largerScreen:hover,
+#introSectionButton-smallerScreen:hover,
+#indexParaButton-smallerScreen:hover,
+#indexParaButton-largeScreen:hover{
+    transform: scale(1.2);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+/*--- Index - About Project Section---*/
+
+/*The Index About Project paragraph*/
+.indexPara-SmallerScreen {
+    font-size: 48px;
+}
+.indexPara-largerScreen {
+    font-size: 24px;
+}
+
+/*h2 HEaders*/
+#aboutJourneyHeader-small,#offeringJourneyHeader-small,#reviewJourneyHeader-small{font-size: 58px;}
+#aboutJourneyHeader-large,#offeringJourneyHeader-large, #reviewJourneyHeader-large{font-size: 38px;}
+#indexAboutButtonFontSmall{font-size: 42px;}
+#indexAboutButtonFontLarge{font-size: 22px}
+
+#indexParaButton-smallerScreen,#indexParaButton-largeScreen {
+    width: fit-content;
+    height: auto;
+    transition: all .8s ease-in-out;
+}
+
+/*index - Offer Title*/
+.offerTitle, .reviewTitleSmall{
+    font-size: 28px;
+}
+.offerBody-sm, .reviewBodyIndex{
+ font-size: 22px;
+}
+.offerBody-lg{
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
 
 /* Main Page */
 .searchBarBookImages{
@@ -72,42 +164,17 @@ body{height:100%;width:100%;font-family: 'Poppins', sans-serif;}
     }
 }
 
-h1, h2, h3, h4, h5{
-    font-family: 'Playfair Display', serif;
-}
-.h2-index{
-    font-size: 38px;
-}
-/* The Index Main Section */
-#introSection{
-    height: 75vh;
-    background-color: burlywood;
-    background-image: url("../images/library.jpg");
-    background-size: cover;
-}
-/*The Index Main header*/
-.introHeading-SmallScreen{
-    font-weight: bolder;
-    font-size: 38px;
-}
-.introHeading-largerScreen{
-    font-weight: bolder;
-    font-size: 62px;
-}
-/*Intro Arrow Pointing Down*/
-.introArrow{
-    margin-top: -60px;
-    width: 30px;
-    height: auto;
-    z-index: 10;
-}
-/*The Index About paragraph*/
-.indexPara-SmallerScreen {
-    font-size: 18px;
-}
-.indexPara-largerScreen {
-    font-size: 24px;
-}
+
+
+
+
+
+
+
+
+
+
+
 /*Book Community Review*/
 .userReviewBook{
     height: 120px;

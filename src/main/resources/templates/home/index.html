@@ -1,88 +1,108 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
-<head th:replace="partials/head.html :: head ('Welcome to journey 2.0')">
-    <meta charset="UTF-8">
-    <title>Main</title>
-</head>
-<body class="">
-        <!--  Navigation  -->
-        <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
+<head th:replace="partials/head.html :: head ('Welcome to journey')"></head>
+<body>
+    <!--  Navigation  -->
+    <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
 
-<header id="introSection" class="d-flex align-items-center text-white position-relative">
-    <div class="bg-dark h-100 w-100 opacity-25 position-absolute"></div>
-        <div class="position-relative container text-center mx-auto w-100 p-3">
-<!--            <h1 class="introHeading z-index-5">Discover a journey through a book </h1>-->
-<!--            <p class="introPara">Discover your next Journey through the world of endless imagination.</p>-->
-            <h1 class="introHeading-SmallScreen d-block d-lg-none w-100">Discover your next Journey through the world of endless imagination.</h1>
-            <h1 class="introHeading-largerScreen mx-auto d-none d-lg-block w-75">Discover your next Journey through the world of endless imagination.</h1>
-            <a class="btn  mt-5  btn-primary" href="#aboutJourney" role="button">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+    <!--Header-->
+    <header id="introSection" class=" pt-5 mt-4 d-flex align-items-center w-100 text-white position-relative">
+        <div class="bg-dark darkbgIntroSection w-100 opacity-25 position-absolute"></div>
+        <div class="position-relative px-3 mt-5 pt-5 container">
+             <!-- phone Screen -->
+            <h1 class="introHeading-largerScreen mx-auto d-block pb-3" id="introHeading-largerScreen">Discover your next Journey through the world of endless imagination.</h1>
+            <section class="d-flex justify-content-center mt-4 pt-5">
+                <a class="btn btn-primary rounded introSectionButton-smallerScreen w-75 d-block d-lg-none" id="introSectionButton-smallerScreen" href="#aboutJourney" role="button">
+                    <p class="introSectionButtonFontSmall" id="introSectionButtonFontSmall">Learn More <i class="fa-solid fa-arrow-right"></i></p>
+                </a>
+                <a class="btn btn-light rounded introSectionButton-largerScreen  d-none d-lg-block" id="introSectionButton-largerScreen" href="#aboutJourney" role="button">
+                    <p class="introSectionButtonFontLarge" id="introSectionButtonFontLarge">Learn More <i class="fa-solid pt-2 ms-2 fa-arrow-right"></i></p>
+                </a>
+            </section>
         </div>
-</header>
+    </header>
 
-        <!--About App Section-->
-        <main class=" w-100 container-fluid p-sm-5 p-0">
-            <div class="text-center container pt-5">
-                <!--Small Text-->
-                <!--<small class="text-primary p-0 m-0">Introduction</small>-->
-                <!--Title-->
-                <h2 id="aboutJourney" class="h2-index">About Journey </h2>
-                <!-- Paragraph -->
-                <p class="mt-4 indexPara-SmallerScreen px-2 fw-light mx-auto d-block d-lg-none">
-                    Introduce yourself to the works of your favorite authors’ story-telling, or entice yourself through the numerous reviews of other members.
-                    Browse by author, title, or follow the paths of fellow members based on their reviews.
-                </p>
-                <p class="mt-4 indexPara-largerScreen w-75 fw-light mx-auto d-none d-lg-block">
-                    Introduce yourself to the works of your favorite authors’ story-telling, or entice yourself through the numerous reviews of other members.
-                    Browse by author, title, or follow the paths of fellow members based on their reviews.
-                </p>
-                <a class="btn btn-primary my-5" href="/register" role="button">Join the Community <i class="fa-solid fa-arrow-right"></i></a>
+
+    <!--About App Section-->
+    <main class="container-fluid py-5 mainAboutSection" id="mainAboutSection">
+        <div class="text-center  px-2 pt-5">
+            <!--Title-->
+            <h2 id="aboutJourneyHeader-small" class="h2-index pt-4 d-block d-lg-none">About Journey </h2>
+            <h2 id="aboutJourneyHeader-large" class="h2-index d-none d-lg-block">About Journey </h2>
+            <!-- Paragraph -->
+            <p class="mt-4 indexPara-SmallerScreen w-100 fw-light mx-auto d-block d-lg-none">
+                Introduce yourself to the works of your favorite authors’ story-telling, or entice yourself through the numerous reviews of other members.
+                Browse by author, title, or follow the paths of fellow members based on their reviews.
+            </p>
+            <p class="mt-4 indexPara-largerScreen w-75 fw-light mx-auto d-none d-lg-block">
+                Introduce yourself to the works of your favorite authors’ story-telling, or entice yourself through the numerous reviews of other members.
+                Browse by author, title, or follow the paths of fellow members based on their reviews.
+            </p>
+            <a class="btn mx-auto btn-primary my-5 px-5 py-2 d-block d-lg-none indexParaButton-smallerScreen" id="indexParaButton-smallerScreen" href="/register" role="button"><p id="indexAboutButtonFontSmall">Join the Community <i class="fa-solid fa-arrow-right"></i><p></p></a>
+            <a class="btn mx-auto btn-primary my-5 py-1 px-3 d-none d-lg-flex align-items-center justify-content-center indexParaButton-largerScreen" id="indexParaButton-largeScreen" href="/register" role="button"><p id="indexAboutButtonFontLarge"  class="p-0 m-0">Join the Community <i class="fa-solid fa-arrow-right"></i><p></p></a>
+        </div>
+    </main>
+
+    <hr class="w-75 mx-auto">
+
+    <!--What We Offer Section-->
+<div class="container-fluid py-5 px-0">
+    <!--	Offer Title	-->
+    <h2 id="offeringJourneyHeader-small" class="h2-index text-center pb-4 pt-4 d-block d-lg-none">We're Offering</h2>
+    <h2 id="offeringJourneyHeader-large" class="h2-index d-none text-center pb-4 d-lg-block">We're Offering</h2>
+    <div class="row d-flex justify-content-center flex-wrap px-2">
+        <!--	Offer Body	-->
+        <div class="card col-10 col-lg-3 p-0 border-2">
+            <img src="/images/index/OfferingIMG/indexOffering_01.jpg" class="card-img-top image-fluid" alt="books">
+            <div class="card-body">
+                <h5 class="card-title offerTitle">Browse By Author</h5>
+                <p class="card-text offerBody-sm fw-light d-block d-lg-none">Tell us what titles or author you’ve enjoyed and see where your new path begins.</p>
+                <p class="card-text offerBody-lg fw-light d-none d-lg-block">Tell us what titles or author you’ve enjoyed and see where your new path begins.</p>
             </div>
-        </main>
-
-        <hr class="w-75 mx-auto">
-
-        <!--Offering Section - Services-->
-        <section class="d-flex flex-column w-100 container text-center my-5">
-            <!--	Offer Title	-->
-            <h2 class="h2-index">We're Offering</h2>
-            <!--	Offering Group	-->
-            <div class="card-group my-5">
-                <!--	Offer One	-->
-                <div class="card">
-                    <img src="images/index/OfferingIMG/indexOffering_01.jpg"  width="100%" height="220px"  alt="books">
-                    <div class="card-body">
-                        <h5 class="card-title">Browse By Author</h5>
-                        <p class="card-text">Tell us what titles or author you’ve enjoyed and see where your new path begins. </p>
-                    </div>
-                </div>
-                <!--	Offer Two	-->
-                <div class="card mx-1">
-                    <img src="images/index/OfferingIMG/indexOffering_02.jpg" width="100%" height="220px"  alt="books">
-                    <div class="card-body">
-                        <h5 class="card-title">Leave Personal Reviews</h5>
-                        <p class="card-text">Write your reviews over any book to help guide others through their Journey or entice yourself through the numerous reviews of other members. </p>
-                    </div>
-                </div>
-                <!--	Offer Three	-->
-                <div class="card">
-                    <img src="images/index/OfferingIMG/indexOffering_03.jpg"  width="100%" height="220px" alt="books">
-                    <div class="card-body">
-                        <h5 class="card-title">Find Common Users</h5>
-                        <p class="card-text">You'll find like-minded readers and see their profile that will display reviews for other books.</p>
-                    </div>
-                </div>
+        </div>
+        <!--	Offer Body	-->
+        <div class="card col-10 mx-lg-3 p-0 col-lg-3 my-5 my-lg-0 border-2">
+            <img src="/images/index/OfferingIMG/indexOffering_02.jpg" class="card-img-top" alt="books">
+            <div class="card-body">
+                <h5 class="card-title offerTitle">Browse By Author</h5>
+                <p class="card-text offerBody-sm fw-light d-block d-lg-none">Tell us what titles or author you’ve enjoyed and see where your new path begins.</p>
+                <p class="card-text offerBody-lg fw-light d-none d-lg-block">Tell us what titles or author you’ve enjoyed and see where your new path begins.</p>
             </div>
+        </div>
+        <!--	Offer Body	-->
+        <div class="card col-10 col-lg-3 p-0 border-2">
+            <img src="/images/index/OfferingIMG/indexOffering_03.jpg" class="card-img-top w-100 image-fluid" alt="books">
+            <div class="card-body">
+                <h5 class="card-title offerTitle">Browse By Author</h5>
+                <p class="card-text offerBody-sm fw-light d-block d-lg-none">Tell us what titles or author you’ve enjoyed and see where your new path begins.</p>
+                <p class="card-text offerBody-lg fw-light d-none d-lg-block">Tell us what titles or author you’ve enjoyed and see where your new path begins.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <hr class="w-75 mx-auto">
+
+
+
+
+
+
+
+    <!-- Reviews Section-->
+    <!--Main Section -->
+    <div class="px-4 mt-5 pt-5">
+        <section class=" text-center">
+            <h2 id="reviewJourneyHeader-small" class="h2-index text-center pb-4 pt-4 d-block d-lg-none">Everyday Reviews</h2>
+            <h2 id="reviewJourneyHeader-large" class="h2-index d-none text-center pb-4 d-lg-block">Everyday Reviews</h2>
+            <i class="fa-solid fa-left-long"></i><small class="text-secondary mx-4">Scroll</small>
+            <i class=" fa-solid fa-right-long"></i>
         </section>
-
-        <hr class="w-75 mx-auto">
-
-<section class="text-center my-5 pb-3 container-fluid my-5">
-        <h2 class="h2-index">Everyday Reviews</h2>
-        <i class="fa-solid fa-left-long col-2"></i><small class="text-secondary">Scroll</small><i class=" col-2 fa-solid fa-right-long"></i>
-        <!--User Review Container	-->
-        <div class="row d-flex flex-nowrap container overflow-scroll mx-auto">
-            <!-- Card One -->
-            <section class="col-md-3 col mb-3 wholeCard" th:each="review : ${reviews}" th:unless="${reviewStat.index > 5}">
+        <!-- spacing around cards -->
+        <main class="row d-flex flex-nowrap container overflow-scroll mx-auto my-5 pb-5">
+            <!-- *CARD STARTS -->
+            <section class="card border-0 shadow m-2 col-lg-5 col-10" style="max-width: 483px; height: 280px"  th:each="review : ${reviews}" th:unless="${reviewStat.index > 5}">
                 <!-- lets context and img go side by side with ROW -->
                 <div class="row g-0">
                     <!-- Image Container -->
@@ -93,7 +113,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <!-- Title -->
-                            <h5 class="card-title m-0 p-0" style="white-space: nowrap;overflow: hidden; text-overflow: ellipsis;" th:text="${review.reviewTitle}"></h5>
+                            <h5 class="card-title reviewTitleSmall d-block d-lg-none m-0 p-0" th:text="${review.reviewTitle}"></h5>
                             <!-- Username -->
                             <a th:href="|/profile/${review.getUser().getUsername()}|"> <p class="p-0 m-0" th:text="'By '+${review.user.username}"></p></a>
                             <!-- Stars -->
@@ -141,17 +161,16 @@
                                 <!-- To display checked star rating icons -->
                             </div>
                             <!-- Body -->
-                            <p class="card-text cardText bg-light" style="height:90px;overflow-y: scroll" th:text="${review.reviewBody}"></p>
+                            <p class="card-text cardText bg-light reviewBodyIndex" style="height:100px;overflow-y: scroll" th:text="${review.reviewBody}"></p>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
-</section>
-        <!-- Reviews shown in cards -->
+        </main>
+    </div>
 
 
-        <footer th:replace="partials/footer.html :: footer"></footer>
+    <footer th:replace="partials/footer.html :: footer"></footer>
 </body>
     <!--  Partials Script  -->
     <script th:replace="partials/script.html :: bootstrap-js"></script>
