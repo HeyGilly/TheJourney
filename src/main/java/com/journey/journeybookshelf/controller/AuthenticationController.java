@@ -11,9 +11,5 @@ public class AuthenticationController {
         return "users/login";
     }
 
-    @GetMapping("/error")
-    public String errorForm(){
-        return "users/login";
-    }
 
 }

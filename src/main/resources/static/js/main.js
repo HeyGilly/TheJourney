@@ -1,8 +1,8 @@
 let bookContainer = document.querySelector(".search");
 let searchBooks = document.getElementById("search-box");
 
-const debounce = (fn, to = 0) => {
-	to ? clearTimeout(to) : (to = setTimeout(showSearchedBooks, 0));
+const debounce = (fn, to = 4) => {
+	to ? clearTimeout(to) : (to = setTimeout(showSearchedBooks, 4));
 };
 
 

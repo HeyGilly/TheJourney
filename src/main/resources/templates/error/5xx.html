@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+<head th:replace="partials/head.html :: head ('About The Team')">
+  <title>About us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <title th:text="'Ooops, ' + ${error}"></title>
+</head>
+
+<body>
+
+<!--  Navigation  -->
+<div sec:authorize="isAuthenticated()">
+  <nav th:replace="partials/navbar.html :: LoggedInNavbar"></nav>
+</div>
+
+<div sec:authorize="isAnonymous()">
+  <nav th:replace="partials/navbar.html :: LoggedOutNavbar"></nav>
+</div>
+
+
+
+<th:block th:switch="${error}">
+  <div th:case="'Not Found'">
+    <h1>Page not found!!</h1>
+  </div>
+  <div th:case="'Forbidden'">
+    <h1>You don't have permission to view this page.</h1>
+  </div>
+</th:block>
+
+<div class="errorContainer">
+  <img src="/images/ErrorPage5xx.jpg" class="error5Pic">
+  <div sec:authorize="isAuthenticated()">
+    <a href="/main"><button class="btn error5btn">Go Back To Home Page</button></a>
+  </div>
+  <div sec:authorize="isAnonymous()">
+    <a href="/"><button class="btn error5btn">Go Back To Home Page</button></a>
+  </div>
+</div>
+
+<footer th:replace="partials/footer.html :: footer"></footer>
+
+</body>
+</html>
