@@ -47,7 +47,7 @@ public class ReviewController {
         findReview.setReviewBody(review.getReviewBody());
         findReview.setRating(review.getRating());
         reviewDao.save(findReview);
-        return "redirect:/main";
+        return "redirect:/reviews";
     }
 
     @PostMapping("/review/delete")
