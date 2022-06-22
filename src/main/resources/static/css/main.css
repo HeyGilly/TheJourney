@@ -150,21 +150,36 @@ h1, h2, h3, h4, h5{
 
 /*------     Profile Page     -----*/
 /*-----  Profile  -----*/
-#profileSidebar {
+.profileSideBar {
     background-color: #649BFD2D;
-    height:100vh ;
-    /*width:33.33%;*/
+    height: auto;
+}
+.wholeContainer{
+    height: 100vh;
+
+}
+.rightSideOfPage{
+    height: auto;
 }
 
+.SettingsButtonProfilePage{
+    height: 30px;
+    width: 30px;
+    transition: all .8s;
+}
+.SettingsButtonProfilePage:hover{
+   transform: scale(1.2);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
+}
 #profilePageAfterSettingButtonIsClicked{
     display:none;
-    background-color: #C8DEDA;
 }
-
+#settingsButton{
+    display: initial;
+}
 #passwordForm{
     padding-top: 20px;
-
 }
 
 .hide{
